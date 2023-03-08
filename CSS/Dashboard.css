@@ -1,0 +1,107 @@
+@import "/CSS/Exedus.css";
+
+* {
+  padding: 0rem;
+  margin: 0rem;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  font-size: 1.4rem;
+  background: #f4f5f7;
+  width: 100vw;
+  height: 100vh;
+
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+
+/************ NAVIGATION  */
+.navigation {
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  background: var(--background);
+  color: #ffffff99;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+.img-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 0.01rem solid #b8c9c980;
+}
+.img-div img {
+  max-width: 12rem;
+}
+.home-div,
+.transaction-div,
+.profile-div,
+.settings-div {
+  border-bottom: 0.01rem solid #b8c9c980;
+  padding: 1rem 0rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.settings-div {
+  border-bottom: none !important;
+}
+.icon-text {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 96%;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition-duration: 600ms;
+}
+.icon-text:hover {
+  background: #ffffff26;
+  color: #ffffff;
+}
+.icon-text.active {
+  background: #ffffff26;
+  color: #ffffff;
+}
+.icon-text ion-icon {
+  font-size: 2.5rem;
+  margin-right: 2rem;
+}
+.div-heading {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  width: 100%;
+  margin-left: 30%;
+  font-size: 1.4rem;
+  color: #0000ff98;
+  font-style: var(--spacegrotesk);
+  font-weight: 600;
+  line-height: 2.4rem;
+  letter-spacing: 0.04em;
+  opacity: 0.5;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+/************ DISPLAYS  */
+/* .displays {
+} */

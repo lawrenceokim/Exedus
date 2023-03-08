@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/CSS/reusable.css">
-  <link rel="stylesheet" href="/CSS/index.css">
+  <link rel="stylesheet" href="/CSS/Exedus.css">
   <link rel="stylesheet" href="/CSS/responsive.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,7 +54,7 @@
             the
             Smartest, fastest and Safest way to send and receive money from your loved ones.</p>
 
-          <button class="cta-btn">Try for free</button>
+          <button class="cta-btn signup1">Try for free</button>
           <button class="cta-btn2">Learn More<span class="hero-arrow">&rarr;</span></button>
 
         </div>
@@ -76,7 +76,7 @@
             </div>
             <p class="card-heading">Provide details</p>
             <p class="card-description">Input details such as Username and Pin to customize your dashboard.</p>
-            <button class="cta-btn card-btn">Get started</button>
+            <button class="cta-btn card-btn signup2">Get started</button>
           </div>
 
           <div class="card card-2">
@@ -134,7 +134,7 @@
           <p class="address-heading">Account</p>
           <ul class="footer-nav">
             <li>
-              <a href="#" class="footer-nav-link">Create account</a>
+              <a href="#" class="footer-nav-link signup3">Create account</a>
             </li>
             <li>
               <a href="#" class="footer-nav-link">Sign in</a>
@@ -183,11 +183,11 @@
   </footer>
 
   <!------------- SIGN UP POPUP ----------------- -->
-  <div class="signup-container">
+  <div class="signup-container disabled">
     <div class="signup-wrapper">
       <h2>Welcome to Exedus</h2>
       <p>Please fill the form to customize your dashboard.</p>
-      <form action="#" class="signup-form">
+      <form action="/Dashboard.html" class="signup-form">
         <div>
           <label for="full-name">Full Name</label>
           <input id="full-name" type="text" placeholder="John Doe" required>
@@ -202,13 +202,14 @@
           <input id="pin" type="number" placeholder="default pin = 5555" autocomplete="em
           " required>
         </div>
+
         <button class="cta-btn signup-btn-submit">submit</button>
       </form>
 
       <span class="btn-close">&times;</span>
     </div>
   </div>
-  <div class="overlay"></div>
+  <div class="overlay disabled"></div>
   <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
   <script src="/JS/Exedus.js"></script>
 </body>
