@@ -187,7 +187,23 @@
     <div class="signup-wrapper">
       <h2>Welcome to Exedus</h2>
       <p>Please fill the form to customize your dashboard.</p>
-      <form action="" class="signup-form"></form>
+      <form action="#" class="signup-form">
+        <div>
+          <label for="full-name">Full Name</label>
+          <input id="full-name" type="text" placeholder="John Doe" required>
+        </div>
+        <div>
+          <label for="email">Email Address</label>
+          <input id="email" type="email" placeholder="youremail@example.com" autocomplete="email
+          ">
+        </div>
+        <div>
+          <label for="Pin">Pin</label>
+          <input id="pin" type="number" placeholder="default pin = 5555" autocomplete="em
+          " required>
+        </div>
+        <button class="cta-btn signup-btn-submit">submit</button>
+      </form>
 
       <span class="btn-close">&times;</span>
     </div>
