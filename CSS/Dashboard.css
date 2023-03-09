@@ -76,7 +76,7 @@ body {
   background: #ffffff26;
   color: #ffffff;
 }
-.icon-text.active {
+.active-nav {
   background: #ffffff26;
   color: #ffffff;
 }
@@ -113,6 +113,10 @@ body {
 }
 .user-name {
   text-align: right;
+  line-height: 1.3;
+  color: var(--textparagraph);
+  font-size: 1.6rem;
+  font-weight: 500;
 }
 .top-section .template-description {
   font-size: 1.6rem;
@@ -190,7 +194,7 @@ body {
 
 /***************************************************************************************/
 /************ MY BANK DETAILS DISPLAYS  ***********************/
-.displays {
+.displays-bank-details {
   background: #f4f5f7;
   display: flex;
   flex-direction: column;
@@ -198,13 +202,6 @@ body {
 .top-section {
   margin-top: 3.4rem;
   border-bottom: 0.1rem solid rgba(90, 92, 92, 0.2);
-}
-.user-name {
-  text-align: right;
-}
-.top-section .template-description {
-  font-size: 1.6rem;
-  font-weight: 500;
 }
 .top-section .how-description {
   margin-bottom: 1.7rem;
@@ -287,6 +284,11 @@ body {
 .grid-slot-1 .fa-trash-can {
   margin-left: auto;
   margin-right: 2rem;
+  cursor: pointer;
+  transition-duration: 500ms;
+}
+.grid-slot-1 .fa-trash-can:hover {
+  color: var(--textheadingdark);
 }
 .grid-slot-2 {
   border-bottom: 0.1rem solid rgba(90, 92, 92, 0.2);
