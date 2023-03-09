@@ -1,12 +1,16 @@
 :root {
   --primarycolor: #0e27a5;
+  --primaryheadingcolor: #0000ff98;
   --background: #0c0b21;
   --primarycolordarker: #171746;
   --textheadingbig: #ffffff;
+  --textparagraphsmall: #ffffff;
   --spacegrotesk: "Space Grotesk", sans-serif;
   --secondarycolor: #f95868;
   --textheadingdark: #333333;
   --textparagraph: #555555;
+  --cardtemplate: #ffffff;
+  --cardborderradius: 0.5rem;
 }
 
 * {
@@ -197,31 +201,15 @@ header {
 .card {
   display: flex;
   flex-direction: column;
-  background-color: #fff;
   box-shadow: 0rem 0rem 3.2rem rgb(0 0 0 / 6%);
   text-align: left;
   max-width: 35.4rem;
   height: 40rem;
-  /* background: linear-gradient(to bottom, #ffffff, #39393829); */
+  background: linear-gradient(to bottom, #ffffff, #39393829);
   padding: 2rem;
   border-radius: 1rem;
   transition-duration: 1s;
   overflow-x: hidden;
-}
-.card:hover {
-  transform: translateY(-1.2rem);
-}
-.card-1:hover {
-  /* background: linear-gradient(to bottom, #ffffff, #f187879f); */
-  box-shadow: 0 0rem 0.5rem rgb(255, 4, 4);
-}
-.card-2:hover {
-  /* background: linear-gradient(to bottom, #ffffff, #e8f1879f); */
-  box-shadow: 0 0rem 0.5rem rgb(255, 251, 0);
-}
-.card-3:hover {
-  /* background: linear-gradient(to bottom, #ffffff, #87f18c9f); */
-  box-shadow: 0 0rem 0.5rem rgb(1, 255, 5);
 }
 .icon-wrapper {
   display: flex;
@@ -237,16 +225,7 @@ header {
   height: auto;
 }
 .card-heading {
-  font-size: 2.4rem;
-  font-weight: 700;
   margin-bottom: 1.7rem;
-  color: var(--textheadingdark);
-}
-.card-description {
-  font-size: 2rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: var(--textparagraph);
 }
 .cta-btn.card-btn {
   margin-right: 0rem;
