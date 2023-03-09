@@ -80,7 +80,7 @@ body {
   background: #ffffff26;
   color: #ffffff;
 }
-.icon-text ion-icon {
+.icon-text i {
   font-size: 2.5rem;
   margin-right: 2rem;
 }
@@ -100,8 +100,8 @@ body {
   margin-bottom: 2rem;
   margin-top: 1rem;
 }
-
-/************ DISPLAYS  */
+/*************************************************************************************
+/************ HOME DISPLAYS  ***********************/
 .displays {
   background: #f4f5f7;
   display: flex;
@@ -123,7 +123,6 @@ body {
   margin-top: 4.8rem;
 }
 
-/************** BOTTOM SECTION  ********************/
 .bottom-section {
   transition-duration: 500ms;
   display: flex;
@@ -187,4 +186,158 @@ body {
 .template .template-description {
   font-size: 1.6rem;
   font-weight: 400;
+}
+
+/***************************************************************************************/
+/************ MY BANK DETAILS DISPLAYS  ***********************/
+.displays {
+  background: #f4f5f7;
+  display: flex;
+  flex-direction: column;
+}
+.top-section {
+  margin-top: 3.4rem;
+  border-bottom: 0.1rem solid rgba(90, 92, 92, 0.2);
+}
+.user-name {
+  text-align: right;
+}
+.top-section .template-description {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+.top-section .how-description {
+  margin-bottom: 1.7rem;
+  margin-top: 4.8rem;
+}
+
+.bottom-section {
+  transition-duration: 500ms;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5rem;
+}
+.account-btns {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2.2rem;
+}
+.account-btn-left .cta-btn2,
+.account-btn-left .cta-btn {
+  background: none;
+  color: var(--textparagraph);
+  border: 0.1rem solid rgba(90, 92, 92, 0.2);
+}
+.account-btn-left .cta-btn.active {
+  background: #0e27a558;
+  color: var(--primarycolor);
+}
+.account-btns-display {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2.6rem;
+  margin-top: 2.5rem;
+}
+.grid-card.template {
+  padding: 0;
+}
+.grid-card {
+  display: flex;
+  flex-direction: column;
+}
+.grid-slot-1 {
+  border-bottom: 0.1rem solid rgba(90, 92, 92, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.6rem;
+  color: var(--textparagraph);
+  min-height: 5rem;
+}
+.grid-username {
+  margin-left: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+
+  color: #000000;
+}
+.account-type {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  text-align: center;
+  padding: 0.5rem 1.6rem;
+  background: rgba(90, 92, 92, 0.1);
+  border-radius: 1rem;
+  color: #5a5c5c;
+}
+.account-flag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.grid-slot-1 .fa-trash-can {
+  margin-left: auto;
+  margin-right: 2rem;
+}
+.grid-slot-2 {
+  border-bottom: 0.1rem solid rgba(90, 92, 92, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.6rem;
+  color: var(--textparagraph);
+  min-height: 7rem;
+}
+.text-left {
+  margin-left: 2rem;
+  text-align: left;
+}
+.bank-name {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 2.2rem;
+  color: #5a5c5c;
+}
+.bank-desc {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 2.2rem;
+
+  color: #000000;
+}
+.text-right {
+  margin-right: 2rem;
+  text-align: right;
+}
+.grid-slot-3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.6rem;
+  color: var(--textparagraph);
+  min-height: 7rem;
+}
+.grid-slot-3 .bank-desc {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.9rem;
+  color: #5a5c5c;
+}
+.text-right .cta-btn2 {
+  background: none;
+  color: var(--primarycolor);
+  border: 0.1rem solid rgba(90, 92, 92, 0.2);
+  font-size: 1.4rem;
 }

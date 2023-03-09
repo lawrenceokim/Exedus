@@ -8,7 +8,7 @@
   --spacegrotesk: "Space Grotesk", sans-serif;
   --secondarycolor: #f95868;
   --textheadingdark: #333333;
-  --textparagraph: #555555;
+  --textparagraph: #5a5c5c;
   --cardtemplate: #ffffff;
   --cardborderradius: 0.5rem;
 }
@@ -364,9 +364,6 @@ header {
 }
 
 /************ SIGN-IN POPUP  */
-.disabled {
-  display: none;
-}
 body .signup-container {
   position: fixed;
   top: 50%;

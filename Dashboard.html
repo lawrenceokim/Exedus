@@ -16,6 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
+  <script src="https://kit.fontawesome.com/b9368fee6f.js" crossorigin="anonymous"></script>
   <title>Exedus</title>
 </head>
 
@@ -25,40 +26,41 @@
       <img src="/images/pngtree-blue-elegant-logo-png-image_6094041.png" alt="" class="logo">
     </div>
     <div class="home-div">
-      <div class="icon-text active"><ion-icon name="home"></ion-icon>
+      <div class="icon-text"><i class="fa-solid fa-house"></i>
         <p>Home</p>
       </div>
-      <div class="icon-text"><ion-icon name="person"></ion-icon>
+      <div class="icon-text"><i class="fa-regular fa-user"></i>
         <p>Account</p>
       </div>
     </div>
     <div class="transaction-div">
       <p class="div-heading">TRANSACTIONS</p>
-      <div class="icon-text"><ion-icon name="share-alt"></ion-icon>
+      <div class="icon-text"><i class="fa-solid fa-money-bill-transfer"></i>
         <p>Make Transfer</p>
       </div>
-      <div class="icon-text"><ion-icon name="wallet"></ion-icon>
+      <div class="icon-text"><i class="fa-solid fa-sack-dollar"></i>
         <p>Request Loan</p>
       </div>
     </div>
     <div class="profile-div">
       <p class="div-heading">PROFILE</p>
-      <div class="icon-text"><ion-icon name="clipboard"></ion-icon>
+      <div class="icon-text active"><i class="fa-solid fa-building-columns"></i>
         <p>My Bank Detail</p>
       </div>
     </div>
     <div class="settings-div">
       <p class="div-heading">SETTINGS</p>
-      <div class="icon-text"><ion-icon name="help-circle-outline"></ion-icon>
+      <div class="icon-text"><i class="fa-regular fa-circle-question"></i>
         <p>Help & Support</p>
       </div>
-      <div class="icon-text"><ion-icon name="checkmark-circle-outline"></ion-icon>
+      <div class="icon-text"><i class="fa-regular fa-address-card"></i>
         <p>Update Details</p>
       </div>
     </div>
   </nav>
 
-  <main class="displays">
+  <!--------------- HOME DISPLAY  ----------------------------------------->
+  <main class="displays disabled">
     <section class="top-section paddingLR">
       <p class="user-name template-description">Hi, Lawrence</p>
       <h1 class="how-description">Get started with Exedus</h1>
@@ -101,6 +103,130 @@
               arcu
               turpis. Est, arcu dolor consequat sit
               varius et.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!--------------- MY BANK DETAILS DISPLAY  ----------------------------------------->
+  <main class="displays">
+    <section class="top-section paddingLR">
+      <p class="user-name template-description">Hi, John</p>
+      <h1 class="how-description">Bank Details</h1>
+    </section>
+    <section class="bottom-section paddingLR">
+      <div class="account-btns">
+        <div class="account-btn-left">
+          <button class="cta-btn active">Bank account</button>
+          <button class="cta-btn2">Other accounts</button>
+        </div>
+        <button class="cta-btn acct-btn-right">Add a new account</button>
+      </div>
+
+      <div class="account-btns-display">
+        <div class="grid-card template">
+          <div class="grid-slot-1">
+            <p class="grid-username">John Smith Doe</p>
+            <div class="account-type"><span class="account-flag"><img src="/images/Property 1=usa-flag-2496027.png"
+                  alt="usa flag"></span>Dollar account</div>
+            <i class="fa-regular fa-trash-can"></i>
+          </div>
+          <div class="grid-slot-2">
+            <div class="text-left">
+              <p class="bank-desc">Bank Name</p>
+              <p class="bank-name">Firstbank</p>
+            </div>
+            <div class="text-right">
+              <p class="bank-desc">Bank Account Number</p>
+              <p class="bank-name">3344556677</p>
+            </div>
+          </div>
+          <div class="grid-slot-3">
+            <div class="text-left">
+              <p class="bank-desc">Lorem ipsum dolor sit amet consectetur,<br> adipisicing elit!</p>
+            </div>
+            <div class="text-right">
+              <button class="cta-btn2">Exchange</button>
+            </div>
+          </div>
+        </div>
+        <div class="grid-card template">
+          <div class="grid-slot-1">
+            <p class="grid-username">John Smith Doe</p>
+            <div class="account-type"><span class="account-flag"><img src="/images/Property 1=nigeria-flag-2495945.png"
+                  alt="usa flag"></span>Naira account</div>
+            <i class="fa-regular fa-trash-can"></i>
+          </div>
+          <div class="grid-slot-2">
+            <div class="text-left">
+              <p class="bank-desc">Bank Name</p>
+              <p class="bank-name">ZenithBank</p>
+            </div>
+            <div class="text-right">
+              <p class="bank-desc">Bank Account Number</p>
+              <p class="bank-name">3344556677</p>
+            </div>
+          </div>
+          <div class="grid-slot-3">
+            <div class="text-left">
+              <p class="bank-desc">Lorem ipsum dolor sit amet consectetur,<br> adipisicing elit!</p>
+            </div>
+            <div class="text-right">
+              <button class="cta-btn2">Exchange</button>
+            </div>
+          </div>
+        </div>
+        <div class="grid-card template">
+          <div class="grid-slot-1">
+            <p class="grid-username">John Smith Doe</p>
+            <div class="account-type"><span class="account-flag"><img src="/images/Property 1=nigeria-flag-2495945.png"
+                  alt="usa flag"></span>Naira account</div>
+            <i class="fa-regular fa-trash-can"></i>
+          </div>
+          <div class="grid-slot-2">
+            <div class="text-left">
+              <p class="bank-desc">Bank Name</p>
+              <p class="bank-name">GTBank</p>
+            </div>
+            <div class="text-right">
+              <p class="bank-desc">Bank Account Number</p>
+              <p class="bank-name">3344556677</p>
+            </div>
+          </div>
+          <div class="grid-slot-3">
+            <div class="text-left">
+              <p class="bank-desc">Lorem ipsum dolor sit amet consectetur,<br> adipisicing elit!</p>
+            </div>
+            <div class="text-right">
+              <button class="cta-btn2">Exchange</button>
+            </div>
+          </div>
+        </div>
+        <div class="grid-card template">
+          <div class="grid-slot-1">
+            <p class="grid-username">John Smith Doe</p>
+            <div class="account-type"><span class="account-flag"><img src="/images/Property 1=usa-flag-2496027.png"
+                  alt="usa flag"></span>Dollar account</div>
+            <i class="fa-regular fa-trash-can"></i>
+          </div>
+          <div class="grid-slot-2">
+            <div class="text-left">
+              <p class="bank-desc">Bank Name</p>
+              <p class="bank-name">UBA</p>
+            </div>
+            <div class="text-right">
+              <p class="bank-desc">Bank Account Number</p>
+              <p class="bank-name">3344556677</p>
+            </div>
+          </div>
+          <div class="grid-slot-3">
+            <div class="text-left">
+              <p class="bank-desc">Lorem ipsum dolor sit amet consectetur,<br> adipisicing elit!</p>
+            </div>
+            <div class="text-right">
+              <button class="cta-btn2">Exchange</button>
+            </div>
           </div>
         </div>
       </div>

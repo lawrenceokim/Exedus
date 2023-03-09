@@ -68,3 +68,6 @@
   border-radius: var(--cardborderradius);
   padding: 2rem 3rem;
 }
+.disabled {
+  display: none !important;
+}
