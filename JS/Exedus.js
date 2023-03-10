@@ -5,8 +5,9 @@ const btnSignup1 = document.querySelector(".signup1");
 const btnSignup2 = document.querySelector(".signup2");
 const btnSignup3 = document.querySelector(".signup3");
 const userName = document.querySelector(".full-name");
-const bankDetails = document.querySelector(".grid-username");
+const bankDetails = document.querySelectorAll(".grid-username");
 const userNameTop = document.querySelector(".user-name");
+const topTextDescription = document.querySelector(".dashboard-description");
 const bankDetailsBtn = document.querySelector(".bank-details");
 const homeBtn = document.querySelector(".home");
 const accountBtn = document.querySelector(".account");
@@ -14,11 +15,16 @@ const transferBtn = document.querySelector(".make-transfer");
 const requestLoanBtn = document.querySelector(".request-loan");
 const helpSupportBtn = document.querySelector(".help-support");
 const signUpBtn = document.querySelector(".signup-btn-submit");
-
+const updateDetailsBtn = document.querySelector(".update-details");
+const homePage = document.querySelector(".general-home");
+const dashboardPage = document.querySelector(".general-dashboard");
+const bankHomeBottom = document.querySelector(".home-bottom");
+const bankDetailsBottom = document.querySelector(".bank-details-bottom");
+const accountBottom = document.querySelector(".account-bottom");
 const overlay = document.querySelector(".overlay");
 const btnClose = document.querySelector(".btn-close");
 
-// FUNCTIONS
+//****************FUNCTIONS *************************************/
 const hideSignup = function () {
   overlay.classList.add("disabled");
   signupPopUp.classList.add("disabled");
@@ -28,22 +34,46 @@ const showSignup = function () {
   signupPopUp.classList.remove("disabled");
   console.log("clicked");
 };
-// const hideNavSection = function () {
-//   bankDetailsBtn.classList.remove("active-nav");
-//   homeBtn.classList.remove("active-nav");
-//   accountBtn.classList.remove("active-nav");
-//   transferBtn.classList.remove("active-nav");
-//   requestLoanBtn.classList.remove("active-nav");
-//   helpSupportBtn.classList.remove("active-nav");
-// };
-// hideNavSection;
-// homeBtn.addEventListener("click", function () {
-//   hideNavSection();
-//   homeBtn.classList.add("active-nav");
-// });
-signUpBtn.addEventListener("click", function () {
+const removeActiveExcept = function (e) {
+  bankDetailsBtn.classList.remove("active-nav");
+  homeBtn.classList.remove("active-nav");
+  accountBtn.classList.remove("active-nav");
+  transferBtn.classList.remove("active-nav");
+  requestLoanBtn.classList.remove("active-nav");
+  helpSupportBtn.classList.remove("active-nav");
+  updateDetailsBtn.classList.remove("active-nav");
+  return e.classList.add("active-nav");
+};
+
+//*******************EVENT LISTENERS *************************/
+signUpBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  homePage.classList.add("disabled");
+  dashboardPage.classList.remove("disabled");
   bankDetails.textContent = `${userName.value}`;
-  userNameTop.textContent = `Hi ${userName.value}`;
+  userNameTop.textContent = `Hi, ${userName.value}`;
+});
+
+bankDetailsBtn.addEventListener("click", function () {
+  removeActiveExcept(bankDetailsBtn);
+  bankDetailsBottom.classList.remove("disabled");
+  bankHomeBottom.classList.add("disabled");
+  accountBottom.classList.add("disabled");
+  topTextDescription.textContent = `Bank Details`;
+});
+homeBtn.addEventListener("click", function () {
+  removeActiveExcept(homeBtn);
+  bankDetailsBottom.classList.add("disabled");
+  bankHomeBottom.classList.remove("disabled");
+  accountBottom.classList.add("disabled");
+  topTextDescription.textContent = `Get started with Exedus`;
+});
+accountBtn.addEventListener("click", function () {
+  removeActiveExcept(accountBtn);
+  accountBottom.classList.remove("disabled");
+  bankDetailsBottom.classList.add("disabled");
+  bankHomeBottom.classList.add("disabled");
+  topTextDescription.textContent = `My Account`;
 });
 btnSignup.addEventListener("click", showSignup);
 btnSignup1.addEventListener("click", showSignup);
@@ -51,11 +81,3 @@ btnSignup2.addEventListener("click", showSignup);
 btnSignup3.addEventListener("click", showSignup);
 btnClose.addEventListener("click", hideSignup);
 overlay.addEventListener("click", hideSignup);
-
-// POP-UP TIMER
-// setTimeout(function () {
-//   overlay.classList.remove("disabled");
-// }, 4600);
-// setTimeout(function () {
-//   signupPopUp.classList.remove("disabled");
-// }, 4700);

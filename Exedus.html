@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/CSS/reusable.css">
   <link rel="stylesheet" href="/CSS/Exedus.css">
+  <link rel="stylesheet" href="/CSS/Dashboard.css">
   <link rel="stylesheet" href="/CSS/responsive.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,208 +16,439 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
-
+  <script src="https://kit.fontawesome.com/b9368fee6f.js" crossorigin="anonymous"></script>
   <title>Exedus</title>
 </head>
 
 <body>
-  <header class="header">
-    <div class="header-container container page-width">
-      <a href="/Exedus.html">
-        <img src="/images/pngtree-blue-elegant-logo-png-image_6094041.png" alt="Exedus's Logo" class="logo">
-      </a>
-      <nav class="desktop-nav">
-        <ul class="desktop-nav-list">
-          <li class="desktop-nav-link font-grotesk">
-            <a href="/Exedus.html">Home</a>
-          </li>
-          <li class="desktop-nav-link font-grotesk margin-left">
-            <a href="#">About Us</a>
-          </li>
-          <li class="desktop-nav-link font-grotesk margin-left">
-            <a href="#">FAQs</a>
-          </li>
-          <li class="desktop-nav-link font-grotesk margin-left">
-            <a href="#">Contact Us</a>
-          </li>
-        </ul>
-      </nav>
-      <button class="cta-btn">Try for free</button>
-    </div>
-  </header>
-
-  <!-- MAIN BODY -->
-  <main>
-    <section class="section-hero">
-      <div class="hero page-width">
-        <div class="hero-left">
-          <h1 class="hero-heading">Making a Transaction?</h1>
-          <p class="hero-description">Although born out of the imagination of a random developer, <span>Exedus</span> is
-            the
-            Smartest, fastest and Safest way to send and receive money from your loved ones.</p>
-
-          <button class="cta-btn signup1">Try for free</button>
-          <button class="cta-btn2">Learn More<span class="hero-arrow">&rarr;</span></button>
-
-        </div>
-        <div class="hero-right">
-          <div class="hero-right-wrapper">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="how">
-      <div class="how-wrapper page-width">
-        <p class="how-heading">how this works</p>
-        <h1 class="how-description">kickstart with just 3 easy steps</h1>
-        <div class="cards">
-          <div class="card card-1">
-            <div class="icon-wrapper">
-              <img src="/images/6b1b22573f9f3d4bba11a9fa5cb45652.pngCOPY.png" alt="" class="card-img">
-            </div>
-            <p class="card-heading template-heading">Provide details</p>
-            <p class="card-description template-description">Input details such as Username and Pin to customize your
-              dashboard.</p>
-            <button class="cta-btn card-btn signup2">Get started</button>
-          </div>
-
-          <div class="card card-2">
-            <div class="icon-wrapper">
-              <img src="/images/63184c5867aa7b2b84a1e2ca_DrawKit0035_Startups_&_Tech_Thumbnail.png" alt=""
-                class="card-img">
-            </div>
-            <p class="card-heading template-heading">Send, receive and loan</p>
-            <p class="card-description template-description">Send money, receive money and request for a loan deposited
-              to your
-              account directly without stress.</p>
-          </div>
-
-          <div class="card card-3">
-            <div class="icon-wrapper">
-              <img src="/images/user-account-sign-up-4489360-3723267.pngCOPY.png" alt="" class="card-img">
-            </div>
-            <p class="card-heading template-heading">Close anytime</p>
-            <p class="card-description template-description">We hope this won't occur, but you can delete your account
-              easily when you
-              desire.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-  <footer class="footer">
-    <div class="page-width flex">
-      <div class="footer-container">
-        <div class="logo-col">
-          <a href="#" class="footer-logo">
-            <img src="/images/pngtree-blue-elegant-logo-png-image_6094041.png" alt="Exedus's Logo"
-              class="footer-logo-img">
-          </a>
-          <ul class="social-links">
-            <li>
-              <a href="#" class="footer-link">
-                <ion-icon name="logo-instagram" class="social-link social-link1"></ion-icon>
-              </a>
+  <div class="general-home">
+    <header class="header">
+      <div class="header-container container page-width">
+        <a href="/Exedus.html">
+          <img src="/images/pngtree-blue-elegant-logo-png-image_6094041.png" alt="Exedus's Logo" class="logo">
+        </a>
+        <nav class="desktop-nav">
+          <ul class="desktop-nav-list">
+            <li class="desktop-nav-link font-grotesk">
+              <a href="/Exedus.html">Home</a>
             </li>
-            <li>
-              <a href="#" class="footer-link">
-                <ion-icon name="logo-facebook" class="social-link social-link2"></ion-icon>
-              </a>
+            <li class="desktop-nav-link font-grotesk margin-left">
+              <a href="#">About Us</a>
             </li>
-            <li>
-              <a href="#" class="footer-link">
-                <ion-icon name="logo-twitter" class="social-link social-link3"></ion-icon>
-              </a>
+            <li class="desktop-nav-link font-grotesk margin-left">
+              <a href="#">FAQs</a>
             </li>
-          </ul>
-          <p class="copyright">Copyright &copy; 2022 by Exedus Inc. All rights reserved.</p>
-        </div>
-        <nav class="account-col">
-          <p class="address-heading">Account</p>
-          <ul class="footer-nav">
-            <li>
-              <a href="#" class="footer-nav-link signup3">Create account</a>
-            </li>
-            <li>
-              <a href="#" class="footer-nav-link">Sign in</a>
-            </li>
-            <li>
-              <a href="#" class="footer-nav-link">iOS app</a>
-            </li>
-            <li>
-              <a href="#" class="footer-nav-link">Android app</a>
+            <li class="desktop-nav-link font-grotesk margin-left">
+              <a href="#">Contact Us</a>
             </li>
           </ul>
         </nav>
-        <nav class="company-col">
-          <p class="address-heading">Company</p>
-          <ul class="footer-nav">
-            <li>
-              <a href="#" class="footer-nav-link">About us</a>
-            </li>
-            <li>
-              <a href="#" class="footer-nav-link">FAQs</a>
-            </li>
-            <li>
-              <a href="#" class="footer-nav-link">For Business</a>
-            </li>
-            <li>
-              <a href="#" class="footer-nav-link">Blog</a>
-            </li>
-          </ul>
-        </nav>
-        <div class="address-col">
-          <p class="address-heading">Contact Us</p>
-          <address class="contacts">
-            <p class="address">No. 2 unknown street, Unknown sub-urban - Abuja. Nigeria</p>
-            <p>
-              <a href="tel:+234-567-8910-556" class="address-link">+234-567-8910-556</a>
-              <br>
-              <a href="mailto:hello@exedus.com" class="address-link">hello@exedus.com</a>
-            </p>
-          </address>
-        </div>
+        <button class="cta-btn">Try for free</button>
       </div>
-      <p class="footer-info">Developed by <a href="https://twitter.com/__Busa" class="footer-span">LAWR3NC3</a> with
-        <ion-icon name="heart" class="footer-span-icon"></ion-icon>
-      </p>
+    </header>
+
+    <!-- MAIN BODY -->
+    <main>
+      <section class="section-hero">
+        <div class="hero page-width">
+          <div class="hero-left">
+            <h1 class="hero-heading">Making a Transaction?</h1>
+            <p class="hero-description">Although born out of the imagination of a random developer, <span>Exedus</span>
+              is
+              the
+              Smartest, fastest and Safest way to send and receive money from your loved ones.</p>
+
+            <button class="cta-btn signup1">Try for free</button>
+            <button class="cta-btn2">Learn More<span class="hero-arrow">&rarr;</span></button>
+
+          </div>
+          <div class="hero-right">
+            <div class="hero-right-wrapper">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="how">
+        <div class="how-wrapper page-width">
+          <p class="how-heading">how this works</p>
+          <h1 class="how-description">kickstart with just 3 easy steps</h1>
+          <div class="cards">
+            <div class="card card-1">
+              <div class="icon-wrapper">
+                <img src="/images/6b1b22573f9f3d4bba11a9fa5cb45652.pngCOPY.png" alt="" class="card-img">
+              </div>
+              <p class="card-heading template-heading">Provide details</p>
+              <p class="card-description template-description">Input details such as Username and Pin to customize your
+                dashboard.</p>
+              <button class="cta-btn card-btn signup2">Get started</button>
+            </div>
+
+            <div class="card card-2">
+              <div class="icon-wrapper">
+                <img src="/images/63184c5867aa7b2b84a1e2ca_DrawKit0035_Startups_&_Tech_Thumbnail.png" alt=""
+                  class="card-img">
+              </div>
+              <p class="card-heading template-heading">Send, receive and loan</p>
+              <p class="card-description template-description">Send money, receive money and request for a loan
+                deposited
+                to your
+                account directly without stress.</p>
+            </div>
+
+            <div class="card card-3">
+              <div class="icon-wrapper">
+                <img src="/images/user-account-sign-up-4489360-3723267.pngCOPY.png" alt="" class="card-img">
+              </div>
+              <p class="card-heading template-heading">Close anytime</p>
+              <p class="card-description template-description">We hope this won't occur, but you can delete your account
+                easily when you
+                desire.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+    <footer class="footer">
+      <div class="page-width flex">
+        <div class="footer-container">
+          <div class="logo-col">
+            <a href="#" class="footer-logo">
+              <img src="/images/pngtree-blue-elegant-logo-png-image_6094041.png" alt="Exedus's Logo"
+                class="footer-logo-img">
+            </a>
+            <ul class="social-links">
+              <li>
+                <a href="#" class="footer-link">
+                  <ion-icon name="logo-instagram" class="social-link social-link1"></ion-icon>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="footer-link">
+                  <ion-icon name="logo-facebook" class="social-link social-link2"></ion-icon>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="footer-link">
+                  <ion-icon name="logo-twitter" class="social-link social-link3"></ion-icon>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright">Copyright &copy; 2022 by Exedus Inc. All rights reserved.</p>
+          </div>
+          <nav class="account-col">
+            <p class="address-heading">Account</p>
+            <ul class="footer-nav">
+              <li>
+                <a href="#" class="footer-nav-link signup3">Create account</a>
+              </li>
+              <li>
+                <a href="#" class="footer-nav-link">Sign in</a>
+              </li>
+              <li>
+                <a href="#" class="footer-nav-link">iOS app</a>
+              </li>
+              <li>
+                <a href="#" class="footer-nav-link">Android app</a>
+              </li>
+            </ul>
+          </nav>
+          <nav class="company-col">
+            <p class="address-heading">Company</p>
+            <ul class="footer-nav">
+              <li>
+                <a href="#" class="footer-nav-link">About us</a>
+              </li>
+              <li>
+                <a href="#" class="footer-nav-link">FAQs</a>
+              </li>
+              <li>
+                <a href="#" class="footer-nav-link">For Business</a>
+              </li>
+              <li>
+                <a href="#" class="footer-nav-link">Blog</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="address-col">
+            <p class="address-heading">Contact Us</p>
+            <address class="contacts">
+              <p class="address">No. 2 unknown street, Unknown sub-urban - Abuja. Nigeria</p>
+              <p>
+                <a href="tel:+234-567-8910-556" class="address-link">+234-567-8910-556</a>
+                <br>
+                <a href="mailto:hello@exedus.com" class="address-link">hello@exedus.com</a>
+              </p>
+            </address>
+          </div>
+        </div>
+        <p class="footer-info">Developed by <a href="https://twitter.com/__Busa" class="footer-span">LAWR3NC3</a> with
+          <ion-icon name="heart" class="footer-span-icon"></ion-icon>
+        </p>
+      </div>
+    </footer>
+
+    <!------------- SIGN UP POPUP ----------------- -->
+    <div class="signup-container disabled">
+      <div class="signup-wrapper">
+        <h2>Welcome to Exedus</h2>
+        <p>Please fill the form to customize your dashboard.</p>
+        <form class="signup-form">
+          <div>
+            <label>Full Name</label>
+            <input class="full-name" type="text" placeholder="John Doe" required>
+          </div>
+          <div>
+            <label>Email Address</label>
+            <input id="email" type="email" placeholder="youremail@example.com">
+          </div>
+          <div>
+            <label>Pin</label>
+            <input id="pin" type="text" maxlength="4" placeholder="0000" required>
+          </div>
+          <button class="cta-btn signup-btn-submit">submit</button>
+        </form>
+        <span class="btn-close">&times;</span>
+      </div>
     </div>
-  </footer>
-
-  <!------------- SIGN UP POPUP ----------------- -->
-  <div class="signup-container disabled">
-    <div class="signup-wrapper">
-      <h2>Welcome to Exedus</h2>
-      <p>Please fill the form to customize your dashboard.</p>
-      <form action="Dashboard/Dashboard.html" class="signup-form">
-        <div>
-          <label for="full-name">Full Name</label>
-          <input class="full-name" type="text" placeholder="John Doe" required>
-        </div>
-        <div>
-          <label for="email">Email Address</label>
-          <input id="email" type="email" placeholder="youremail@example.com" autocomplete="email
-          ">
-        </div>
-        <div>
-          <label for="Pin">Pin</label>
-          <input id="pin" type="number" placeholder="default pin = 5555" autocomplete="em
-          " required>
-        </div>
-
-        <button class="cta-btn signup-btn-submit">submit</button>
-      </form>
-
-      <span class="btn-close">&times;</span>
-    </div>
+    <div class="overlay disabled"></div>
   </div>
-  <div class="overlay disabled"></div>
-  <script src="https://kit.fontawesome.com/b9368fee6f.js" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-  <script type="module" src="/JS/Exedus.js"></script>
+
+
+  <!--**********************************************************************************************************************************************************************************************************************************************************************************************************  -->
+  <div class="general-dashboard disabled">
+    <nav class="navigation">
+      <div class="img-div">
+        <img src="/images/pngtree-blue-elegant-logo-png-image_6094041.png" alt="" class="logo">
+      </div>
+      <div class="home-div">
+        <div class="icon-text home active-nav"><i class="fa-solid fa-house"></i>
+          <p>Home</p>
+        </div>
+        <div class="icon-text account"><i class="fa-regular fa-user"></i>
+          <p>Account</p>
+        </div>
+      </div>
+      <div class="transaction-div">
+        <p class="div-heading">TRANSACTIONS</p>
+        <div class="icon-text make-transfer"><i class="fa-solid fa-money-bill-transfer"></i>
+          <p>Make Transfer</p>
+        </div>
+        <div class="icon-text request-loan"><i class="fa-solid fa-sack-dollar"></i>
+          <p>Request Loan</p>
+        </div>
+      </div>
+      <div class="profile-div">
+        <p class="div-heading">PROFILE</p>
+        <div class="icon-text bank-details"><i class="fa-solid fa-building-columns"></i>
+          <p>My Bank Detail</p>
+        </div>
+      </div>
+      <div class="settings-div">
+        <p class="div-heading">SETTINGS</p>
+        <div class="icon-text help-support"><i class="fa-regular fa-circle-question"></i>
+          <p>Help & Support</p>
+        </div>
+        <div class="icon-text update-details"><i class="fa-regular fa-address-card"></i>
+          <p>Update Details</p>
+        </div>
+      </div>
+    </nav>
+
+    <!--------------- DASHBOARD DISPLAY ----------------------------------------->
+    <main class="displays">
+      <section class="top-section paddingLR">
+        <p class="user-name">Hi, John</p>
+        <h1 class="how-description dashboard-description">Get started with Exedus</h1>
+      </section>
+
+      <!--------------- MY HOME DISPLAY  ----------------------------------------->
+      <section class="bottom-section paddingLR home-bottom">
+        <div class="verified template">
+          <div class="verified-left">
+            <p class="template-heading">verified</p>
+            <p class="template-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Velit at in aliquet
+              arcu
+              turpis. Est, arcu dolor consequat sit
+              varius et.</p>
+            <button class="cta-btn">Got it</button>
+          </div>
+          <div class="verified-right">
+            <img src="/images/633d6ed29270cc0b68da838b_drawkit-tb-last.png" class="card-img" alt="">
+          </div>
+        </div>
+
+        <div class="service-overview">
+          <p class="template-heading">Overview of our services</p>
+          <div class="service-cards">
+            <div class="template service-card"><ion-icon name="share-alt" class="social-link"></ion-icon>
+              <p class="template-heading">Make Transfers</p>
+              <p class="template-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Velit at in
+                aliquet
+                arcu
+                turpis. Est, arcu dolor consequat sit
+                varius et.</p>
+            </div>
+            <div class="template service-card"><ion-icon name="wallet" class="social-link"></ion-icon>
+              <p class="template-heading">Request Loan</p>
+              <p class="template-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Velit at in
+                aliquet
+                arcu
+                turpis. Est, arcu dolor consequat sit
+                varius et.</p>
+            </div>
+            <div class="template service-card"><ion-icon name="swap" class="social-link"></ion-icon>
+              <p class="template-heading">Currency Converter</p>
+              <p class="template-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Velit at in
+                aliquet
+                arcu
+                turpis. Est, arcu dolor consequat sit
+                varius et.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--------------- MY ACCOUNT DISPLAY  ----------------------------------------->
+      <section class="bottom-section paddingLR account-bottom">
+        <div class="verified template">
+          <div class="verified-left">
+            <p class="template-heading">Upgrade you account</p>
+            <p class="template-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Velit at in aliquet
+              arcu
+              turpis. Est, arcu dolor consequat sit
+              varius et.</p>
+            <button class="cta-btn">Got it</button>
+          </div>
+          <div class="verified-right">
+            <img src="/images/633d6ed29270cc0b68da838b_drawkit-tb-last.png" class="card-img" alt="">
+          </div>
+        </div>
+      </section>
+
+      <!--------------- MY BANK DETAILS DISPLAY  ----------------------------------------->
+      <section class="bottom-section paddingLR bank-details-bottom disabled">
+        <div class="account-btns">
+          <div class="account-btn-left">
+            <button class="cta-btn active">Bank account</button>
+            <button class="cta-btn2">Other accounts</button>
+          </div>
+          <button class="cta-btn acct-btn-right">Add a new account</button>
+        </div>
+
+        <div class="account-btns-display">
+          <div class="grid-card template">
+            <div class="grid-slot-1">
+              <p class="grid-username">John Smith Doe</p>
+              <div class="account-type"><span class="account-flag"><img src="/images/Property 1=usa-flag-2496027.png"
+                    alt="usa flag"></span>Dollar account</div>
+              <i class="fa-regular fa-trash-can"></i>
+            </div>
+            <div class="grid-slot-2">
+              <div class="text-left">
+                <p class="bank-desc">Bank Name</p>
+                <p class="bank-name">Firstbank</p>
+              </div>
+              <div class="text-right">
+                <p class="bank-desc">Bank Account Number</p>
+                <p class="bank-name">3344556677</p>
+              </div>
+            </div>
+            <div class="grid-slot-3">
+              <div class="text-left">
+                <p class="bank-desc">Lorem ipsum dolor sit amet consectetur,<br> adipisicing elit!</p>
+              </div>
+              <div class="text-right">
+                <button class="cta-btn2">Exchange</button>
+              </div>
+            </div>
+          </div>
+          <div class="grid-card template">
+            <div class="grid-slot-1">
+              <p class="grid-username">John Smith Doe</p>
+              <div class="account-type"><span class="account-flag"><img
+                    src="/images/Property 1=nigeria-flag-2495945.png" alt="usa flag"></span>Naira account</div>
+              <i class="fa-regular fa-trash-can"></i>
+            </div>
+            <div class="grid-slot-2">
+              <div class="text-left">
+                <p class="bank-desc">Bank Name</p>
+                <p class="bank-name">ZenithBank</p>
+              </div>
+              <div class="text-right">
+                <p class="bank-desc">Bank Account Number</p>
+                <p class="bank-name">3344556677</p>
+              </div>
+            </div>
+            <div class="grid-slot-3">
+              <div class="text-left">
+                <p class="bank-desc">Lorem ipsum dolor sit amet consectetur,<br> adipisicing elit!</p>
+              </div>
+              <div class="text-right">
+                <button class="cta-btn2">Exchange</button>
+              </div>
+            </div>
+          </div>
+          <div class="grid-card template">
+            <div class="grid-slot-1">
+              <p class="grid-username">John Smith Doe</p>
+              <div class="account-type"><span class="account-flag"><img
+                    src="/images/Property 1=nigeria-flag-2495945.png" alt="usa flag"></span>Naira account</div>
+              <i class="fa-regular fa-trash-can"></i>
+            </div>
+            <div class="grid-slot-2">
+              <div class="text-left">
+                <p class="bank-desc">Bank Name</p>
+                <p class="bank-name">GTBank</p>
+              </div>
+              <div class="text-right">
+                <p class="bank-desc">Bank Account Number</p>
+                <p class="bank-name">3344556677</p>
+              </div>
+            </div>
+            <div class="grid-slot-3">
+              <div class="text-left">
+                <p class="bank-desc">Lorem ipsum dolor sit amet consectetur,<br> adipisicing elit!</p>
+              </div>
+              <div class="text-right">
+                <button class="cta-btn2">Exchange</button>
+              </div>
+            </div>
+          </div>
+          <div class="grid-card template">
+            <div class="grid-slot-1">
+              <p class="grid-username">John Smith Doe</p>
+              <div class="account-type"><span class="account-flag"><img src="/images/Property 1=usa-flag-2496027.png"
+                    alt="usa flag"></span>Dollar account</div>
+              <i class="fa-regular fa-trash-can"></i>
+            </div>
+            <div class="grid-slot-2">
+              <div class="text-left">
+                <p class="bank-desc">Bank Name</p>
+                <p class="bank-name">UBA</p>
+              </div>
+              <div class="text-right">
+                <p class="bank-desc">Bank Account Number</p>
+                <p class="bank-name">3344556677</p>
+              </div>
+            </div>
+            <div class="grid-slot-3">
+              <div class="text-left">
+                <p class="bank-desc">Lorem ipsum dolor sit amet consectetur,<br> adipisicing elit!</p>
+              </div>
+              <div class="text-right">
+                <button class="cta-btn2">Exchange</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="/JS/Exedus.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  </div>
 </body>
 
 </html>
