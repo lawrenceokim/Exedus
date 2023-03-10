@@ -50,7 +50,7 @@ signUpBtn.addEventListener("click", function (e) {
   e.preventDefault();
   homePage.classList.add("disabled");
   dashboardPage.classList.remove("disabled");
-  bankDetails.textContent = `${userName.value}`;
+  bankDetails.forEach((acc) => (acc.textContent = userName.value));
   userNameTop.textContent = `Hi, ${userName.value}`;
 });
 

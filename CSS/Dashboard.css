@@ -193,6 +193,26 @@ body {
 }
 
 /***************************************************************************************/
+/************ MY ACCOUNT DETAILS DISPLAYS  ***********************/
+.account-user-name {
+  text-align: left;
+  font-weight: 500;
+  font-size: 2.8rem;
+  line-height: 4.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--textheadingdark);
+}
+.account-verified {
+  margin-top: 0rem;
+}
+.verified2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2.6rem;
+  margin-top: 2.6rem;
+}
+/***************************************************************************************/
 /************ MY BANK DETAILS DISPLAYS  ***********************/
 
 .bottom-section {
