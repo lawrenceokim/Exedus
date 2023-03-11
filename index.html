@@ -239,6 +239,9 @@
         <div class="icon-text request-loan"><i class="fa-solid fa-sack-dollar"></i>
           <p>Request Loan</p>
         </div>
+        <div class="icon-text request-loan"><i class="fa-solid fa-clock-rotate-left"></i>
+          <p>History</p>
+        </div>
       </div>
       <div class="profile-div">
         <p class="div-heading">PROFILE</p>
@@ -261,7 +264,16 @@
     <main class="displays">
       <section class="top-section paddingLR">
         <p class="user-name">Hi, John</p>
-        <h1 class="how-description dashboard-description">Get started with Exedus</h1>
+        <div class="balance-display">
+          <h1 class="how-description dashboard-description">Get started with Exedus</h1>
+          <div class="balance-div">
+            <p class="balance-date">As of <span class="date">11/26/2020</span></p>
+            <div class="balance-bottom-div">
+              <p class="balance-label">bal.</p>
+              <p class="balance-value">N20000.00</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       <!--------------- MY HOME DISPLAY  ----------------------------------------->
@@ -338,7 +350,7 @@
                 <p class="account-desc">account status</p>
               </div>
               <div class="text-right">
-                <button class="account-cta-btn">Completed</button>
+                <button class="account-status-complete">Completed</button>
               </div>
             </div>
           </div>
@@ -389,6 +401,144 @@
               <p class="text-middle">****</p>
               <div class="text-right">
                 <button class="cta-btn">Edit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--------------- MAKE TRANSFER DISPLAY  ----------------------------------------->
+      <section class="bottom-section paddingLR make-transfer-bottom disabled">
+        <div class="account-btns">
+          <div class="account-btn-left">
+            <button class="cta-btn active">Existing Users</button>
+            <button class="cta-btn2">Anonymous</button>
+          </div>
+          <button class="cta-btn acct-btn-right" title="show existing users details">Show details</button>
+        </div>
+
+        <div class="transfer-btns-display">
+          <form class="transfer-form">
+            <div>
+              <label>To Bank</label>
+              <input class="full-name" type="text" placeholder="Select Bank" required>
+            </div>
+            <div>
+              <input class="account-destination-name" type="text" placeholder="Enter Destination Name" required>
+            </div>
+            <div>
+              <input class="amount" type="text" maxlength="6" placeholder="Enter Amount" required>
+            </div>
+            <div>
+              <input class="narration" type="text" placeholder="Enter Narration" required>
+            </div>
+            <button class="cta-btn signup-btn-submit">submit</button>
+          </form>
+
+
+          <div class="transfer-existing-users">
+            <div class="grid-card template">
+              <div class="grid-slot-1">
+                <p class="existing-username">Jessica Davis</p>
+                <div class="account-type"><span class="account-flag"><img src="/images/Property 1=usa-flag-2496027.png"
+                      alt="usa flag"></span>Dollar account</div>
+                <i class="fa-regular fa-trash-can"></i>
+              </div>
+              <div class="grid-slot-2">
+                <div class="text-left">
+                  <p class="bank-desc">Bank Name</p>
+                  <p class="bank-name">Firstbank</p>
+                </div>
+                <div class="text-right">
+                  <p class="bank-desc">Bank Account Number</p>
+                  <p class="bank-name">3344556677</p>
+                </div>
+              </div>
+              <div class="grid-slot-3">
+                <div class="text-left">
+                  <p class="bank-desc">You can login as this user</p>
+                </div>
+                <div class="text-right">
+                  <button class="cta-btn2">Login</button>
+                </div>
+              </div>
+            </div>
+            <div class="grid-card template">
+              <div class="grid-slot-1">
+                <p class="existing-username">Steven Thomas Williams</p>
+                <div class="account-type"><span class="account-flag"><img
+                      src="/images/Property 1=nigeria-flag-2495945.png" alt="usa flag"></span>Naira account</div>
+                <i class="fa-regular fa-trash-can"></i>
+              </div>
+              <div class="grid-slot-2">
+                <div class="text-left">
+                  <p class="bank-desc">Bank Name</p>
+                  <p class="bank-name">ZenithBank</p>
+                </div>
+                <div class="text-right">
+                  <p class="bank-desc">Bank Account Number</p>
+                  <p class="bank-name">3344556677</p>
+                </div>
+              </div>
+              <div class="grid-slot-3">
+                <div class="text-left">
+                  <p class="bank-desc">You can login as this user</p>
+                </div>
+                <div class="text-right">
+                  <button class="cta-btn2">Login</button>
+                </div>
+              </div>
+            </div>
+            <div class="grid-card template">
+              <div class="grid-slot-1">
+                <p class="existing-username">Sarah Smith</p>
+                <div class="account-type"><span class="account-flag"><img
+                      src="/images/Property 1=nigeria-flag-2495945.png" alt="usa flag"></span>Naira account</div>
+                <i class="fa-regular fa-trash-can"></i>
+              </div>
+              <div class="grid-slot-2">
+                <div class="text-left">
+                  <p class="bank-desc">Bank Name</p>
+                  <p class="bank-name">GTBank</p>
+                </div>
+                <div class="text-right">
+                  <p class="bank-desc">Bank Account Number</p>
+                  <p class="bank-name">3344556677</p>
+                </div>
+              </div>
+              <div class="grid-slot-3">
+                <div class="text-left">
+                  <p class="bank-desc">You can login as this user</p>
+                </div>
+                <div class="text-right">
+                  <button class="cta-btn2">Login</button>
+                </div>
+              </div>
+            </div>
+            <div class="grid-card template">
+              <div class="grid-slot-1">
+                <p class="existing-username">Lawrence Okim</p>
+                <div class="account-type"><span class="account-flag"><img src="/images/Property 1=usa-flag-2496027.png"
+                      alt="usa flag"></span>Dollar account</div>
+                <i class="fa-regular fa-trash-can"></i>
+              </div>
+              <div class="grid-slot-2">
+                <div class="text-left">
+                  <p class="bank-desc">Bank Name</p>
+                  <p class="bank-name">UBA</p>
+                </div>
+                <div class="text-right">
+                  <p class="bank-desc">Bank Account Number</p>
+                  <p class="bank-name">3344556677</p>
+                </div>
+              </div>
+              <div class="grid-slot-3">
+                <div class="text-left">
+                  <p class="bank-desc">You can login as this user</p>
+                </div>
+                <div class="text-right">
+                  <button class="cta-btn2">Login</button>
+                </div>
               </div>
             </div>
           </div>

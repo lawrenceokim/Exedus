@@ -115,11 +115,12 @@ body {
 .top-section {
   margin-top: 3.4rem;
   border-bottom: 0.1rem solid rgba(90, 92, 92, 0.2);
+  color: var(--textparagraph);
 }
 .user-name {
   text-align: right;
   line-height: 1.3;
-  color: var(--textparagraph);
+
   font-size: 1.6rem;
   font-weight: 500;
 }
@@ -127,9 +128,31 @@ body {
   font-size: 1.6rem;
   font-weight: 500;
 }
-.top-section .how-description {
+.balance-display {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
   margin-bottom: 1.7rem;
   margin-top: 4.8rem;
+}
+.balance-div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: right;
+}
+.balance-bottom-div {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.balance-label {
+  font-size: 2.2rem;
+  font-weight: 400;
+}
+.balance-value {
+  font-size: 4.5rem;
+  font-weight: 500;
 }
 
 .bottom-section {
@@ -198,13 +221,13 @@ body {
 }
 
 /***************************************************************************************/
-/************ MY ACCOUNT DETAILS DISPLAYS  ***********************/
+/************ MY ACCOUNT DISPLAYS  ***********************/
 .account-user-name {
   text-align: left;
   font-weight: 500;
   font-size: 2.8rem;
   line-height: 4.5rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-bottom: 1rem;
   color: var(--textheadingdark);
   transition: all 1s;
@@ -232,9 +255,9 @@ body {
   line-height: 2.2rem;
   color: var(--coloredheadingsmall);
 }
-.account-cta-btn {
-  background: #0e27a558;
-  color: var(--primarycolor);
+.account-status-complete {
+  background: #36a50e58;
+  color: #36a50e;
   border: none;
   border-radius: 1rem;
   font-size: 1.6rem;
@@ -250,6 +273,65 @@ body {
   color: var(--coloredheadingsmall);
   min-height: 7rem;
 }
+
+/***************************************************************************************/
+/************ TRANSFER DISPLAYS  ***********************/
+.transfer-btns-display {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1rem;
+  margin-top: 2rem;
+  width: 100%;
+  overflow-y: hidden;
+  max-height: 42.4rem;
+}
+.transfer-form {
+  height: fit-content;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 1fr;
+  row-gap: 2.5rem;
+}
+.transfer-form label {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-align: left;
+  margin-bottom: 1.2rem;
+}
+.transfer-form input {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.8rem;
+  font-family: inherit;
+  color: inherit;
+  background: #ffffff;
+  border: 1px solid #d2d6d5;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+  flex-grow: 1;
+}
+.signup-btn-submit {
+  margin-top: 4rem;
+}
+.transfer-existing-users {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  margin-top: 3rem;
+  max-height: 41rem;
+  overflow: scroll;
+}
+.existing-username {
+  margin-left: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  color: #000000;
+}
+
 /***************************************************************************************/
 /************ MY BANK DETAILS DISPLAYS  ***********************/
 .bottom-section {

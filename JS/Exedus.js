@@ -19,8 +19,9 @@ const updateDetailsBtn = document.querySelector(".update-details");
 const homePage = document.querySelector(".general-home");
 const dashboardPage = document.querySelector(".general-dashboard");
 const bankHomeBottom = document.querySelector(".home-bottom");
-const bankDetailsBottom = document.querySelector(".bank-details-bottom");
 const accountBottom = document.querySelector(".account-bottom");
+const bankDetailsBottom = document.querySelector(".bank-details-bottom");
+const makeTransferBottom = document.querySelector(".make-transfer-bottom");
 const accountUserName = document.querySelector(".account-user-name");
 const overlay = document.querySelector(".overlay");
 const btnClose = document.querySelector(".btn-close");
@@ -49,6 +50,7 @@ const removeActivePageExcept = function (e) {
   bankDetailsBottom.classList.add("disabled");
   accountBottom.classList.add("disabled");
   bankHomeBottom.classList.add("disabled");
+  makeTransferBottom.classList.add("disabled");
   return e.classList.remove("disabled");
 };
 
@@ -61,24 +63,28 @@ signUpBtn.addEventListener("click", function (e) {
   userNameTop.textContent = `Welcome, ${userName.value.split(" ")[0]}`;
 });
 
-bankDetailsBtn.addEventListener("click", function () {
-  removeActiveNavExcept(bankDetailsBtn);
-  removeActivePageExcept(bankDetailsBottom);
-  topTextDescription.textContent = `Bank Details`;
-});
-
 homeBtn.addEventListener("click", function () {
   removeActiveNavExcept(homeBtn);
   removeActivePageExcept(bankHomeBottom);
   topTextDescription.textContent = `Get started with Exedus`;
 });
-
 accountBtn.addEventListener("click", function () {
   removeActiveNavExcept(accountBtn);
   removeActivePageExcept(accountBottom);
   topTextDescription.textContent = `My Account`;
   accountUserName.textContent = userName.value;
 });
+transferBtn.addEventListener("click", function () {
+  removeActiveNavExcept(transferBtn);
+  removeActivePageExcept(makeTransferBottom);
+  topTextDescription.textContent = `Make Transfer`;
+});
+bankDetailsBtn.addEventListener("click", function () {
+  removeActiveNavExcept(bankDetailsBtn);
+  removeActivePageExcept(bankDetailsBottom);
+  topTextDescription.textContent = `Bank Details`;
+});
+
 btnSignup.addEventListener("click", showSignup);
 btnSignup1.addEventListener("click", showSignup);
 btnSignup2.addEventListener("click", showSignup);
