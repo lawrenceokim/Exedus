@@ -10,6 +10,7 @@
   --textheadingdark: #333333;
   --textparagraph: #5a5c5c;
   --cardtemplate: #ffffff;
+  --coloredheadingsmall: #08061a;
   --cardborderradius: 0.5rem;
 }
 
@@ -36,7 +37,6 @@ body {
   width: 100vw;
   height: 100vh;
   position: relative;
-  transition-duration: 600ms;
 }
 
 header {

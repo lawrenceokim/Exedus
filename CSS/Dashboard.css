@@ -20,14 +20,14 @@ body {
   background: #f4f5f7;
   width: 100vw;
   height: 100vh;
-
   display: grid;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 18% 82%;
+  transition: all 1s;
 }
 
 /************ NAVIGATION  */
 .navigation {
-  /* position: sticky; */
+  position: static;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -35,8 +35,11 @@ body {
   height: 100%;
   background: var(--background);
   color: #ffffff99;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 400;
+  top: 0;
+  left: 0;
+  overflow: hidden;
 }
 .img-div {
   display: flex;
@@ -64,6 +67,7 @@ body {
 }
 .icon-text {
   display: flex;
+  gap: 1.5rem;
   align-items: center;
   justify-content: start;
   width: 96%;
@@ -81,8 +85,8 @@ body {
   color: #ffffff;
 }
 .icon-text i {
-  font-size: 2.5rem;
-  margin-right: 2rem;
+  font-size: 2rem;
+  width: 15%;
 }
 .div-heading {
   display: flex;
@@ -97,8 +101,7 @@ body {
   line-height: 2.4rem;
   letter-spacing: 0.04em;
   opacity: 0.5;
-  margin-bottom: 2rem;
-  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 /*************************************************************************************
 /************ HOME DISPLAYS  ***********************/
@@ -106,6 +109,8 @@ body {
   background: #f4f5f7;
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
+  transition: all 1s;
 }
 .top-section {
   margin-top: 3.4rem;
@@ -173,7 +178,7 @@ body {
   padding: 3.4rem 3.2rem;
   text-align: left;
 }
-.template ion-icon {
+.service-card i {
   text-decoration: none;
   transition-duration: 600ms;
   color: var(--primarycolordarker);
@@ -202,6 +207,7 @@ body {
   margin-top: 2rem;
   margin-bottom: 1rem;
   color: var(--textheadingdark);
+  transition: all 1s;
 }
 .account-verified {
   margin-top: 0rem;
@@ -212,14 +218,46 @@ body {
   column-gap: 2.6rem;
   margin-top: 2.6rem;
 }
+.account-bottom-heading {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  color: var(--textparagraph);
+  margin-left: 2rem;
+}
+.account-desc {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  color: var(--coloredheadingsmall);
+}
+.account-cta-btn {
+  background: #0e27a558;
+  color: var(--primarycolor);
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  padding: 1.2rem 2.4rem;
+}
+.account-grid-slot-2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--coloredheadingsmall);
+  min-height: 7rem;
+}
 /***************************************************************************************/
 /************ MY BANK DETAILS DISPLAYS  ***********************/
-
 .bottom-section {
   transition-duration: 500ms;
   display: flex;
   flex-direction: column;
   margin-bottom: 5rem;
+  transition: all 1s;
 }
 .account-btns {
   display: flex;
@@ -250,6 +288,7 @@ body {
 .grid-card {
   display: flex;
   flex-direction: column;
+  height: fit-content;
 }
 .grid-slot-1 {
   border-bottom: 0.1rem solid rgba(90, 92, 92, 0.2);
@@ -309,6 +348,7 @@ body {
 .text-left {
   margin-left: 2rem;
   text-align: left;
+  width: 25%;
 }
 .bank-name {
   font-style: normal;

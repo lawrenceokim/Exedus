@@ -21,6 +21,7 @@ const dashboardPage = document.querySelector(".general-dashboard");
 const bankHomeBottom = document.querySelector(".home-bottom");
 const bankDetailsBottom = document.querySelector(".bank-details-bottom");
 const accountBottom = document.querySelector(".account-bottom");
+const accountUserName = document.querySelector(".account-user-name");
 const overlay = document.querySelector(".overlay");
 const btnClose = document.querySelector(".btn-close");
 
@@ -34,7 +35,7 @@ const showSignup = function () {
   signupPopUp.classList.remove("disabled");
   console.log("clicked");
 };
-const removeActiveExcept = function (e) {
+const removeActiveNavExcept = function (e) {
   bankDetailsBtn.classList.remove("active-nav");
   homeBtn.classList.remove("active-nav");
   accountBtn.classList.remove("active-nav");
@@ -44,6 +45,12 @@ const removeActiveExcept = function (e) {
   updateDetailsBtn.classList.remove("active-nav");
   return e.classList.add("active-nav");
 };
+const removeActivePageExcept = function (e) {
+  bankDetailsBottom.classList.add("disabled");
+  accountBottom.classList.add("disabled");
+  bankHomeBottom.classList.add("disabled");
+  return e.classList.remove("disabled");
+};
 
 //*******************EVENT LISTENERS *************************/
 signUpBtn.addEventListener("click", function (e) {
@@ -51,29 +58,26 @@ signUpBtn.addEventListener("click", function (e) {
   homePage.classList.add("disabled");
   dashboardPage.classList.remove("disabled");
   bankDetails.forEach((acc) => (acc.textContent = userName.value));
-  userNameTop.textContent = `Hi, ${userName.value}`;
+  userNameTop.textContent = `Welcome, ${userName.value.split(" ")[0]}`;
 });
 
 bankDetailsBtn.addEventListener("click", function () {
-  removeActiveExcept(bankDetailsBtn);
-  bankDetailsBottom.classList.remove("disabled");
-  bankHomeBottom.classList.add("disabled");
-  accountBottom.classList.add("disabled");
+  removeActiveNavExcept(bankDetailsBtn);
+  removeActivePageExcept(bankDetailsBottom);
   topTextDescription.textContent = `Bank Details`;
 });
+
 homeBtn.addEventListener("click", function () {
-  removeActiveExcept(homeBtn);
-  bankDetailsBottom.classList.add("disabled");
-  bankHomeBottom.classList.remove("disabled");
-  accountBottom.classList.add("disabled");
+  removeActiveNavExcept(homeBtn);
+  removeActivePageExcept(bankHomeBottom);
   topTextDescription.textContent = `Get started with Exedus`;
 });
+
 accountBtn.addEventListener("click", function () {
-  removeActiveExcept(accountBtn);
-  accountBottom.classList.remove("disabled");
-  bankDetailsBottom.classList.add("disabled");
-  bankHomeBottom.classList.add("disabled");
+  removeActiveNavExcept(accountBtn);
+  removeActivePageExcept(accountBottom);
   topTextDescription.textContent = `My Account`;
+  accountUserName.textContent = userName.value;
 });
 btnSignup.addEventListener("click", showSignup);
 btnSignup1.addEventListener("click", showSignup);
