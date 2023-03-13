@@ -414,14 +414,22 @@
             <button class="cta-btn active">Existing Users</button>
             <button class="cta-btn2">Anonymous</button>
           </div>
-          <button class="cta-btn acct-btn-right" title="show existing users details">Show details</button>
+          <button class="cta-btn acct-btn-right tranfer-btn-show-details" title="show existing users details">Show
+            users</button>
         </div>
 
         <div class="transfer-btns-display">
           <form class="transfer-form">
             <div>
-              <label>To Bank</label>
-              <input class="full-name" type="text" placeholder="Select Bank" required>
+              <label>To Bank:</label>
+              <select class="full-name" type="text" placeholder="Select Bank" required>
+                <option value="Firstbank">Firstbank</option>
+                <option value="UBA">UBA</option>
+                <option value="ZenithBank">ZenithBank</option>
+                <option value="Fidelity">Fidelity</option>
+                <option value="AccessBank">AccessBank</option>
+                <option value="GTBank">GTBank</option>
+              </select>
             </div>
             <div>
               <input class="account-destination-name" type="text" placeholder="Enter Destination Name" required>
@@ -436,7 +444,7 @@
           </form>
 
 
-          <div class="transfer-existing-users">
+          <div class="transfer-existing-users disabled">
             <div class="grid-card template">
               <div class="grid-slot-1">
                 <p class="existing-username">Jessica Davis</p>
@@ -578,7 +586,7 @@
                 <p class="bank-desc">Lorem ipsum dolor sit amet consectetur,<br> adipisicing elit!</p>
               </div>
               <div class="text-right">
-                <button class="cta-btn2">Exchange</button>
+                <button class="account-status-complete">Completed</button>
               </div>
             </div>
           </div>
@@ -604,7 +612,7 @@
                 <p class="bank-desc">Lorem ipsum dolor sit amet consectetur,<br> adipisicing elit!</p>
               </div>
               <div class="text-right">
-                <button class="cta-btn2">Exchange</button>
+                <button class="account-status-complete">Completed</button>
               </div>
             </div>
           </div>
@@ -630,7 +638,7 @@
                 <p class="bank-desc">Lorem ipsum dolor sit amet consectetur,<br> adipisicing elit!</p>
               </div>
               <div class="text-right">
-                <button class="cta-btn2">Exchange</button>
+                <button class="account-status-complete">Completed</button>
               </div>
             </div>
           </div>
@@ -656,7 +664,7 @@
                 <p class="bank-desc">Lorem ipsum dolor sit amet consectetur,<br> adipisicing elit!</p>
               </div>
               <div class="text-right">
-                <button class="cta-btn2">Exchange</button>
+                <button class="account-status-complete">Completed</button>
               </div>
             </div>
           </div>

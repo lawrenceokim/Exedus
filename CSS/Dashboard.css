@@ -291,6 +291,7 @@ body {
   grid-template-columns: 1fr;
   grid-template-rows: auto auto 1fr;
   row-gap: 2.5rem;
+  max-width: 90%;
 }
 .transfer-form label {
   display: block;
@@ -299,7 +300,8 @@ body {
   text-align: left;
   margin-bottom: 1.2rem;
 }
-.transfer-form input {
+.transfer-form input,
+.transfer-form select {
   width: 100%;
   padding: 1.2rem;
   font-size: 1.8rem;
@@ -311,8 +313,9 @@ body {
   box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
   flex-grow: 1;
 }
-.signup-btn-submit {
-  margin-top: 4rem;
+.transfer-form .signup-btn-submit {
+  margin-top: 0;
+  width: 30%;
 }
 .transfer-existing-users {
   display: flex;

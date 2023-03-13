@@ -23,6 +23,10 @@ const accountBottom = document.querySelector(".account-bottom");
 const bankDetailsBottom = document.querySelector(".bank-details-bottom");
 const makeTransferBottom = document.querySelector(".make-transfer-bottom");
 const accountUserName = document.querySelector(".account-user-name");
+const transferShowDetails = document.querySelector(".tranfer-btn-show-details");
+const transferExistingUsers = document.querySelector(
+  ".transfer-existing-users"
+);
 const overlay = document.querySelector(".overlay");
 const btnClose = document.querySelector(".btn-close");
 
@@ -78,6 +82,9 @@ transferBtn.addEventListener("click", function () {
   removeActiveNavExcept(transferBtn);
   removeActivePageExcept(makeTransferBottom);
   topTextDescription.textContent = `Make Transfer`;
+});
+transferShowDetails.addEventListener("click", function () {
+  transferExistingUsers.classList.toggle("disabled");
 });
 bankDetailsBtn.addEventListener("click", function () {
   removeActiveNavExcept(bankDetailsBtn);

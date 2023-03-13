@@ -1,3 +1,9 @@
+*:focus {
+  outline: none;
+  outline-offset: 0.5rem solid #223fe6;
+  box-shadow: 0 0 0 0.6rem rgba(44, 34, 230, 0.611);
+}
+
 .container {
   width: 100%;
   padding-left: 1rem;
