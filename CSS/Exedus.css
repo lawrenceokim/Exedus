@@ -423,7 +423,7 @@ body .overlay {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto 1fr;
-  row-gap: 2.5rem;
+  row-gap: 2rem;
 }
 .signup-form label {
   display: block;
@@ -445,5 +445,5 @@ body .overlay {
   flex-grow: 1;
 }
 .signup-btn-submit {
-  margin-top: 4rem;
+  margin-top: 2.5rem;
 }
