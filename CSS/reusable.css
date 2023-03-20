@@ -79,11 +79,13 @@
 }
 /* width */
 ::-webkit-scrollbar {
-  width: 0.7rem;
+  width: 0.5rem;
+  /* opacity: 0; */
+  visibility: collapse;
 }
-::-webkit-scrollbar:hover {
+/* ::-webkit-scrollbar:hover {
   width: 1rem;
-}
+} */
 
 /* Track */
 ::-webkit-scrollbar-track {
@@ -93,11 +95,11 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(0, 13, 255);
+  background: var(--textparagraph);
   border-radius: 1rem;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #b30000;
+  background: #1e00b363;
 }

@@ -286,11 +286,11 @@ body {
   max-height: 42.4rem;
 }
 .transfer-form {
-  height: fit-content;
+  height: 42.4rem;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto auto 1fr;
-  row-gap: 2.5rem;
+  /* grid-template-rows: auto; */
+  row-gap: 0.5rem;
   max-width: 90%;
 }
 .transfer-form label {
@@ -315,7 +315,8 @@ body {
 }
 .transfer-form .transfer-btn-submit {
   margin-top: 0;
-  width: 30%;
+  width: 100%;
+  max-height: 4.5rem;
 }
 .transfer-existing-users {
   display: flex;
