@@ -4,6 +4,8 @@ const btnClose = document.querySelector(".btn-close");
 const signupPopUp = document.querySelector(".signup-container");
 const btnSignup = document.querySelectorAll(".cta");
 const userName = document.querySelector(".full-name");
+const userEmail = document.getElementById("email");
+const accountEmail = document.querySelector(".email-address");
 const homePage = document.querySelector(".general-home");
 const signUpBtn = document.querySelector(".signup-btn-submit");
 const bankDetails = document.querySelectorAll(".grid-username");
@@ -88,6 +90,11 @@ accountBtn.addEventListener("click", function () {
   removeActivePageExcept(accountBottom);
   topTextDescription.textContent = `My Account`;
   accountUserName.textContent = userName.value;
+  // if ((userEmail.value = " ")) {
+  //   accountEmail.textContent = "user-email@example.com";
+  // } else {
+  //   accountEmail.textContent = userEmail.value;
+  // }
 });
 transferBtn.addEventListener("click", function () {
   removeActiveNavExcept(transferBtn);
