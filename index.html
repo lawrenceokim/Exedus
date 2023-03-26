@@ -271,7 +271,7 @@
             <p class="balance-date">As of <span class="date">11/26/2020</span></p>
             <div class="balance-bottom-div">
               <p class="balance-label">bal.</p>
-              <p class="balance-value">N20000.00</p>
+              <p class="balance-value">₦ 20000.00</p>
             </div>
           </div>
         </div>
@@ -561,6 +561,51 @@
 
       <!--------------- OVERVIEW DISPLAY  ----------------------------------------->
       <section class="bottom-section paddingLR overview-bottom disabled">
+        <div class="overview-btn">
+          <select type="text" class="cta-btn cta-btn1 overview-sorting">
+            <option value="Withdrawals">All Transactions</option>
+            <option value="Withdrawals">Withdrawals</option>
+            <option value="Deposits">Deposits</option>
+            <option value="Transfers">Transfers</option>
+          </select>
+          <button class="cta-btn2 sort">SORT</button>
+          <div class="overview-right">
+            <p class="overview-in">IN<span class="overview-in-figures">2000 ₦</span></p>
+            <p class="overview-out">OUT<span class="overview-out-figures">2000 ₦</span></p>
+            <p class="overview-interest">INTEREST<span class="overview-interest-figures">22.2 ₦</span></p>
+          </div>
+        </div>
+
+        <div class="movements-row-top movements-style">
+          <div class="movements-reference">Reference</div>
+          <div class="movemnts-beneficiary">Beneficiary</div>
+          <div class="movements-type">Type</div>
+          <div class="movements-value">Amount</div>
+          <div class="movements-date">Date</div>
+        </div>
+        <div class="movements">
+          <div class="movements-row movements-style">
+            <div class="movements-reference-value flex-align">9929394</div>
+            <div class="movements-beneficiary flex-align">John Doe</div>
+            <div class="movements-type-deposit movements-type-style flex-align">Deposit</div>
+            <div class="movements-value flex-align">3 000₦</div>
+            <div class="movements-date flex-align">3 days ago</div>
+          </div>
+          <div class="movements-row movements-style">
+            <div class="movements-reference-value flex-align">9929394</div>
+            <div class="movements-beneficiary flex-align">John Doe</div>
+            <div class="movements-type-withdrawal movements-type-style flex-align">Withdrawal</div>
+            <div class="movements-value flex-align">2 320₦</div>
+            <div class="movements-date flex-align">3 days ago</div>
+          </div>
+          <div class="movements-row movements-style">
+            <div class="movements-reference-value flex-align">9929394</div>
+            <div class="movements-beneficiary flex-align">John Doe</div>
+            <div class="movements-type-transfer movements-type-style flex-align">Transfer</div>
+            <div class="movements-value flex-align">2 320₦</div>
+            <div class="movements-date flex-align">3 days ago</div>
+          </div>
+        </div>
       </section>
 
       <!--------------- MY BANK DETAILS DISPLAY  ----------------------------------------->
