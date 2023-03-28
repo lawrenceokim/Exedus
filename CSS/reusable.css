@@ -87,7 +87,7 @@
 }
 /* width */
 ::-webkit-scrollbar {
-  width: 0.5rem;
+  width: 0.3rem;
   /* opacity: 0; */
   visibility: collapse;
 }

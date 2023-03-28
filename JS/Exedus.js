@@ -4,6 +4,7 @@ const btnClose = document.querySelector(".btn-close");
 const signupPopUp = document.querySelector(".signup-container");
 const btnSignup = document.querySelectorAll(".cta");
 const userName = document.querySelector(".full-name");
+const balanceDiv = document.querySelector(".balance-div");
 const userEmail = document.getElementById("email");
 const accountEmail = document.querySelector(".email-address");
 const homePage = document.querySelector(".general-home");
@@ -70,6 +71,8 @@ const removeActivePageExcept = function (e) {
   updateDetailsBottom.classList.add("disabled");
   return e.classList.remove("disabled");
 };
+const showBalance = (e) => e.classList.remove("disabled");
+const hideBalance = (e) => e.classList.add("disabled");
 
 //*******************EVENT LISTENERS *************************/
 signUpBtn.addEventListener("click", function (e) {
@@ -83,6 +86,7 @@ signUpBtn.addEventListener("click", function (e) {
 homeBtn.addEventListener("click", function () {
   removeActiveNavExcept(homeBtn);
   removeActivePageExcept(homeBottom);
+  hideBalance(balanceDiv);
   topTextDescription.textContent = `Get started with Exedus`;
 });
 accountBtn.addEventListener("click", function () {
@@ -90,6 +94,7 @@ accountBtn.addEventListener("click", function () {
   removeActivePageExcept(accountBottom);
   topTextDescription.textContent = `My Account`;
   accountUserName.textContent = userName.value;
+  showBalance(balanceDiv);
   // if ((userEmail.value = " ")) {
   //   accountEmail.textContent = "user-email@example.com";
   // } else {
@@ -99,6 +104,7 @@ accountBtn.addEventListener("click", function () {
 transferBtn.addEventListener("click", function () {
   removeActiveNavExcept(transferBtn);
   removeActivePageExcept(makeTransferBottom);
+  showBalance(balanceDiv);
   topTextDescription.textContent = `Make Transfer`;
 });
 transferShowDetails.addEventListener("click", function () {
@@ -108,26 +114,31 @@ requestLoanBtn.addEventListener("click", function () {
   removeActiveNavExcept(requestLoanBtn);
   removeActivePageExcept(requestLoanBottom);
   topTextDescription.textContent = "Request Loan";
+  showBalance(balanceDiv);
 });
 overviewBtn.addEventListener("click", function () {
   removeActiveNavExcept(overviewBtn);
   removeActivePageExcept(overviewBottom);
+  showBalance(balanceDiv);
   topTextDescription.textContent = "Transaction Overview";
 });
 bankDetailsBtn.addEventListener("click", function () {
   removeActiveNavExcept(bankDetailsBtn);
   removeActivePageExcept(bankDetailsBottom);
   topTextDescription.textContent = `Bank Details`;
+  hideBalance(balanceDiv);
 });
 helpSupportBtn.addEventListener("click", function () {
   removeActiveNavExcept(helpSupportBtn);
   removeActivePageExcept(helpSupportBottom);
   topTextDescription.textContent = `Help & Support`;
+  hideBalance(balanceDiv);
 });
 updateDetailsBtn.addEventListener("click", function () {
   removeActiveNavExcept(updateDetailsBtn);
   removeActivePageExcept(updateDetailsBottom);
   topTextDescription.textContent = `Update Details`;
+  hideBalance(balanceDiv);
 });
 
 btnSignup.forEach((btn) => btn.addEventListener("click", showSignup));

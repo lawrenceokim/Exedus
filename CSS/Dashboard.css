@@ -22,7 +22,6 @@ body {
   height: 100vh;
   display: grid;
   grid-template-columns: 18% 82%;
-  transition: all 1s;
 }
 
 /************ NAVIGATION  */
@@ -74,14 +73,12 @@ body {
   padding: 1rem 2rem;
   border-radius: 0.5rem;
   cursor: pointer;
-  transition-duration: 600ms;
 }
 .icon-text:hover {
-  background: #ffffff26;
-  color: #ffffff;
+  background: #ffffff13;
 }
 .active-nav {
-  background: #ffffff26;
+  background: #ffffff26 !important;
   color: #ffffff;
 }
 .icon-text i {
@@ -134,6 +131,7 @@ body {
   justify-content: space-between;
   margin-bottom: 1.7rem;
   margin-top: 4.8rem;
+  height: 8rem;
 }
 .balance-div {
   display: flex;
@@ -324,7 +322,7 @@ body {
   gap: 2rem;
   width: 100%;
   margin-top: 3rem;
-  max-height: 41rem;
+  max-height: 40rem;
   overflow-y: scroll;
 }
 .existing-username {
@@ -369,7 +367,7 @@ body {
   color: #a50e0e;
 }
 .overview-interest span {
-  color: #1ba50e90;
+  color: #a5a00e;
 }
 .overview-in::before {
   position: absolute;
@@ -394,7 +392,7 @@ body {
   content: "";
   width: 100%;
   height: 0.3rem;
-  background-color: #1ba50e90;
+  background-color: #a5a00e;
   top: -1.5rem;
   left: 0;
 }
@@ -417,10 +415,8 @@ body {
 .movements {
   background-color: #fff;
   border-radius: 0 0 1rem 1rem;
+  height: 46rem;
   overflow-y: scroll;
-  height: 40rem;
-  scrollbar-gutter: none;
-  scrollbar-width: 0rem;
 }
 .movements-row {
   padding: 3rem 2rem;
@@ -430,6 +426,7 @@ body {
 .movements-type {
   font-size: 1.1rem;
   text-transform: uppercase;
+  margin-left: 2rem;
   font-weight: 500;
   color: #fff;
 }
