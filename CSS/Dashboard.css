@@ -284,39 +284,6 @@ body {
   overflow-y: hidden;
   max-height: 42.4rem;
 }
-.transfer-form {
-  height: 42.4rem;
-  display: grid;
-  grid-template-columns: 1fr;
-  /* grid-template-rows: auto; */
-  row-gap: 0.5rem;
-  max-width: 90%;
-}
-.transfer-form label {
-  display: block;
-  font-size: 1.6rem;
-  font-weight: 500;
-  text-align: left;
-  margin-bottom: 1.2rem;
-}
-.transfer-form input,
-.transfer-form select {
-  width: 100%;
-  padding: 1.2rem;
-  font-size: 1.8rem;
-  font-family: inherit;
-  color: inherit;
-  background: #ffffff;
-  border: 1px solid #d2d6d5;
-  border-radius: 5px;
-  box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
-  flex-grow: 1;
-}
-.transfer-form .transfer-btn-submit {
-  margin-top: 0;
-  width: 100%;
-  max-height: 4.5rem;
-}
 .transfer-existing-users {
   display: flex;
   flex-direction: column;
@@ -364,15 +331,6 @@ body {
   align-items: center;
   justify-content: center;
 }
-.numberbubble-box.active {
-  background: #5a5c5c1a;
-  padding: 1rem;
-  border-radius: 1rem;
-  color: #000000;
-}
-.numberbubble-box.active .request-loan-box-description {
-  color: #000000;
-}
 .request-loan-box-number {
   display: flex;
   align-items: center;
@@ -391,6 +349,33 @@ body {
   font-size: 1.8rem;
   font: 700;
   color: var(--textparagraph);
+}
+.request-loan-span-link {
+  cursor: pointer;
+  display: inline-block;
+  color: var(--primarycolor);
+}
+.slides-box {
+  display: flex;
+  align-items: center;
+  margin-top: 5rem;
+  width: 100%;
+  border: 0.1rem solid #5a5c5c36;
+  border-radius: 1rem;
+  height: 50rem;
+  overflow: hidden;
+}
+.slide-box-img-container {
+  max-width: 50%;
+}
+.slide-box-img {
+  width: 100%;
+  height: auto;
+}
+.form-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 /***************************************************************************************/
 /************ OVERVIEW DISPLAYS  ***********************/

@@ -12,6 +12,7 @@ const signUpBtn = document.querySelector(".signup-btn-submit");
 const bankDetails = document.querySelectorAll(".grid-username");
 const userNameTop = document.querySelector(".user-name");
 const topTextDescription = document.querySelector(".dashboard-description");
+const loanOverviewLink = document.querySelector(".request-loan-span-link");
 
 // DASHBOARD BUTTONS
 const homeBtn = document.querySelector(".home");
@@ -77,6 +78,7 @@ const hideBalance = (e) => e.classList.add("disabled");
 //*******************EVENT LISTENERS *************************/
 signUpBtn.addEventListener("click", function (e) {
   e.preventDefault();
+  userName.required = true;
   homePage.classList.add("disabled");
   dashboardPage.classList.remove("disabled");
   bankDetails.forEach((acc) => (acc.textContent = userName.value));
@@ -117,6 +119,12 @@ requestLoanBtn.addEventListener("click", function () {
   showBalance(balanceDiv);
 });
 overviewBtn.addEventListener("click", function () {
+  removeActiveNavExcept(overviewBtn);
+  removeActivePageExcept(overviewBottom);
+  showBalance(balanceDiv);
+  topTextDescription.textContent = "Transaction Overview";
+});
+loanOverviewLink.addEventListener("click", function () {
   removeActiveNavExcept(overviewBtn);
   removeActivePageExcept(overviewBottom);
   showBalance(balanceDiv);
