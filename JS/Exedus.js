@@ -101,7 +101,7 @@ const account1 = {
 };
 const account2 = {
   owner: "Steven Thomas Williams",
-  pin: 1112,
+  pin: 2222,
   interestRate: 1.2,
   movements: [100, 200, 250, 4000, -1000],
   bankName: "Zenithbank",
@@ -110,7 +110,7 @@ const account2 = {
 };
 const account3 = {
   owner: "Sarah Smith",
-  pin: 1122,
+  pin: 3333,
   interestRate: 1.2,
   movements: [100, 200, 250, 4000, -1000],
   bankName: "GTbank",
@@ -119,24 +119,38 @@ const account3 = {
 };
 const account4 = {
   owner: "Lawrence Okim",
-  pin: 1122,
+  pin: 4444,
   interestRate: 1.2,
   movements: [100, 200, 250, 4000, -1000],
   bankName: "UBA",
   accountNumber: 3009445243,
   accountType: "Dollar Account",
 };
-const accounts = [account1, account2, account3, account4];
+const account5 = {
+  owner: userName.value,
+  pin: 5555,
+  interestRate: 1.2,
+  movements: [100, 200, 250, 4000, -1000],
+  bankName: "UBA",
+  accountNumber: 7009445243,
+  accountType: "Dollar Account",
+};
+const accounts = [account1, account2, account3, account4, account5];
 
 const displayMovements = function (movement) {
   containerMovements.innerHTML = "";
 
   movement.forEach(function (mov) {
     const type = mov > 0 ? "deposit" : "withdrawal";
+    const receiverAcc = accounts.find(
+      (acc) => acc.username === inputTransferTo.value || loanReceiverName.value
+    );
     const html = `
           <div class="movements-row movements-style">
-            <div class="movements-reference-value flex-align">9929394</div>
-            <div class="movements-beneficiary flex-align">John Doe</div>
+            <div class="movements-reference-value flex-align">${Math.floor(
+              100000 + Math.random() * 200000
+            )}</div>
+            <div class="movements-beneficiary flex-align">${receiverAcc}</div>
             <div class="movements-type-${type} movements-type-style flex-align">${type}</div>
             <div class="movements-value flex-align">${Math.abs(mov)} ₦</div>
             <div class="movements-date flex-align">3 days ago</div>
@@ -196,7 +210,9 @@ const updateUI = function (acc) {
 let currentAccount;
 signUpBtn.addEventListener("click", function (e) {
   e.preventDefault();
-  currentAccount = accounts.find((acc) => acc.username === userName.value);
+  currentAccount = accounts.find(
+    (acc) => acc.owner.toLowerCase() === userName.value
+  );
   console.log(currentAccount);
   if (currentAccount?.pin === Number(inputLoginPin.value)) {
     userNameTop.textContent = `Welcome, ${currentAccount.owner.split(" ")[0]}`;
@@ -249,9 +265,9 @@ loanBtnSubmit.addEventListener("click", function (e) {
     amount > 0 &&
     receiverAcc &&
     receiverAccNumber &&
+    receiverAcc.username === currentAccount.username &&
     currentAccount.movements.some((mov) => mov >= amount * 0.1)
   ) {
-    currentAccount.movements.push(amount);
     receiverAcc.movements.push(amount);
     updateUI(currentAccount);
     inputLoanAmount.value = "";
@@ -327,9 +343,9 @@ btnSignup.forEach((btn) => btn.addEventListener("click", showSignup));
 btnClose.addEventListener("click", hideSignup);
 overlay.addEventListener("click", hideSignup);
 
-// ATTENTION
-/*
-1. Looking for why the loan amount keep doubling
-2. how to make a loan amount show up in the account name inputed.
-3. Even with a wrong account number, it keeps addding to mine.
+/*ATTENTION
+1. make the beneficiary's name show ie who's getting the money
+2. check OR and AND gate properties
+3. tried making it in a way that anybody can log in and get their own account details
+4. make popup to show some login details
 */
