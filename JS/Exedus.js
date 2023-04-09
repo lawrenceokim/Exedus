@@ -13,6 +13,20 @@ const bankDetails = document.querySelectorAll(".grid-username");
 const userNameTop = document.querySelector(".user-name");
 const topTextDescription = document.querySelector(".dashboard-description");
 const loanOverviewLink = document.querySelector(".request-loan-span-link");
+const containerMovements = document.querySelector(".movements");
+const balanceValue = document.querySelector(".balance-value");
+const balanceIn = document.querySelector(".overview-in-figures");
+const balanceOut = document.querySelector(".overview-out-figures");
+const balanceInterest = document.querySelector(".overview-interest-figures");
+const inputLoginPin = document.getElementById("pin");
+const transferBtnSubmit = document.querySelector(".transfer-btn-submit");
+const inputTransferAmount = document.querySelector(".amount");
+const inputTransferTo = document.querySelector(".account-destination-name");
+const inputNarration = document.querySelector(".narration");
+const loanBtnSubmit = document.querySelector(".loan-btn-submit");
+const inputLoanAmount = document.querySelector(".loan-amount");
+const loanReceiverName = document.querySelector(".loan-account-name");
+const loanReceiverNumber = document.querySelector(".loan-account-number");
 
 // DASHBOARD BUTTONS
 const homeBtn = document.querySelector(".home");
@@ -75,16 +89,176 @@ const removeActivePageExcept = function (e) {
 const showBalance = (e) => e.classList.remove("disabled");
 const hideBalance = (e) => e.classList.add("disabled");
 
-//*******************EVENT LISTENERS *************************/
+//////////////////// ACCOUNTS /////////////////////////////////////
+const account1 = {
+  owner: "Jessica Davis",
+  pin: 1111,
+  interestRate: 1.2,
+  movements: [100, 200, 250, 4000, -1000, 30, -100],
+  bankName: "Firstbank",
+  accountNumber: 1009345243,
+  accountType: "Dollar Account",
+};
+const account2 = {
+  owner: "Steven Thomas Williams",
+  pin: 1112,
+  interestRate: 1.2,
+  movements: [100, 200, 250, 4000, -1000],
+  bankName: "Zenithbank",
+  accountNumber: 2009445243,
+  accountType: "Naira Account",
+};
+const account3 = {
+  owner: "Sarah Smith",
+  pin: 1122,
+  interestRate: 1.2,
+  movements: [100, 200, 250, 4000, -1000],
+  bankName: "GTbank",
+  accountNumber: 2009445243,
+  accountType: "Naira Account",
+};
+const account4 = {
+  owner: "Lawrence Okim",
+  pin: 1122,
+  interestRate: 1.2,
+  movements: [100, 200, 250, 4000, -1000],
+  bankName: "UBA",
+  accountNumber: 3009445243,
+  accountType: "Dollar Account",
+};
+const accounts = [account1, account2, account3, account4];
+
+const displayMovements = function (movement) {
+  containerMovements.innerHTML = "";
+
+  movement.forEach(function (mov) {
+    const type = mov > 0 ? "deposit" : "withdrawal";
+    const html = `
+          <div class="movements-row movements-style">
+            <div class="movements-reference-value flex-align">9929394</div>
+            <div class="movements-beneficiary flex-align">John Doe</div>
+            <div class="movements-type-${type} movements-type-style flex-align">${type}</div>
+            <div class="movements-value flex-align">${Math.abs(mov)} ₦</div>
+            <div class="movements-date flex-align">3 days ago</div>
+          </div>`;
+
+    containerMovements.insertAdjacentHTML("afterbegin", html);
+  });
+};
+// displayMovements(account1.movements);
+
+const calcDisplayBalance = function (acc) {
+  acc.balance = acc.movements.reduce((acc, mov) => acc + mov, acc.movements[0]);
+  balanceValue.textContent = `${acc.balance} ₦`;
+};
+// calcDisplayBalance(account1);
+
+const calcDisplaySummary = function (acc) {
+  const incomes = acc.movements
+    .filter((mov) => mov > 0)
+    .reduce((acc, cur) => acc + cur);
+  balanceIn.textContent = `${incomes} ₦`;
+
+  const out = acc.movements
+    .filter((mov) => mov < 0)
+    .reduce((acc, mov) => acc + mov);
+  balanceOut.textContent = `${Math.abs(out)} ₦`;
+
+  const interest = acc.movements
+    .filter((mov) => mov > 0)
+    .map((deposit) => (deposit * acc.interestRate) / 100)
+    .filter((int) => int >= 1)
+    .reduce((acc, int) => acc + int, 0);
+  balanceInterest.textContent = `${Math.abs(interest)} ₦`;
+};
+// calcDisplaySummary(account1);
+
+const createUsername = function (accs) {
+  accs.forEach(
+    (acc) =>
+      (acc.username = acc.owner
+        .toLowerCase()
+        .split(" ")
+        .map((name) => name[0])
+        .join(""))
+  );
+};
+createUsername(accounts);
+
+const updateUI = function (acc) {
+  calcDisplayBalance(acc);
+  calcDisplaySummary(acc);
+  displayMovements(acc.movements);
+};
+
+//*********************************EVENT LISTENERS ***********************************/
+////////// signup button //////////////
+let currentAccount;
 signUpBtn.addEventListener("click", function (e) {
   e.preventDefault();
-  userName.required = true;
-  homePage.classList.add("disabled");
-  dashboardPage.classList.remove("disabled");
-  bankDetails.forEach((acc) => (acc.textContent = userName.value));
-  userNameTop.textContent = `Welcome, ${userName.value.split(" ")[0]}`;
+  currentAccount = accounts.find((acc) => acc.username === userName.value);
+  console.log(currentAccount);
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    userNameTop.textContent = `Welcome, ${currentAccount.owner.split(" ")[0]}`;
+    accountEmail.textContent = userEmail.value;
+    userName.required = true;
+    homePage.classList.add("disabled");
+    dashboardPage.classList.remove("disabled");
+    bankDetails.forEach((acc) => (acc.textContent = currentAccount.owner));
+    updateUI(currentAccount);
+  }
+});
+////////// transfer button //////////////
+transferBtnSubmit.addEventListener("click", function (e) {
+  e.preventDefault();
+  const amount = Number(inputTransferAmount.value);
+  const receiverAcc = accounts.find(
+    (acc) => acc.username === inputTransferTo.value
+  );
+
+  if (
+    amount > 0 &&
+    receiverAcc &&
+    currentAccount.balance >= amount &&
+    receiverAcc?.username !== currentAccount.username
+  ) {
+    currentAccount.movements.push(-amount);
+    receiverAcc.movements.push(amount);
+    updateUI(currentAccount);
+    inputTransferAmount.value =
+      inputTransferTo.value =
+      inputNarration.value =
+        "";
+    inputTransferAmount.blur();
+    inputTransferTo.blur();
+    inputNarration.blur();
+  }
+});
+////////// loan button //////////////
+loanBtnSubmit.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+  const receiverAcc = accounts.find(
+    (acc) => acc.username === loanReceiverName.value
+  );
+  const receiverAccNumber = accounts.find(
+    (acc) => acc.accountNumber === Number(loanReceiverNumber.value)
+  );
+  if (
+    amount > 0 &&
+    receiverAcc &&
+    receiverAccNumber &&
+    currentAccount.movements.some((mov) => mov >= amount * 0.1)
+  ) {
+    currentAccount.movements.push(amount);
+    receiverAcc.movements.push(amount);
+    updateUI(currentAccount);
+    inputLoanAmount.value = "";
+  }
 });
 
+//////////////////////////////////////////////////////////////////////////////////////////////
 homeBtn.addEventListener("click", function () {
   removeActiveNavExcept(homeBtn);
   removeActivePageExcept(homeBottom);
@@ -95,7 +269,7 @@ accountBtn.addEventListener("click", function () {
   removeActiveNavExcept(accountBtn);
   removeActivePageExcept(accountBottom);
   topTextDescription.textContent = `My Account`;
-  accountUserName.textContent = userName.value;
+  accountUserName.textContent = currentAccount.owner;
   showBalance(balanceDiv);
   // if ((userEmail.value = " ")) {
   //   accountEmail.textContent = "user-email@example.com";
@@ -152,3 +326,10 @@ updateDetailsBtn.addEventListener("click", function () {
 btnSignup.forEach((btn) => btn.addEventListener("click", showSignup));
 btnClose.addEventListener("click", hideSignup);
 overlay.addEventListener("click", hideSignup);
+
+// ATTENTION
+/*
+1. Looking for why the loan amount keep doubling
+2. how to make a loan amount show up in the account name inputed.
+3. Even with a wrong account number, it keeps addding to mine.
+*/
