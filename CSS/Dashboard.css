@@ -22,9 +22,107 @@ body {
   height: 100vh;
   display: grid;
   grid-template-columns: 18% 82%;
+  position: relative;
+}
+/************ SIGN-IN POPUP 2  */
+/* body .signup-container2 { NOTE: Trying to create another login overlay to login into another account. because the transfer directive isn't displayin the amount in the receiver account due to page reload.
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+
+  background-color: white;
+  padding: 2rem 3rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  transition-duration: 600ms;
+}
+.signup-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  padding: 4rem 3rem;
+}
+.signup-form-wrapper {
+  display: flex;
+}
+.signup-wrapper h2 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.signup-wrapper h2 span {
+  color: var(--secondarycolor);
+  font-size: 3.2rem;
+  font-weight: 700;
+  background: url(/images/1000_F_566488866_7999PLng9MsgDwO46WDYhA9fqFU3Mnff.jpg)
+    0 0 / cover no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.signup-wrapper > p {
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 4rem;
+}
+.signup-wrapper .btn-close {
+  position: absolute;
+  display: block;
+  top: 0.3rem;
+  right: 1rem;
+  font-size: 4rem;
+  cursor: pointer;
+  z-index: 50;
+}
+body .overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(0.3rem);
+  z-index: 5;
+  transition-duration: 600ms;
+}
+.signup-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 1fr;
+  row-gap: 2rem;
+}
+.signup-form label {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-align: left;
+  margin-bottom: 1.2rem;
+}
+.signup-form input {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.4rem;
+  font-family: inherit;
+  color: inherit;
+  background: #ffffff;
+  border: 1px solid #d2d6d5;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+  flex-grow: 1;
+}
+.signup-btn-submit {
+  margin-top: 2.5rem;
 }
 
-/************ NAVIGATION  */
+/************ NAVIGATION  ***************/
 .navigation {
   position: static;
   display: flex;
@@ -301,6 +399,14 @@ body {
   line-height: 2.6rem;
   color: #000000;
 }
+.bank-name-duplicate,
+.bank-number {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 2.2rem;
+  color: #5a5c5c;
+}
 
 /***************************************************************************************/
 /************ REQUEST LOAN DISPLAYS  ***********************/
@@ -517,12 +623,7 @@ body {
   background: #0e27a558;
   color: var(--primarycolor);
 }
-.account-btns-display {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 2.6rem;
-  margin-top: 2.5rem;
-}
+
 .grid-card.template {
   padding: 0;
 }

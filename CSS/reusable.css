@@ -85,6 +85,12 @@
 .disabled {
   display: none !important;
 }
+.btns-display {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2.6rem;
+  margin-top: 2.5rem;
+}
 /* width */
 ::-webkit-scrollbar {
   width: 0.3rem;

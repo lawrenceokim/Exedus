@@ -14,6 +14,9 @@ const userNameTop = document.querySelector(".user-name");
 const topTextDescription = document.querySelector(".dashboard-description");
 const loanOverviewLink = document.querySelector(".request-loan-span-link");
 const containerMovements = document.querySelector(".movements");
+const movementsBeneficiary = document.querySelectorAll(
+  ".movements-beneficiary"
+);
 const balanceValue = document.querySelector(".balance-value");
 const balanceIn = document.querySelector(".overview-in-figures");
 const balanceOut = document.querySelector(".overview-out-figures");
@@ -27,6 +30,10 @@ const loanBtnSubmit = document.querySelector(".loan-btn-submit");
 const inputLoanAmount = document.querySelector(".loan-amount");
 const loanReceiverName = document.querySelector(".loan-account-name");
 const loanReceiverNumber = document.querySelector(".loan-account-number");
+const bankName = document.querySelectorAll(".bank-name");
+const bankUsersContainer = document.querySelector(".bank-users-details");
+const inputReceiver = document.querySelectorAll(".receiver");
+const bankAccountNumber = document.querySelectorAll(".bank-account-number");
 
 // DASHBOARD BUTTONS
 const homeBtn = document.querySelector(".home");
@@ -60,8 +67,8 @@ const hideSignup = function () {
   signupPopUp.classList.add("disabled");
 };
 const showSignup = function () {
-  overlay.classList.remove("disabled");
   signupPopUp.classList.remove("disabled");
+  overlay.classList.remove("disabled");
   console.log("clicked");
 };
 const removeActiveNavExcept = function (e) {
@@ -95,7 +102,7 @@ const account1 = {
   pin: 1111,
   interestRate: 1.2,
   movements: [100, 200, 250, 4000, -1000, 30, -100],
-  bankName: "Firstbank",
+  bankNameShort: "Firstbank",
   accountNumber: 1009345243,
   accountType: "Dollar Account",
 };
@@ -104,7 +111,7 @@ const account2 = {
   pin: 2222,
   interestRate: 1.2,
   movements: [100, 200, 250, 4000, -1000],
-  bankName: "Zenithbank",
+  bankNameShort: "Zenithbank",
   accountNumber: 2009445243,
   accountType: "Naira Account",
 };
@@ -113,7 +120,7 @@ const account3 = {
   pin: 3333,
   interestRate: 1.2,
   movements: [100, 200, 250, 4000, -1000],
-  bankName: "GTbank",
+  bankNameShort: "GTbank",
   accountNumber: 2009445243,
   accountType: "Naira Account",
 };
@@ -122,35 +129,11 @@ const account4 = {
   pin: 4444,
   interestRate: 1.2,
   movements: [100, 200, 250, 4000, -1000],
-  bankName: "UBA",
+  bankNameShort: "UBA",
   accountNumber: 3009445243,
   accountType: "Dollar Account",
 };
 const accounts = [account1, account2, account3, account4];
-
-const displayMovements = function (movement) {
-  containerMovements.innerHTML = "";
-
-  movement.forEach(function (mov) {
-    const type = mov > 0 ? "deposit" : "withdrawal";
-    const receiverAcc = accounts.find(
-      (acc) => acc.username === inputTransferTo.value || loanReceiverName.value
-    );
-    const html = `
-          <div class="movements-row movements-style">
-            <div class="movements-reference-value flex-align">${Math.floor(
-              100000 + Math.random() * 200000
-            )}</div>
-            <div class="movements-beneficiary flex-align">${receiverAcc}</div>
-            <div class="movements-type-${type} movements-type-style flex-align">${type}</div>
-            <div class="movements-value flex-align">${Math.abs(mov)} ₦</div>
-            <div class="movements-date flex-align">3 days ago</div>
-          </div>`;
-
-    containerMovements.insertAdjacentHTML("afterbegin", html);
-  });
-};
-// displayMovements(account1.movements);
 
 const calcDisplayBalance = function (acc) {
   acc.balance = acc.movements.reduce((acc, mov) => acc + mov, acc.movements[0]);
@@ -180,12 +163,10 @@ const calcDisplaySummary = function (acc) {
 
 const createUsername = function (accs) {
   accs.forEach(
-    (acc) =>
-      (acc.username = acc.owner
-        .toLowerCase()
-        .split(" ")
-        .map((name) => name[0])
-        .join(""))
+    (acc) => (acc.username = acc.owner.toLowerCase())
+    // .split(" ")
+    // .map((name) => name[0])
+    // .join("")
   );
 };
 createUsername(accounts);
@@ -196,25 +177,64 @@ const updateUI = function (acc) {
   displayMovements(acc.movements);
 };
 
+const displayBankDetails = function () {
+  bankUsersContainer.innerHTML = "";
+
+  const html = `
+          <div class="grid-card template">
+            <div class="grid-slot-1">
+              <p class="grid-username">${(bankDetails.textContent =
+                currentAccount.owner)}</p>
+              <div class="account-type"><span class="account-flag"><img src="/images/Property 1=usa-flag-2496027.png"
+                    alt="usa flag"></span>Dollar account</div>
+              <i class="fa-regular fa-trash-can"></i>
+            </div>
+            <div class="grid-slot-2">
+              <div class="text-left">
+                <p class="bank-desc">Bank Name</p>
+                <p class="bank-name">${(bankName.textContent =
+                  currentAccount.bankNameShort)}</p>
+              </div>
+              <div class="text-right">
+                <p class="bank-desc">Bank Account Number</p>
+                <p class="bank-name-right bank-account-number">${(bankAccountNumber.textContent =
+                  currentAccount.accountNumber)}</p>
+              </div>
+            </div>
+            <div class="grid-slot-3">
+              <div class="text-left">
+                <p class="bank-desc">Lorem ipsum dolor sit amet consectetur,<br> adipisicing elit!</p>
+              </div>
+              <div class="text-right">
+                <button class="account-status-complete">Completed</button>
+              </div>
+            </div>
+          </div>
+  `;
+  bankUsersContainer.insertAdjacentHTML("afterbegin", html);
+};
+
 //*********************************EVENT LISTENERS ***********************************/
+btnSignup.forEach((btn) => btn.addEventListener("click", showSignup));
+btnClose.addEventListener("click", hideSignup);
+overlay.addEventListener("click", hideSignup);
+
 ////////// signup button //////////////
 let currentAccount;
-let randomAccount;
 signUpBtn.addEventListener("click", function (e) {
   e.preventDefault();
   currentAccount = accounts.find(
     (acc) => acc.owner.toLowerCase() === userName.value
   );
-
   console.log(currentAccount);
   if (currentAccount?.pin === Number(inputLoginPin.value)) {
     userNameTop.textContent = `Welcome, ${currentAccount.owner.split(" ")[0]}`;
     accountEmail.textContent = userEmail.value;
-    userName.required = true;
     homePage.classList.add("disabled");
     dashboardPage.classList.remove("disabled");
-    bankDetails.forEach((acc) => (acc.textContent = currentAccount.owner));
+    hideSignup();
     updateUI(currentAccount);
+    displayBankDetails();
   }
 });
 ////////// transfer button //////////////
@@ -222,14 +242,14 @@ transferBtnSubmit.addEventListener("click", function (e) {
   e.preventDefault();
   const amount = Number(inputTransferAmount.value);
   const receiverAcc = accounts.find(
-    (acc) => acc.username === inputTransferTo.value
+    (acc) => acc.owner.toLowerCase() === inputTransferTo.value
   );
 
   if (
     amount > 0 &&
     receiverAcc &&
     currentAccount.balance >= amount &&
-    receiverAcc?.username !== currentAccount.username
+    receiverAcc?.owner !== currentAccount.owner
   ) {
     currentAccount.movements.push(-amount);
     receiverAcc.movements.push(amount);
@@ -267,6 +287,29 @@ loanBtnSubmit.addEventListener("click", function (e) {
   }
 });
 
+const displayMovements = function (movement) {
+  containerMovements.innerHTML = "";
+  const inputedReceiver = inputReceiver.forEach((acc) => acc.value);
+  const displayBeneficiary = movementsBeneficiary.forEach(
+    (acc) => (acc.textContent = inputedReceiver)
+  );
+  movement.forEach(function (mov) {
+    const type = mov > 0 ? "deposit" : "withdrawal";
+    const html = `
+          <div class="movements-row movements-style">
+            <div class="movements-reference-value flex-align">${Math.floor(
+              100000 + Math.random() * 200000
+            )}</div>
+            <div class="movements-beneficiary flex-align">${displayBeneficiary}</div>
+            <div class="movements-type-${type} movements-type-style flex-align">${type}</div>
+            <div class="movements-value flex-align">${Math.abs(mov)} ₦</div>
+            <div class="movements-date flex-align">3 days ago</div>
+          </div>`;
+
+    containerMovements.insertAdjacentHTML("afterbegin", html);
+  });
+};
+// displayMovements(account1.movements);
 //////////////////////////////////////////////////////////////////////////////////////////////
 homeBtn.addEventListener("click", function () {
   removeActiveNavExcept(homeBtn);
@@ -326,19 +369,17 @@ helpSupportBtn.addEventListener("click", function () {
   hideBalance(balanceDiv);
 });
 updateDetailsBtn.addEventListener("click", function () {
+  showSignup();
   removeActiveNavExcept(updateDetailsBtn);
   removeActivePageExcept(updateDetailsBottom);
-  topTextDescription.textContent = `Update Details`;
+  topTextDescription.textContent = `Sign-in to others`;
   hideBalance(balanceDiv);
 });
-
-btnSignup.forEach((btn) => btn.addEventListener("click", showSignup));
-btnClose.addEventListener("click", hideSignup);
-overlay.addEventListener("click", hideSignup);
 
 /*ATTENTION
 1. make the beneficiary's name show ie who's getting the money
 2. check OR and AND gate properties
 3. tried making it in a way that anybody can log in and get their own account details
 4. make popup to show some login details
+5. transfered amount isn't showing at receiver's end
 */
