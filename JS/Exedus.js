@@ -126,16 +126,7 @@ const account4 = {
   accountNumber: 3009445243,
   accountType: "Dollar Account",
 };
-const account5 = {
-  owner: userName.value,
-  pin: 5555,
-  interestRate: 1.2,
-  movements: [100, 200, 250, 4000, -1000],
-  bankName: "UBA",
-  accountNumber: 7009445243,
-  accountType: "Dollar Account",
-};
-const accounts = [account1, account2, account3, account4, account5];
+const accounts = [account1, account2, account3, account4];
 
 const displayMovements = function (movement) {
   containerMovements.innerHTML = "";
@@ -208,11 +199,13 @@ const updateUI = function (acc) {
 //*********************************EVENT LISTENERS ***********************************/
 ////////// signup button //////////////
 let currentAccount;
+let randomAccount;
 signUpBtn.addEventListener("click", function (e) {
   e.preventDefault();
   currentAccount = accounts.find(
     (acc) => acc.owner.toLowerCase() === userName.value
   );
+
   console.log(currentAccount);
   if (currentAccount?.pin === Number(inputLoginPin.value)) {
     userNameTop.textContent = `Welcome, ${currentAccount.owner.split(" ")[0]}`;
