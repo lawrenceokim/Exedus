@@ -133,7 +133,17 @@ const account4 = {
   accountNumber: 3009445243,
   accountType: "Dollar Account",
 };
-const accounts = [account1, account2, account3, account4];
+const accountUserOwner = userName.value;
+const account5 = {
+  owner: accountUserOwner.toLowerCase(),
+  pin: 4444,
+  interestRate: 1.2,
+  movements: [100, 200, 250, 4000, -1000],
+  bankNameShort: "UBA",
+  accountNumber: 3009445243,
+  accountType: "Dollar Account",
+};
+const accounts = [account1, account2, account3, account4, account5];
 
 const calcDisplayBalance = function (acc) {
   acc.balance = acc.movements.reduce((acc, mov) => acc + mov, acc.movements[0]);
