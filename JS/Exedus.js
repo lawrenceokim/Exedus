@@ -121,7 +121,7 @@ const account3 = {
   interestRate: 1.2,
   movements: [100, 200, 250, 4000, -1000],
   bankNameShort: "GTbank",
-  accountNumber: 2009445243,
+  accountNumber: 3009445243,
   accountType: "Naira Account",
 };
 const account4 = {
@@ -130,17 +130,18 @@ const account4 = {
   interestRate: 1.2,
   movements: [100, 200, 250, 4000, -1000],
   bankNameShort: "UBA",
-  accountNumber: 3009445243,
+  accountNumber: 4009445243,
   accountType: "Dollar Account",
 };
 const accountUserOwner = userName.value;
+console.log(accountUserOwner);
 const account5 = {
-  owner: accountUserOwner.toLowerCase(),
-  pin: 4444,
+  owner: accountUserOwner,
+  pin: 5555,
   interestRate: 1.2,
-  movements: [100, 200, 250, 4000, -1000],
+  movements: [100, 200, 250, 4000, -1000, 600],
   bankNameShort: "UBA",
-  accountNumber: 3009445243,
+  accountNumber: 5009445243,
   accountType: "Dollar Account",
 };
 const accounts = [account1, account2, account3, account4, account5];
@@ -234,11 +235,13 @@ let currentAccount;
 signUpBtn.addEventListener("click", function (e) {
   e.preventDefault();
   currentAccount = accounts.find(
-    (acc) => acc.owner.toLowerCase() === userName.value
+    (acc) => acc.pin === Number(inputLoginPin.value)
   );
   console.log(currentAccount);
   if (currentAccount?.pin === Number(inputLoginPin.value)) {
-    userNameTop.textContent = `Welcome, ${currentAccount.owner.split(" ")[0]}`;
+    userNameTop.textContent = `Welcome, ${
+      currentAccount.username.split(" ")[0]
+    }`;
     accountEmail.textContent = userEmail.value;
     homePage.classList.add("disabled");
     dashboardPage.classList.remove("disabled");
