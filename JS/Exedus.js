@@ -1,15 +1,20 @@
 "use-strict";
 const overlay = document.querySelector(".overlay");
+const successfulOverlay = document.querySelector(".successful-overlay");
 const btnClose = document.querySelector(".btn-close");
 const signupPopUp = document.querySelector(".signup-container");
+const successfulPopup = document.querySelector(".successful-popup");
 const btnSignup = document.querySelectorAll(".cta");
-const userName = document.querySelector(".full-name");
+const userName = document.querySelectorAll(".full-name");
+const userName2 = document.querySelectorAll(".full-name2");
 const balanceDiv = document.querySelector(".balance-div");
 const userEmail = document.getElementById("email");
+const userEmail2 = document.getElementById("email2");
 const accountEmail = document.querySelector(".email-address");
 const homePage = document.querySelector(".general-home");
 const signUpBtn = document.querySelector(".signup-btn-submit");
-const bankDetails = document.querySelectorAll(".grid-username");
+const signUpBtn2 = document.querySelector(".signup-btn-submit2");
+const bankDetails = document.querySelector(".grid-username");
 const userNameTop = document.querySelector(".user-name");
 const topTextDescription = document.querySelector(".dashboard-description");
 const loanOverviewLink = document.querySelector(".request-loan-span-link");
@@ -22,6 +27,7 @@ const balanceIn = document.querySelector(".overview-in-figures");
 const balanceOut = document.querySelector(".overview-out-figures");
 const balanceInterest = document.querySelector(".overview-interest-figures");
 const inputLoginPin = document.getElementById("pin");
+const inputLoginPin2 = document.getElementById("pin2");
 const transferBtnSubmit = document.querySelector(".transfer-btn-submit");
 const inputTransferAmount = document.querySelector(".amount");
 const inputTransferTo = document.querySelector(".account-destination-name");
@@ -35,8 +41,10 @@ const bankUsersContainer = document.querySelector(".bank-users-details");
 const inputReceiver = document.querySelectorAll(".receiver");
 const bankAccountNumber = document.querySelectorAll(".bank-account-number");
 const ExistingUsersDetails = document.querySelector(".transfer-existing-users");
-const selectAccountBtn = document.querySelector(".select-account");
-const ExistingUsersSignup = document.querySelector(".existing-users-wrapper");
+const selectAccountBtn = document.querySelectorAll(".select-account");
+const ExistingUsersSignup = document.querySelectorAll(
+  ".existing-users-wrapper"
+);
 
 // DASHBOARD BUTTONS
 const homeBtn = document.querySelector(".home");
@@ -69,10 +77,17 @@ const hideSignup = function () {
   overlay.classList.add("disabled");
   signupPopUp.classList.add("disabled");
 };
+const hideSuccessPopup = function () {
+  successfulOverlay.classList.add("disabled");
+  successfulPopup.classList.add("disabled");
+};
 const showSignup = function () {
   signupPopUp.classList.remove("disabled");
   overlay.classList.remove("disabled");
-  console.log("clicked");
+};
+const showSuccessPopup = function () {
+  successfulPopup.classList.remove("disabled");
+  successfulOverlay.classList.remove("disabled");
 };
 const removeActiveNavExcept = function (e) {
   homeBtn.classList.remove("active-nav");
@@ -169,7 +184,7 @@ const calcDisplaySummary = function (acc) {
     .map((deposit) => (deposit * acc.interestRate) / 100)
     .filter((int) => int >= 1)
     .reduce((acc, int) => acc + int, 0);
-  balanceInterest.textContent = `${Math.abs(interest)} ₦`;
+  balanceInterest.textContent = `${Math.round(Math.abs(interest) * 10) / 10} ₦`;
 };
 // calcDisplaySummary(account1);
 
@@ -348,18 +363,116 @@ const displayUsersDetails = function () {
 };
 displayUsersDetails();
 //*********************************EVENT LISTENERS ***********************************/
-selectAccountBtn.addEventListener("click", function () {
-  ExistingUsersSignup.classList.toggle("disabled");
-});
+selectAccountBtn.forEach((btn) =>
+  btn.addEventListener("click", function () {
+    ExistingUsersSignup.forEach((btn) => btn.classList.toggle("disabled"));
+    ExistingUsersSignup.forEach((displays) => (displays.innerHTML = ""));
+    const html = `
+    <div class="grid-card template existing-user">
+              <div class="grid-slot-1">
+                <p class="existing-username">${account1.owner}</p>
+              </div>
+              <div class="grid-slot-2">
+                <div class="text-left">
+                  <p class="bank-desc">Bank</p>
+                  <p class="bank-name-duplicate">${account1.bankNameShort}</p>
+                </div>
+                <div class="text-right">
+                  <p class="bank-desc">Account Pin</p>
+                  <p class="bank-number">${account1.pin}</p>
+                </div>
+              </div>
+            </div>
+            <div class="grid-card template existing-user">
+              <div class="grid-slot-1">
+                <p class="existing-username">${account2.owner}</p>
+              </div>
+              <div class="grid-slot-2">
+                <div class="text-left">
+                  <p class="bank-desc">Bank</p>
+                  <p class="bank-name-duplicate">${account2.bankNameShort}</p>
+                </div>
+                <div class="text-right">
+                  <p class="bank-desc">Account Pin</p>
+                  <p class="bank-number">${account2.pin}</p>
+                </div>
+              </div>
+            </div>
+            <div class="grid-card template existing-user">
+              <div class="grid-slot-1">
+                <p class="existing-username">${account3.owner}</p>
+              </div>
+              <div class="grid-slot-2">
+                <div class="text-left">
+                  <p class="bank-desc">Bank</p>
+                  <p class="bank-name-duplicate">${account3.bankNameShort}</p>
+                </div>
+                <div class="text-right">
+                  <p class="bank-desc">Account Pin</p>
+                  <p class="bank-number">${account3.pin}</p>
+                </div>
+              </div>
+            </div>
+            <div class="grid-card template existing-user">
+              <div class="grid-slot-1">
+                <p class="existing-username">${account4.owner}</p>
+              </div>
+              <div class="grid-slot-2">
+                <div class="text-left">
+                  <p class="bank-desc">Bank</p>
+                  <p class="bank-name-duplicate">Firstbank</p>
+                </div>
+                <div class="text-right">
+                  <p class="bank-desc">Account Pin</p>
+                  <p class="bank-number">${account4.pin}</p>
+                </div>
+              </div>
+            </div>
+            <div class="grid-card template existing-user">
+              <div class="grid-slot-1">
+                <p class="existing-username">${account5.owner}</p>
+              </div>
+              <div class="grid-slot-2">
+                <div class="text-left">
+                  <p class="bank-desc">Bank</p>
+                  <p class="bank-name-duplicate">${account5.bankNameShort}</p>
+                </div>
+                <div class="text-right">
+                  <p class="bank-desc">Account Pin</p>
+                  <p class="bank-number">${account5.pin}</p>
+                </div>
+              </div>
+            </div>
+  `;
+    ExistingUsersSignup.forEach((displays) =>
+      displays.insertAdjacentHTML("afterbegin", html)
+    );
+  })
+);
+////// Display AccountSwitch message ///////
+const displaySuccessfulSwitch = function () {
+  successfulPopup.innerHTML = "";
+  html = `
+    <div class="verified-left flex-align">
+        <p class="template-heading"><i class="fa-sharp fa-solid fa-info"></i></p>
+        <p class="template-description">Successfully signed-in as <span class='template-desc-user'>${currentAccount.owner}</span></p>
+      </div>
+  `;
+  successfulPopup.insertAdjacentHTML("afterbegin", html);
+};
 btnSignup.forEach((btn) => btn.addEventListener("click", showSignup));
 btnClose.addEventListener("click", hideSignup);
 overlay.addEventListener("click", hideSignup);
+successfulOverlay.addEventListener("click", hideSuccessPopup);
 
 ////////// signup button //////////////
 let currentAccount;
 signUpBtn.addEventListener("click", function (e) {
   e.preventDefault();
-  currentAccount = accounts.find((acc) => acc.username === userName.value);
+  // currentAccount = accounts.find((acc) => acc.username === userName.value);to login with username.
+  currentAccount = accounts.find(
+    (acc) => acc.pin === Number(inputLoginPin.value)
+  );
   console.log(currentAccount);
   if (currentAccount?.pin === Number(inputLoginPin.value)) {
     userNameTop.textContent = `Welcome, ${capitalizeFirstLetter(
@@ -371,6 +484,35 @@ signUpBtn.addEventListener("click", function (e) {
     hideSignup();
     updateUI(currentAccount);
     displayBankDetails();
+    inputLoginPin.value = "";
+    userName.value = "";
+  }
+});
+signUpBtn2.addEventListener("click", function (e) {
+  e.preventDefault();
+  // currentAccount = accounts.find((acc) => acc.username === userName.value);to login with username.
+  currentAccount = accounts.find(
+    (acc) => acc.pin === Number(inputLoginPin2.value)
+  );
+  console.log(currentAccount);
+  if (currentAccount?.pin === Number(inputLoginPin2.value)) {
+    userNameTop.textContent = `Welcome, ${capitalizeFirstLetter(
+      currentAccount.username
+    )}`;
+    accountEmail.textContent = userEmail2.value;
+    homePage.classList.add("disabled");
+    dashboardPage.classList.remove("disabled");
+    showSuccessPopup();
+    displaySuccessfulSwitch();
+    removeActiveNavExcept(homeBtn);
+    removeActivePageExcept(homeBottom);
+    hideBalance(balanceDiv);
+    topTextDescription.textContent = `Get started with Exedus`;
+    hideSignup();
+    updateUI(currentAccount);
+    displayBankDetails();
+    inputLoginPin2.value = "";
+    userName2.value = "";
   }
 });
 ////////// transfer button //////////////
@@ -378,14 +520,14 @@ transferBtnSubmit.addEventListener("click", function (e) {
   e.preventDefault();
   const amount = Number(inputTransferAmount.value);
   const receiverAcc = accounts.find(
-    (acc) => acc.userName === inputTransferTo.value
+    (acc) => acc.username === inputTransferTo.value
   );
 
   if (
     amount > 0 &&
     receiverAcc &&
     currentAccount.balance >= amount &&
-    receiverAcc?.owner !== currentAccount.owner
+    receiverAcc?.username !== currentAccount.username
   ) {
     currentAccount.movements.push(-amount);
     receiverAcc.movements.push(amount);
