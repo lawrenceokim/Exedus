@@ -34,6 +34,9 @@ const bankName = document.querySelectorAll(".bank-name");
 const bankUsersContainer = document.querySelector(".bank-users-details");
 const inputReceiver = document.querySelectorAll(".receiver");
 const bankAccountNumber = document.querySelectorAll(".bank-account-number");
+const ExistingUsersDetails = document.querySelector(".transfer-existing-users");
+const selectAccountBtn = document.querySelector(".select-account");
+const ExistingUsersSignup = document.querySelector(".existing-users-wrapper");
 
 // DASHBOARD BUTTONS
 const homeBtn = document.querySelector(".home");
@@ -133,10 +136,8 @@ const account4 = {
   accountNumber: 4009445243,
   accountType: "Dollar Account",
 };
-const accountUserOwner = userName.value;
-console.log(accountUserOwner);
 const account5 = {
-  owner: accountUserOwner,
+  owner: "Guest",
   pin: 5555,
   interestRate: 1.2,
   movements: [100, 200, 250, 4000, -1000, 600],
@@ -182,6 +183,13 @@ const createUsername = function (accs) {
 };
 createUsername(accounts);
 
+function capitalizeFirstLetter(string) {
+  const first = string.split(" ")[0].charAt(0).toUpperCase();
+  const others = string.split(" ")[0].slice(1);
+  console.log(first, others);
+  return first + others;
+}
+
 const updateUI = function (acc) {
   calcDisplayBalance(acc);
   calcDisplaySummary(acc);
@@ -224,8 +232,125 @@ const displayBankDetails = function () {
   `;
   bankUsersContainer.insertAdjacentHTML("afterbegin", html);
 };
+const displayUsersDetails = function () {
+  transferExistingUsers.innerHTML = "";
 
+  const html = `
+            <div class="grid-card template">
+              <div class="grid-slot-1">
+                <p class="existing-username">${account1.owner}</p>
+                <div class="account-type"><span class="account-flag"><img src="/images/Property 1=usa-flag-2496027.png"
+                      alt="usa flag"></span>${account1.accountType}</div>
+                <i class="fa-regular fa-trash-can"></i>
+              </div>
+              <div class="grid-slot-2">
+                <div class="text-left">
+                  <p class="bank-desc">Bank Name</p>
+                  <p class="bank-name-duplicate">${account1.bankNameShort}</p>
+                </div>
+                <div class="text-right">
+                  <p class="bank-desc">Bank Account Number</p>
+                  <p class="bank-number">${account1.accountNumber}</p>
+                </div>
+              </div>
+              <div class="grid-slot-3">
+                <div class="text-left">
+                  <p class="bank-desc">${account1.pin}</p>
+                </div>
+                <div class="text-right">
+                  <button class="cta-btn2">Login</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid-card template">
+              <div class="grid-slot-1">
+                <p class="existing-username">${account2.owner}</p>
+                <div class="account-type"><span class="account-flag"><img
+                      src="/images/Property 1=nigeria-flag-2495945.png" alt="usa flag"></span>${account2.accountType}</div>
+                <i class="fa-regular fa-trash-can"></i>
+              </div>
+              <div class="grid-slot-2">
+                <div class="text-left">
+                  <p class="bank-desc">Bank Name</p>
+                  <p class="bank-name-duplicate">${account2.bankNameShort}</p>
+                </div>
+                <div class="text-right">
+                  <p class="bank-desc">Bank Account Number</p>
+                  <p class="bank-number">${account2.accountNumber}</p>
+                </div>
+              </div>
+              <div class="grid-slot-3">
+                <div class="text-left">
+                  <p class="bank-desc">${account2.pin}</p>
+                </div>
+                <div class="text-right">
+                  <button class="cta-btn2">Login</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid-card template">
+              <div class="grid-slot-1">
+                <p class="existing-username">${account3.owner}</p>
+                <div class="account-type"><span class="account-flag"><img
+                      src="/images/Property 1=nigeria-flag-2495945.png" alt="usa flag"></span>${account3.accountType}</div>
+                <i class="fa-regular fa-trash-can"></i>
+              </div>
+              <div class="grid-slot-2">
+                <div class="text-left">
+                  <p class="bank-desc">Bank Name</p>
+                  <p class="bank-name-duplicate">${account3.bankNameShort}</p>
+                </div>
+                <div class="text-right">
+                  <p class="bank-desc">Bank Account Number</p>
+                  <p class="bank-number">${account3.accountNumber}</p>
+                </div>
+              </div>
+              <div class="grid-slot-3">
+                <div class="text-left">
+                  <p class="bank-desc">${account3.pin}</p>
+                </div>
+                <div class="text-right">
+                  <button class="cta-btn2">Login</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid-card template">
+              <div class="grid-slot-1">
+                <p class="existing-username">${account4.owner}</p>
+                <div class="account-type"><span class="account-flag"><img src="/images/Property 1=usa-flag-2496027.png"
+                      alt="usa flag"></span>${account4.accountType}</div>
+                <i class="fa-regular fa-trash-can"></i>
+              </div>
+              <div class="grid-slot-2">
+                <div class="text-left">
+                  <p class="bank-desc">Bank Name</p>
+                  <p class="bank-name-duplicate">${account4.bankNameShort}</p>
+                </div>
+                <div class="text-right">
+                  <p class="bank-desc">Bank Account Number</p>
+                  <p class="bank-number">${account4.accountNumber}</p>
+                </div>
+              </div>
+              <div class="grid-slot-3">
+                <div class="text-left">
+                  <p class="bank-desc">${account4.pin}</p>
+                </div>
+                <div class="text-right">
+                  <button class="cta-btn2">Login</button>
+                </div>
+              </div>
+            </div>
+  `;
+  transferExistingUsers.insertAdjacentHTML("afterbegin", html);
+};
+displayUsersDetails();
 //*********************************EVENT LISTENERS ***********************************/
+selectAccountBtn.addEventListener("click", function () {
+  ExistingUsersSignup.classList.toggle("disabled");
+});
 btnSignup.forEach((btn) => btn.addEventListener("click", showSignup));
 btnClose.addEventListener("click", hideSignup);
 overlay.addEventListener("click", hideSignup);
@@ -234,14 +359,12 @@ overlay.addEventListener("click", hideSignup);
 let currentAccount;
 signUpBtn.addEventListener("click", function (e) {
   e.preventDefault();
-  currentAccount = accounts.find(
-    (acc) => acc.pin === Number(inputLoginPin.value)
-  );
+  currentAccount = accounts.find((acc) => acc.username === userName.value);
   console.log(currentAccount);
   if (currentAccount?.pin === Number(inputLoginPin.value)) {
-    userNameTop.textContent = `Welcome, ${
-      currentAccount.username.split(" ")[0]
-    }`;
+    userNameTop.textContent = `Welcome, ${capitalizeFirstLetter(
+      currentAccount.username
+    )}`;
     accountEmail.textContent = userEmail.value;
     homePage.classList.add("disabled");
     dashboardPage.classList.remove("disabled");
@@ -255,7 +378,7 @@ transferBtnSubmit.addEventListener("click", function (e) {
   e.preventDefault();
   const amount = Number(inputTransferAmount.value);
   const receiverAcc = accounts.find(
-    (acc) => acc.owner.toLowerCase() === inputTransferTo.value
+    (acc) => acc.userName === inputTransferTo.value
   );
 
   if (
@@ -302,9 +425,8 @@ loanBtnSubmit.addEventListener("click", function (e) {
 
 const displayMovements = function (movement) {
   containerMovements.innerHTML = "";
-  const inputedReceiver = inputReceiver.forEach((acc) => acc.value);
-  const displayBeneficiary = movementsBeneficiary.forEach(
-    (acc) => (acc.textContent = inputedReceiver)
+  const receiverAcc = accounts.find(
+    (acc) => acc.username === loanReceiverName.value
   );
   movement.forEach(function (mov) {
     const type = mov > 0 ? "deposit" : "withdrawal";
@@ -313,7 +435,7 @@ const displayMovements = function (movement) {
             <div class="movements-reference-value flex-align">${Math.floor(
               100000 + Math.random() * 200000
             )}</div>
-            <div class="movements-beneficiary flex-align">${displayBeneficiary}</div>
+            <div class="movements-beneficiary flex-align">unknown</div>
             <div class="movements-type-${type} movements-type-style flex-align">${type}</div>
             <div class="movements-value flex-align">${Math.abs(mov)} ₦</div>
             <div class="movements-date flex-align">3 days ago</div>
