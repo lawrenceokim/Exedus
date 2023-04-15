@@ -45,9 +45,9 @@
   transition-duration: 500ms;
   cursor: pointer;
 }
-.cta-btn2 {
+/* .cta-btn2 {
   margin-left: 1rem;
-}
+} */
 .cta-btn2 {
   background: #ffffff00;
   border: 0.05rem solid#ffffff1e;

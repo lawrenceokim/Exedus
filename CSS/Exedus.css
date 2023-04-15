@@ -59,6 +59,10 @@ header {
   height: 9rem;
   width: 100%;
 }
+.desktop-nav {
+  display: flex;
+  gap: 10rem;
+}
 .desktop-nav-list {
   list-style: none;
   display: flex;
@@ -95,10 +99,33 @@ header {
 .desktop-nav-link a:active::after {
   width: 100%;
 }
+/*MOBILE NAV*/
+.btn-mobile-nav {
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: none;
+}
+
+.icon-mobile-nav {
+  height: 4.8rem;
+  width: 4.8rem;
+  font-size: 4rem;
+  color: #ffffffa3;
+}
+
+.icon-mobile-nav[name="menu-outline"] {
+  /*selecting an element with the name property. the [] is what is used for that. */
+  display: block;
+}
+
+.icon-mobile-nav[name="close-outline"] {
+  /*selecting an element with the name property. the [] is what is used for that. */
+  display: none;
+}
 
 /* MAIN BODY */
 .section-hero {
-  /* background-image: url(/images/boliviainteligente-vZg_skZOWIU-unsplash.jpg); */
   background: linear-gradient(to bottom, #010119, #0000006d),
     url(/images/micheile-henderson-SoT4-mZhyhE-unsplash.jpg);
   background-size: cover;
@@ -145,6 +172,10 @@ header {
   justify-content: space-between;
   width: 55%;
   gap: 0.5rem;
+}
+.hero-btn {
+  display: flex;
+  gap: 2rem;
 }
 .hero-arrow {
   margin-left: 0.2rem;
@@ -231,6 +262,9 @@ header {
 }
 .card-heading {
   margin-bottom: 1.7rem;
+}
+.card-desc-span {
+  font-weight: 500;
 }
 .cta-btn.card-btn {
   margin-right: 0rem;
@@ -470,9 +504,9 @@ body .overlay {
   font-family: inherit;
   color: inherit;
   background: #ffffff;
-  border: 1px solid #d2d6d5;
-  border-radius: 5px;
-  box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+  border: 0.1rem solid #d2d6d5;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.1rem 0.2rem rgb(0 0 0 / 10%);
   flex-grow: 1;
 }
 .signup-btn-submit {

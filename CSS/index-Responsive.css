@@ -1,0 +1,493 @@
+html {
+  font-size: 62.5%;
+}
+
+@media (max-width: 1054px) {
+  .page-width {
+    max-width: 87rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .card {
+    height: 43rem;
+    padding: 1rem;
+  }
+  .existing-users-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 31.5rem;
+    width: 45%;
+    overflow-y: scroll;
+    position: absolute;
+    top: 19rem;
+    right: 1rem;
+    margin-top: 2rem;
+  }
+  .grid-slot-1 {
+    gap: 1rem;
+    font-size: 1.6rem;
+    min-height: 3rem;
+  }
+  .existing-username {
+    margin-left: 1rem;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+  }
+}
+
+@media (max-width: 935px) {
+  .page-width {
+    max-width: 77rem;
+  }
+  .section-hero {
+    background-attachment: inherit;
+  }
+  .hero {
+    gap: 0rem;
+  }
+  .hero-heading {
+    font-size: 4.4rem;
+    line-height: 4.4rem;
+    margin-bottom: 2.6rem;
+  }
+  .hero-description {
+    font-size: 1.8rem;
+    margin-bottom: 2.8rem;
+  }
+  .margin-left {
+    margin-left: 3rem;
+  }
+  .how-description {
+    font-size: 3rem;
+  }
+  .template-heading {
+    font-size: 1.8rem;
+  }
+  .template-description {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+  .card {
+    height: 37rem;
+  }
+  .cta-btn,
+  .cta-btn2 {
+    font-size: 1.4rem;
+  }
+  .footer-link:link,
+  .footer-link:visited {
+    padding: 1rem;
+    width: 4rem;
+    height: 4rem;
+  }
+  .social-link {
+    height: 2rem;
+    width: 2rem;
+  }
+  .footer-container {
+    column-gap: 3.4rem;
+  }
+  body .signup-container {
+    width: 70%;
+  }
+  .existing-users-wrapper {
+    margin-top: 0rem;
+  }
+}
+
+@media (max-width: 816px) {
+  .page-width {
+    max-width: 70rem;
+  }
+
+  /*MOBILE NAVIGATION*/
+  .margin-left {
+    margin-left: 0rem;
+  }
+  .btn-mobile-nav {
+    display: block;
+    z-index: 10;
+  }
+
+  .desktop-nav {
+    position: fixed;
+    background-color: #6156f4;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    transform: translateX(100%);
+
+    transition: all 0.5s ease-in;
+    /* HIDE NAVIGATION */
+    /*setting display to none won't allow transitioning at all instead we use opacity set to 0*/
+
+    /*Steps to really hiding the navigation*/
+    /*1) Hide it visually*/
+    opacity: 0;
+
+    /*2) Make it unaccessible to mouse and keyboard*/
+    pointer-events: none;
+
+    /*3) Hide it from screen readers*/
+    visibility: hidden;
+  }
+
+  .nav-open .desktop-nav {
+    /* making navigation accessible again*/
+    opacity: 1;
+    pointer-events: auto;
+    flex-direction: column;
+    visibility: visible;
+    transform: translateX(0);
+  }
+  .desktop-nav {
+    gap: 4rem;
+  }
+  .desktop-nav-list {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .desktop-nav-link {
+    font-size: 3rem;
+  }
+
+  .desktop-nav .cta-btn {
+    font-size: 3rem;
+  }
+  .nav-open .icon-mobile-nav[name="close-outline"] {
+    /*selecting an element with the name property. the [] is what is used for that. */
+    display: block;
+  }
+
+  .nav-open .icon-mobile-nav[name="menu-outline"] {
+    /*selecting an element with the name property. the [] is what is used for that. */
+    display: none;
+  }
+
+  .desktop-nav-link:link,
+  .desktop-nav-link:visited {
+    font-size: 3rem;
+  }
+  .cards {
+    flex-direction: column;
+    gap: 5rem;
+  }
+  .card {
+    text-align: justify;
+    background: none;
+    padding: 2rem;
+    max-width: 46.4rem;
+  }
+  .footer-container {
+    column-gap: 0.4rem;
+  }
+  .copyright {
+    font-size: 1.2rem;
+  }
+  .address-heading {
+    font-size: 1.4rem;
+  }
+  .footer-nav-link:link,
+  .footer-nav-link:visited {
+    font-size: 1.4rem;
+  }
+  .address-link:link,
+  .address-link:visited {
+    font-size: 1.4rem;
+  }
+  body .signup-container {
+    padding: 2rem 1rem;
+  }
+  .existing-users-wrapper {
+    right: 2rem;
+  }
+}
+
+@media (max-width: 652px) {
+  .section-hero {
+    background: linear-gradient(to bottom, #010119, #0000006d),
+      url(/images/freestocks-2MFgs3uK7mo-unsplash.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: inherit;
+  }
+  .hero {
+    grid-template-columns: 60% 40%;
+  }
+  .footer-container {
+    grid-template-columns: 1.5fr;
+  }
+  .account-col,
+  .company-col,
+  .address-col {
+    margin-top: 4rem;
+  }
+  .address-heading {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+  }
+  .footer-nav {
+    gap: 1.4rem;
+  }
+  .copyright {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+  }
+  .address {
+    margin-bottom: 1.4rem;
+  }
+  body .signup-container {
+    width: 100%;
+    height: 100%;
+  }
+  body .overlay {
+    display: none;
+  }
+}
+@media (max-width: 535px) {
+  .page-width {
+    max-width: 47rem;
+  }
+  header {
+    height: 5.5rem;
+  }
+  .logo {
+    height: 5rem;
+  }
+  .icon-mobile-nav {
+    height: fit-content;
+    width: fit-content;
+    font-size: 3rem;
+  }
+  .icon-wrapper {
+    max-width: none;
+    max-height: none;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  .desktop-nav-link {
+    font-size: 2rem;
+  }
+  .desktop-nav .cta-btn {
+    font-size: 2rem;
+    margin-left: 2rem;
+  }
+  .nav-open .desktop-nav {
+    transform: translateX(20%);
+    align-items: flex-start;
+  }
+  .desktop-nav-list {
+    align-items: flex-start;
+    margin-left: 2rem;
+  }
+  .section-hero {
+    background: linear-gradient(to bottom, #010119, #0000006d),
+      url(/images/samantha-gades-BlIhVfXbi9s-unsplash.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  .hero {
+    grid-template-columns: 100%;
+  }
+  .hero-heading {
+    text-align: center;
+  }
+  .hero-description {
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .hero-description > span {
+    color: none;
+    font-size: 1.9rem;
+  }
+  .hero-btn {
+    gap: 0.7rem;
+    justify-content: center;
+  }
+  .card-img {
+    width: 50%;
+  }
+  .template-heading {
+    text-align: center;
+  }
+  .cta-btn.card-btn {
+    margin-top: 2rem;
+  }
+  .card {
+    max-width: max-content;
+  }
+}
+
+@media (max-width: 506px) {
+  .signup-wrapper {
+    padding: 1rem 1rem;
+  }
+  .signup-wrapper h2 {
+    font-size: 2.2rem;
+  }
+  .signup-wrapper h2 span {
+    font-size: 2.2rem;
+  }
+  .signup-wrapper > p {
+    font-size: 1.4rem;
+    margin-bottom: 3rem;
+  }
+  .signup-wrapper .btn-close {
+    top: -2rem;
+    right: -4rem;
+    padding: 0.5rem 4rem 0.5rem 0.9rem;
+    background: #bebdbda3;
+    border-radius: 2rem 0 0 2rem;
+    box-shadow: 0 0.1rem 0.3rem rgb(0 0 0 / 70%);
+  }
+  .signup-form label {
+    font-size: 1.2rem;
+  }
+  .signup-form input {
+    padding: 1rem;
+    font-size: 1.2rem;
+  }
+  .cta-btn.signup-btn-submit {
+    font-size: 1.2rem;
+  }
+  .existing-users-wrapper {
+    right: 1rem;
+    top: 13.5rem;
+    max-height: 28.5rem;
+  }
+  .grid-slot-1 {
+    font-size: 1.2rem;
+    min-height: 2.5rem;
+    justify-content: flex-end;
+  }
+  .existing-username {
+    margin-left: 0rem;
+    font-size: 1.2rem;
+    line-height: 0.6rem;
+  }
+  .grid-slot-2 {
+    font-size: 1.2rem;
+    min-height: 2rem;
+  }
+  .text-left {
+    margin-left: 1rem;
+  }
+  .bank-desc {
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+  .bank-name-duplicate,
+  .bank-number {
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .nav-open .desktop-nav {
+    transform: translateX(40%);
+  }
+  .desktop-nav-list {
+    margin-top: 5rem;
+  }
+  .desktop-nav .cta-btn {
+    font-size: 1.2rem;
+  }
+  body .signup-container {
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .signup-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .signup-form {
+    width: 100%;
+  }
+  .existing-users-wrapper {
+    right: 0rem;
+    top: 0rem;
+    max-height: 100%;
+    width: 100%;
+    position: relative;
+    overflow-y: scroll;
+    margin-top: 3rem;
+  }
+  .signup-wrapper .btn-close {
+    top: -2rem;
+    right: -4rem;
+    padding: 0rem 4rem 0rem 0.5rem;
+    font-size: 3rem;
+  }
+  .signup-wrapper > p {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  .select-account {
+    font-size: 1.2rem;
+  }
+  .section-hero {
+    background: linear-gradient(to bottom, #010119, #0000006d),
+      url(/images/eren-yildiz-o-GdYSJGg-4-unsplash.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  .hero-description {
+    font-size: 1.2rem;
+  }
+  .cta-btn,
+  .cta-btn2 {
+    font-size: 1.2rem;
+  }
+  .how-heading {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  .how-description {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  .card-img {
+    width: 77%;
+  }
+  .template-heading {
+    font-size: 1.4rem;
+  }
+  .template-description {
+    font-size: 1.4rem;
+    line-height: 1.6;
+  }
+  .address-heading {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+  .footer-container {
+    padding-top: 0rem;
+    padding-bottom: 2rem;
+  }
+  .footer-nav {
+    gap: 1.2rem;
+  }
+  .footer-nav-link:link,
+  .footer-nav-link:visited {
+    font-size: 1.2rem;
+  }
+}

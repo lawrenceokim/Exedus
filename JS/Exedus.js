@@ -45,6 +45,12 @@ const selectAccountBtn = document.querySelectorAll(".select-account");
 const ExistingUsersSignup = document.querySelectorAll(
   ".existing-users-wrapper"
 );
+const headerEl = document.querySelector(".header");
+const btnNavEl = document
+  .querySelector(".btn-mobile-nav")
+  .addEventListener("click", function () {
+    headerEl.classList.toggle("nav-open");
+  });
 
 // DASHBOARD BUTTONS
 const homeBtn = document.querySelector(".home");
