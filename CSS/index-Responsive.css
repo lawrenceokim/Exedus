@@ -276,8 +276,11 @@ html {
     margin-top: 5rem;
     border-top: 0.3rem solid red;
   }
+  .signup-wrapper h2 {
+    margin-top: 4rem;
+  }
   .signup-wrapper .btn-close {
-    top: -2rem;
+    top: 0rem;
     right: -4rem;
     padding: 0.5rem 4rem 0.5rem 0.9rem;
     background: #bebdbda3;
@@ -383,14 +386,6 @@ html {
     font-size: 1.4rem;
     margin-bottom: 3rem;
   }
-  .signup-wrapper .btn-close {
-    top: -2rem;
-    right: -4rem;
-    padding: 0.5rem 4rem 0.5rem 0.9rem;
-    background: #bebdbda3;
-    border-radius: 2rem 0 0 2rem;
-    box-shadow: 0 0.1rem 0.3rem rgb(0 0 0 / 70%);
-  }
   .signup-form label {
     font-size: 1.2rem;
   }
@@ -434,7 +429,7 @@ html {
     transform: translateX(40%);
   }
   .desktop-nav-list {
-    margin-top: 5rem;
+    margin-top: 7rem;
   }
   .desktop-nav .cta-btn {
     font-size: 1.2rem;
@@ -463,9 +458,6 @@ html {
     margin-top: 3rem;
   }
   .signup-wrapper .btn-close {
-    top: -2rem;
-    right: -4rem;
-    padding: 0rem 4rem 0rem 0.5rem;
     font-size: 3rem;
   }
   .signup-wrapper > p {
