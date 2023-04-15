@@ -63,6 +63,9 @@ header {
   display: flex;
   gap: 10rem;
 }
+.desktop-nav-logo {
+  display: none;
+}
 .desktop-nav-list {
   list-style: none;
   display: flex;
