@@ -528,3 +528,6 @@ body .overlay {
 .grid-card.template.existing-user {
   border: 1px solid #d2d6d5;
 }
+.signup-img-div {
+  display: none;
+}

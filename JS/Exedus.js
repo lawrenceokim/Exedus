@@ -51,6 +51,7 @@ const btnNavEl = document
   .addEventListener("click", function () {
     headerEl.classList.toggle("nav-open");
   });
+const signupImg = document.querySelector(".signup-img-div");
 
 // DASHBOARD BUTTONS
 const homeBtn = document.querySelector(".home");
@@ -372,6 +373,7 @@ displayUsersDetails();
 selectAccountBtn.forEach((btn) =>
   btn.addEventListener("click", function () {
     ExistingUsersSignup.forEach((btn) => btn.classList.toggle("disabled"));
+    signupImg.classList.toggle("disabled");
     ExistingUsersSignup.forEach((displays) => (displays.innerHTML = ""));
     const html = `
     <div class="grid-card template existing-user">

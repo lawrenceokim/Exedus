@@ -14,6 +14,9 @@ html {
     height: 43rem;
     padding: 1rem;
   }
+  body .signup-container {
+    width: 80%;
+  }
   .existing-users-wrapper {
     display: flex;
     flex-direction: column;
@@ -24,7 +27,7 @@ html {
     position: absolute;
     top: 19rem;
     right: 1rem;
-    margin-top: 2rem;
+    margin-top: 0rem;
   }
   .grid-slot-1 {
     gap: 1rem;
@@ -294,6 +297,9 @@ html {
   .select-account {
     font-size: 1.4rem;
   }
+  .signup-img-div {
+    display: block;
+  }
 }
 @media (max-width: 535px) {
   .page-width {
@@ -394,7 +400,7 @@ html {
     font-size: 1.2rem;
   }
   .cta-btn.signup-btn-submit {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
   .grid-slot-1 {
     font-size: 1.2rem;
