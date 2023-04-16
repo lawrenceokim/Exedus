@@ -193,7 +193,7 @@ html {
     text-align: justify;
     background: none;
     padding: 2rem;
-    width: 40rem;
+    width: 43rem;
   }
   .icon-wrapper {
     overflow: unset;
@@ -339,7 +339,6 @@ html {
   }
   .icon-wrapper {
     max-width: none;
-    max-height: none;
     width: 100%;
     margin-bottom: 2rem;
   }
@@ -395,9 +394,6 @@ html {
   }
   .cta-btn.card-btn {
     margin-top: 2rem;
-  }
-  .card {
-    max-width: max-content;
   }
 }
 
@@ -524,7 +520,7 @@ html {
     font-weight: 700;
   }
   .card-img {
-    width: 77%;
+    width: 60%;
   }
   .template-heading {
     font-size: 1.4rem;
@@ -547,5 +543,9 @@ html {
   .footer-nav-link:link,
   .footer-nav-link:visited {
     font-size: 1.2rem;
+  }
+  .card {
+    width: 35rem;
+    height: 34rem;
   }
 }

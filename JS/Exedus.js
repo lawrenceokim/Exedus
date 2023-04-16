@@ -1,4 +1,6 @@
 "use-strict";
+const btnNavOpen = document.querySelector(".btn-mobile-nav");
+const btnNavClose = document.querySelector(".nav-btn-close");
 const overlay = document.querySelector(".overlay");
 const successfulOverlay = document.querySelector(".successful-overlay");
 const btnClose = document.querySelector(".btn-close");
@@ -73,6 +75,13 @@ const transferExistingUsers = document.querySelector(
   ".transfer-existing-users"
 );
 
+////////// mobile nav button //////////////
+btnNavOpen.addEventListener("click", function () {
+  headerEl.classList.add("nav-open");
+});
+btnNavClose.addEventListener("click", function () {
+  headerEl.classList.remove("nav-open");
+});
 //****************FUNCTIONS *************************************/
 const hideSignup = function () {
   overlay.classList.add("disabled");
@@ -114,19 +123,6 @@ const removeActivePageExcept = function (e) {
 };
 const showBalance = (e) => e.classList.remove("disabled");
 const hideBalance = (e) => e.classList.add("disabled");
-
-////////// mobile nav button //////////////
-const btnNavOpen = document
-  .querySelector(".btn-mobile-nav")
-  .addEventListener("click", function () {
-    headerEl.classList.add("nav-open");
-  });
-const btnNavClose = document
-  .querySelector(".nav-btn-close")
-  .addEventListener("click", function () {
-    headerEl.classList.remove("nav-open");
-  });
-
 //////////////////// ACCOUNTS /////////////////////////////////////
 const account1 = {
   owner: "Jessica Davis",
