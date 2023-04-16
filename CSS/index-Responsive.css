@@ -269,7 +269,7 @@ html {
   .signup-form {
     padding: 1.1rem;
     width: 100%;
-    background: #00f2;
+    background: #0e27a517;
     border-radius: 1rem;
   }
   .existing-users-wrapper {
@@ -290,7 +290,6 @@ html {
     top: 0rem;
     right: -4rem;
     padding: 0.5rem 4rem 0.5rem 0.9rem;
-    background: #00f2;
     border-radius: 2rem 0 0 2rem;
     box-shadow: 0 0.1rem 0.3rem rgb(0 0 0 / 70%);
   }
