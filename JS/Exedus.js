@@ -115,6 +115,18 @@ const removeActivePageExcept = function (e) {
 const showBalance = (e) => e.classList.remove("disabled");
 const hideBalance = (e) => e.classList.add("disabled");
 
+////////// mobile nav button //////////////
+const btnNavOpen = document
+  .querySelector(".btn-mobile-nav")
+  .addEventListener("click", function () {
+    headerEl.classList.add("nav-open");
+  });
+const btnNavClose = document
+  .querySelector(".nav-btn-close")
+  .addEventListener("click", function () {
+    headerEl.classList.remove("nav-open");
+  });
+
 //////////////////// ACCOUNTS /////////////////////////////////////
 const account1 = {
   owner: "Jessica Davis",
@@ -467,17 +479,6 @@ btnClose.addEventListener("click", hideSignup);
 overlay.addEventListener("click", hideSignup);
 successfulOverlay.addEventListener("click", hideSuccessPopup);
 
-////////// mobile nav button //////////////
-const btnNavOpen = document
-  .querySelector(".btn-mobile-nav")
-  .addEventListener("click", function () {
-    headerEl.classList.add("nav-open");
-  });
-const btnNavClose = document
-  .querySelector(".nav-btn-close")
-  .addEventListener("click", function () {
-    headerEl.classList.remove("nav-open");
-  });
 ////////// signup button //////////////
 let currentAccount;
 signUpBtn.addEventListener("click", function (e) {
