@@ -77,7 +77,7 @@ html {
     line-height: 1.2;
   }
   .card {
-    height: 37rem;
+    height: 40rem;
   }
   .cta-btn,
   .cta-btn2 {
@@ -193,13 +193,14 @@ html {
     text-align: justify;
     background: none;
     padding: 2rem;
-    width: 43rem;
+    width: 65%;
+    height: 100%;
   }
   .icon-wrapper {
     overflow: unset;
   }
   .card-img {
-    width: 115%;
+    width: 55%;
     height: auto;
   }
   .footer-container {
@@ -241,6 +242,15 @@ html {
   }
   .hero {
     grid-template-columns: 60% 40%;
+  }
+  .card {
+    height: 100%;
+  }
+  .card-img {
+    width: 60%;
+  }
+  .template-heading {
+    text-align: center;
   }
   .footer-container {
     grid-template-columns: 1.5fr;
@@ -338,7 +348,6 @@ html {
     font-size: 3rem;
   }
   .icon-wrapper {
-    max-width: none;
     width: 100%;
     margin-bottom: 2rem;
   }
@@ -386,8 +395,12 @@ html {
     gap: 0.7rem;
     justify-content: center;
   }
+  .card {
+    width: 75%;
+    height: 100%;
+  }
   .card-img {
-    width: 50%;
+    width: 60%;
   }
   .template-heading {
     text-align: center;
@@ -400,6 +413,13 @@ html {
 @media (max-width: 506px) {
   .logo-close-btn {
     width: 48%;
+  }
+  .card {
+    width: 90%;
+    height: 100%;
+  }
+  .card-img {
+    width: 55%;
   }
   .signup-wrapper {
     padding: 1rem 1rem;
@@ -545,7 +565,14 @@ html {
     font-size: 1.2rem;
   }
   .card {
-    width: 35rem;
-    height: 34rem;
+    width: 100%;
+    height: 100%;
+  }
+  .contacts {
+    font-size: 1.2rem;
+  }
+  .address-link:link,
+  .address-link:visited {
+    font-size: 1.2rem;
   }
 }

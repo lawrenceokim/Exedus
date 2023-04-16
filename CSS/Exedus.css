@@ -241,14 +241,13 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 19rem;
   max-height: 13rem;
   margin-bottom: 3.9rem;
   overflow: hidden;
 }
 .card-img {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 .card-heading {
   margin-bottom: 1.7rem;
@@ -260,7 +259,7 @@ header {
   margin-right: 0rem;
   display: flex;
   align-self: flex-start;
-  margin-top: auto;
+  margin-top: 3rem;
 }
 
 /* FOOTER */
