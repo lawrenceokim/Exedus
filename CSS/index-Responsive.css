@@ -121,7 +121,7 @@ html {
   .desktop-nav {
     position: fixed;
     background: linear-gradient(to bottom, #010119, #0000006d),
-      url(/images/pawel-czerwinski-FP_3L2fvHog-unsplash.jpg);
+      url(/images/pawel-czerwinski-FP_3L2fvHog-unsplash.webp);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -134,7 +134,8 @@ html {
     gap: 4rem;
     align-items: flex-start;
     flex-direction: column;
-    width: 0%;
+    border-radius: 1rem 0 0 1rem;
+    /* width: 0%; */
     transition-duration: 400ms;
     opacity: 0;
     pointer-events: none;
@@ -348,7 +349,7 @@ html {
   }
   .section-hero {
     background: linear-gradient(to bottom, #010119, #0000006d),
-      url(/images/samantha-gades-BlIhVfXbi9s-unsplash.jpg);
+      url(/images/samantha-gades-BlIhVfXbi9s-unsplash.webp);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
