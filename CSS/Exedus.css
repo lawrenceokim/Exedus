@@ -502,21 +502,31 @@ body .overlay {
   margin-top: 2.5rem;
 }
 .existing-users-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  position: absolute;
+  top: 16rem;
+  right: 3rem;
+}
+.grid-card-container {
   max-height: 31.5rem;
   width: 40%;
   overflow-y: scroll;
-  position: absolute;
-  top: 19rem;
-  right: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
 }
-.existing-users-container {
+/* .existing-users-container {
   width: 50%;
-}
+} */
 .grid-card.template.existing-user {
   border: 1px solid #d2d6d5;
+}
+.grid-card-desc {
+  display: block;
+  opacity: 0;
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
 }
 .signup-img-div {
   display: none;

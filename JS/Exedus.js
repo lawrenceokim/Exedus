@@ -382,7 +382,9 @@ selectAccountBtn.forEach((btn) =>
     signupImg.classList.toggle("disabled");
     ExistingUsersSignup.forEach((displays) => (displays.innerHTML = ""));
     const html = `
-    <div class="grid-card template existing-user">
+          <p class="grid-card-desc">Choose account to log-in as below.</p>
+          <div class="grid-card-container">
+          <div class="grid-card template existing-user">
               <div class="grid-slot-1">
                 <p class="existing-username">${account1.owner}</p>
               </div>
@@ -455,6 +457,7 @@ selectAccountBtn.forEach((btn) =>
                   <p class="bank-desc">Account Pin</p>
                   <p class="bank-number">${account5.pin}</p>
                 </div>
+              </div>
               </div>
             </div>
   `;

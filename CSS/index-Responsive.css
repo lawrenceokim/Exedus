@@ -24,11 +24,11 @@ html {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    max-height: 31.5rem;
+    max-height: 34.5rem;
     width: 45%;
     overflow-y: scroll;
     position: absolute;
-    top: 19rem;
+    top: 16rem;
     right: 1rem;
     margin-top: 0rem;
   }
@@ -138,7 +138,7 @@ html {
     align-items: flex-start;
     flex-direction: column;
     border-radius: 1rem 0 0 1rem;
-    /* width: 0%; */
+    transform: translateX(100%);
     transition-duration: 400ms;
     opacity: 0;
     pointer-events: none;
@@ -148,22 +148,23 @@ html {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
     margin-top: 5rem;
+    width: 50%;
     margin-left: 2rem;
+    margin-right: 2rem;
   }
   .nav-btn-close {
     font-size: 5rem;
     color: #fff;
     cursor: pointer;
     font-weight: 100;
-    margin-right: 4rem;
   }
   .nav-open .desktop-nav {
     opacity: 1;
     pointer-events: auto;
     visibility: visible;
-    width: 45%;
+    width: 100%;
+    transform: translateX(45%);
   }
   .desktop-nav-list {
     flex-direction: column;
@@ -291,7 +292,9 @@ html {
     position: relative;
     overflow-y: scroll;
     margin-top: 5rem;
-    border-top: 0.9rem solid red;
+    padding: 1rem;
+    background: #0e27a517;
+    border-top: none;
     border-radius: 1rem 1rem;
   }
   .signup-wrapper h2 {
@@ -307,6 +310,10 @@ html {
   .signup-wrapper > p {
     font-size: 1.6rem;
     font-weight: 400;
+  }
+  .grid-card-desc {
+    opacity: 1;
+    font-size: 1.8rem;
   }
   .select-account {
     font-size: 1.6rem;
@@ -348,10 +355,6 @@ html {
   .desktop-nav .cta-btn {
     font-size: 2rem;
     margin-left: 2rem;
-  }
-  .nav-open .desktop-nav {
-    align-items: flex-start;
-    width: 50%;
   }
   .desktop-nav-list {
     align-items: flex-start;
@@ -399,6 +402,9 @@ html {
 }
 
 @media (max-width: 506px) {
+  .logo-close-btn {
+    width: 48%;
+  }
   .signup-wrapper {
     padding: 1rem 1rem;
   }
@@ -421,6 +427,9 @@ html {
   }
   .cta-btn.signup-btn-submit {
     font-size: 1.8rem;
+  }
+  .grid-card-desc {
+    font-size: 1.6rem;
   }
   .grid-slot-1 {
     font-size: 1.2rem;
@@ -454,9 +463,6 @@ html {
 @media (max-width: 400px) {
   .desktop-nav {
     gap: 3rem;
-  }
-  .nav-open .desktop-nav {
-    width: 60%;
   }
   .desktop-nav-list {
     margin-top: 0rem;
