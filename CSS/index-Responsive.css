@@ -105,6 +105,10 @@ html {
   .page-width {
     max-width: 70rem;
   }
+  body header {
+    position: sticky;
+    top: 0;
+  }
 
   /*MOBILE NAVIGATION*/
   .margin-left {
@@ -112,59 +116,64 @@ html {
   }
   .btn-mobile-nav {
     display: block;
-    z-index: 10;
   }
 
   .desktop-nav {
     position: fixed;
-    background-color: #3f33ef;
+    background: linear-gradient(to bottom, #010119, #0000006d),
+      url(/images/pawel-czerwinski-FP_3L2fvHog-unsplash.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: initial;
     top: 0;
-    left: 0;
-    width: 100vw;
+    right: 0;
+    width: 100%;
     height: 100vh;
     display: flex;
-    gap: 7rem;
+    gap: 4rem;
     align-items: flex-start;
     flex-direction: column;
-    transform: translateX(100%);
-    transition: all 0.5s ease-in;
+    width: 0%;
+    transition-duration: 400ms;
     opacity: 0;
     pointer-events: none;
     visibility: hidden;
   }
-  .desktop-nav-logo {
-    display: block;
-    margin-top: 8rem;
+  .logo-close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 5rem;
     margin-left: 2rem;
+  }
+  .nav-btn-close {
+    font-size: 5rem;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 100;
+    margin-right: 4rem;
   }
   .nav-open .desktop-nav {
     opacity: 1;
     pointer-events: auto;
     visibility: visible;
-    transform: translateX(30%);
+    width: 45%;
   }
   .desktop-nav-list {
     flex-direction: column;
     align-items: flex-start;
-    gap: 5rem;
+    gap: 3rem;
     margin-left: 2rem;
   }
   .desktop-nav-link {
-    font-size: 3rem;
+    font-size: 1.6rem;
   }
 
   .desktop-nav .cta-btn {
-    font-size: 3rem;
+    font-size: 2rem;
     margin-left: 2rem;
-  }
-  .nav-open .icon-mobile-nav[name="close-outline"] {
-    /*selecting an element with the name property. the [] is what is used for that. */
-    display: block;
-  }
-
-  .nav-open .icon-mobile-nav[name="menu-outline"] {
-    /*selecting an element with the name property. the [] is what is used for that. */
-    display: none;
   }
 
   .desktop-nav-link:link,
@@ -207,6 +216,9 @@ html {
 }
 
 @media (max-width: 652px) {
+  .icon-mobile-nav {
+    font-size: 4rem;
+  }
   .section-hero {
     background: linear-gradient(to bottom, #010119, #0000006d),
       url(/images/freestocks-2MFgs3uK7mo-unsplash.webp);
@@ -255,7 +267,10 @@ html {
     width: 100%;
   }
   .signup-form {
+    padding: 1.1rem;
     width: 100%;
+    background: #00f2;
+    border-radius: 1rem;
   }
   .existing-users-wrapper {
     right: 0rem;
@@ -275,7 +290,7 @@ html {
     top: 0rem;
     right: -4rem;
     padding: 0.5rem 4rem 0.5rem 0.9rem;
-    background: #bebdbda3;
+    background: #00f2;
     border-radius: 2rem 0 0 2rem;
     box-shadow: 0 0.1rem 0.3rem rgb(0 0 0 / 70%);
   }
@@ -284,7 +299,7 @@ html {
     font-weight: 400;
   }
   .select-account {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
   .signup-img-div {
     display: block;
@@ -325,8 +340,8 @@ html {
     margin-left: 2rem;
   }
   .nav-open .desktop-nav {
-    transform: translateX(40%);
     align-items: flex-start;
+    width: 50%;
   }
   .desktop-nav-list {
     align-items: flex-start;
@@ -431,7 +446,7 @@ html {
     gap: 3rem;
   }
   .nav-open .desktop-nav {
-    transform: translateX(40%);
+    width: 60%;
   }
   .desktop-nav-list {
     margin-top: 0rem;
@@ -448,9 +463,6 @@ html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
-  }
-  .signup-form {
     width: 100%;
   }
   .existing-users-wrapper {
@@ -470,7 +482,7 @@ html {
     font-weight: 400;
   }
   .select-account {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
   .section-hero {
     background: linear-gradient(to bottom, #010119, #0000006d),

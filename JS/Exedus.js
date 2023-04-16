@@ -46,13 +46,7 @@ const ExistingUsersSignup = document.querySelectorAll(
   ".existing-users-wrapper"
 );
 const headerEl = document.querySelector(".header");
-const btnNavEl = document
-  .querySelector(".btn-mobile-nav")
-  .addEventListener("click", function () {
-    headerEl.classList.toggle("nav-open");
-  });
 const signupImg = document.querySelector(".signup-img-div");
-
 // DASHBOARD BUTTONS
 const homeBtn = document.querySelector(".home");
 const accountBtn = document.querySelector(".account");
@@ -473,6 +467,17 @@ btnClose.addEventListener("click", hideSignup);
 overlay.addEventListener("click", hideSignup);
 successfulOverlay.addEventListener("click", hideSuccessPopup);
 
+////////// mobile nav button //////////////
+const btnNavOpen = document
+  .querySelector(".btn-mobile-nav")
+  .addEventListener("click", function () {
+    headerEl.classList.add("nav-open");
+  });
+const btnNavClose = document
+  .querySelector(".nav-btn-close")
+  .addEventListener("click", function () {
+    headerEl.classList.remove("nav-open");
+  });
 ////////// signup button //////////////
 let currentAccount;
 signUpBtn.addEventListener("click", function (e) {
