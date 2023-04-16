@@ -2,7 +2,22 @@ html {
   font-size: 62.5%;
 }
 
+@media (min-width: 1259px) {
+  body .signup-container {
+    width: 80%;
+  }
+  .existing-users-wrapper {
+    min-width: 45%;
+  }
+}
+
 @media (max-width: 1258px) {
+  body .signup-container {
+    width: 70%;
+  }
+  .existing-users-wrapper {
+    width: 45%;
+  }
 }
 @media (max-width: 1054px) {
   .page-width {
@@ -28,7 +43,7 @@ html {
     width: 45%;
     overflow-y: scroll;
     position: absolute;
-    top: 16rem;
+    top: 15rem;
     right: 1rem;
     margin-top: 0rem;
   }
