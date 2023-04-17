@@ -145,6 +145,12 @@ body .overlay {
   border-bottom: 0.01rem solid #b8c9c980;
   margin-top: 1rem;
 }
+.dashboard-btn-close {
+  display: block;
+  font-size: 4rem;
+  cursor: pointer;
+  z-index: 50;
+}
 .img-div img {
   max-width: 12rem;
 }
@@ -352,7 +358,7 @@ body .overlay {
   font-weight: 500;
   font-size: 1.4rem;
   line-height: 2.2rem;
-  color: var(--coloredheadingsmall);
+  color: var(--textparagraph);
 }
 .account-status-complete {
   background: #36a50e58;

@@ -1,0 +1,130 @@
+@media (max-width: 425px) {
+  .general-dashboard {
+    font-size: 1.4rem;
+    display: flex;
+  }
+  .navigation {
+    position: fixed;
+    width: 65%;
+    height: 100vh;
+    opacity: 0;
+    transform: translateX(-100%);
+    overflow-y: scroll;
+  }
+  .open .navigation {
+    opacity: 1;
+    transform: translateX(-0%);
+  }
+  .displays {
+    overflow-x: hidden;
+    transition: all 1s;
+  }
+  .paddingLR {
+    max-width: 100%;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+  .user-name {
+    font-size: 1.4rem;
+  }
+  .dashboard-description {
+    font-size: 2.4rem;
+  }
+  .balance-div {
+    display: none;
+  }
+
+  /********* my home display ************/
+  .verified {
+    flex-direction: column-reverse;
+  }
+  .verified-left {
+    width: 100%;
+    text-align: left;
+  }
+  .verified-right {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    margin-right: auto;
+  }
+  .template .template-heading {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    text-align: left;
+  }
+  .verified-left button {
+    width: 70%;
+  }
+  .service-overview .template-heading {
+    text-align: left;
+  }
+  .service-cards {
+    flex-direction: column;
+  }
+  .service-card {
+    padding: 2rem;
+    width: 100%;
+    height: 100%;
+  }
+  .service-card i {
+    padding: 1.5rem;
+    font-size: 3rem;
+  }
+  .service-card .template-heading {
+    font-size: 1.8rem;
+  }
+  .template .template-description {
+    font-size: 1.4rem;
+  }
+  .img-div {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+  }
+  .img-div,
+  .home-div,
+  .transaction-div,
+  .profile-div,
+  .settings-div {
+    border-bottom: none;
+  }
+
+  /***************** my account display ******** */
+  .account-bottom-heading {
+    margin: 1rem 1rem 1rem 0;
+  }
+  .account-user-name {
+    font-size: 2rem;
+  }
+  .btns-display {
+    grid-template-columns: 1fr;
+  }
+  .grid-card {
+    width: 100%;
+  }
+  .grid-slot-3 {
+    width: 100%;
+  }
+  .grid-slot-3 .text-left {
+    width: 50%;
+  }
+  .text-right {
+    margin-right: 1rem;
+    width: 50%;
+  }
+  .text-middle.hide {
+    display: none;
+  }
+  .text-middle.unhide {
+    display: block;
+  }
+  .account-grid-slot-2 {
+    width: 100%;
+  }
+  .account-grid-slot-2 .text-left {
+    width: 50%;
+  }
+}

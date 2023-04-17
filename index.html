@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="/CSS/Exedus.css">
   <link rel="stylesheet" href="/CSS/Dashboard.css">
   <link rel="stylesheet" href="/CSS/index-Responsive.css">
+  <link rel="stylesheet" href="/CSS/dashboard-responsive.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -21,7 +22,7 @@
 </head>
 
 <body>
-  <div class="general-home">
+  <div class="general-home disabled">
     <header class="header">
       <div class="header-container container page-width">
         <a href="index.html">
@@ -314,9 +315,10 @@
 
 
   <!--**********************************************************************************************************************************************************************************************************************************************************************************************************  -->
-  <div class="general-dashboard disabled">
+  <div class="general-dashboard ">
     <nav class="navigation">
       <div class="img-div">
+        <span class="dashboard-btn-close">&times;</span>
         <a href="index.html">
           <img src="/images/pngtree-blue-elegant-logo-png-image_6094041.png" alt="" class="logo"></a>
       </div>
@@ -374,7 +376,7 @@
       </section>
 
       <!--------------- MY HOME DISPLAY  ----------------------------------------->
-      <section class="bottom-section paddingLR home-bottom">
+      <section class="bottom-section paddingLR home-bottom disabled">
         <div class="verified template">
           <div class="verified-left">
             <p class="template-heading">verified</p>
@@ -420,7 +422,7 @@
       </section>
 
       <!--------------- MY ACCOUNT DISPLAY  ----------------------------------------->
-      <section class="bottom-section paddingLR account-bottom disabled">
+      <section class="bottom-section paddingLR account-bottom ">
         <p class="account-user-name">John Doe Smith</p>
         <div class="verified template account-verified">
           <div class="verified-left">
@@ -469,8 +471,9 @@
             <div class="account-grid-slot-2">
               <div class="text-left">
                 <p class="account-desc">Phone Number</p>
+                <p class="text-middle unhide">0123765432</p>
               </div>
-              <p class="text-middle">0123765432</p>
+              <p class="text-middle hide">0123765432</p>
               <div class="text-right">
                 <button class="cta-btn">Edit</button>
               </div>
@@ -478,8 +481,9 @@
             <div class="account-grid-slot-2">
               <div class="text-left">
                 <p class="account-desc">Email Address</p>
+                <p class="text-middle email-address unhide">john2doe@example.com</p>
               </div>
-              <p class="text-middle email-address">john2doe@example.com</p>
+              <p class="text-middle email-address hide">john2doe@example.com</p>
               <div class="text-right">
                 <button class="cta-btn">Edit</button>
               </div>
