@@ -289,14 +289,14 @@ body .overlay {
 }
 .service-cards {
   display: flex;
-  gap: 3.6rem;
+  gap: 1.6rem;
   align-items: center;
   justify-content: space-between;
 }
 .service-card {
-  padding: 3.4rem 3.2rem;
+  padding: 2rem 2rem;
   text-align: left;
-  width: 30rem;
+  width: 40rem;
   height: 100%;
 }
 .service-card i {
