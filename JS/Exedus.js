@@ -49,6 +49,10 @@ const ExistingUsersSignup = document.querySelectorAll(
 );
 const headerEl = document.querySelector(".header");
 const signupImg = document.querySelector(".signup-img-div");
+const dashboardNav = document.querySelector(".navigation");
+const dashboardCloseBtn = document.querySelector(".dashboard-btn-close");
+const dashboardOpenBtn = document.querySelector(".btn-dashboard-nav");
+
 // DASHBOARD BUTTONS
 const homeBtn = document.querySelector(".home");
 const accountBtn = document.querySelector(".account");
@@ -82,7 +86,16 @@ btnNavOpen.addEventListener("click", function () {
 btnNavClose.addEventListener("click", function () {
   headerEl.classList.remove("nav-open");
 });
+dashboardOpenBtn.addEventListener("click", () =>
+  dashboardNav.classList.add("open")
+);
+dashboardCloseBtn.addEventListener("click", () =>
+  dashboardNav.classList.remove("open")
+);
 //****************FUNCTIONS *************************************/
+const hideDashboardNav = function () {
+  dashboardNav.classList.remove("open");
+};
 const hideSignup = function () {
   overlay.classList.add("disabled");
   signupPopUp.classList.add("disabled");
@@ -605,11 +618,13 @@ homeBtn.addEventListener("click", function () {
   removeActiveNavExcept(homeBtn);
   removeActivePageExcept(homeBottom);
   hideBalance(balanceDiv);
+  hideDashboardNav();
   topTextDescription.textContent = `Get started with Exedus`;
 });
 accountBtn.addEventListener("click", function () {
   removeActiveNavExcept(accountBtn);
   removeActivePageExcept(accountBottom);
+  hideDashboardNav();
   topTextDescription.textContent = `My Account`;
   accountUserName.textContent = currentAccount.owner;
   showBalance(balanceDiv);
@@ -623,6 +638,7 @@ transferBtn.addEventListener("click", function () {
   removeActiveNavExcept(transferBtn);
   removeActivePageExcept(makeTransferBottom);
   showBalance(balanceDiv);
+  hideDashboardNav();
   topTextDescription.textContent = `Make Transfer`;
 });
 transferShowDetails.addEventListener("click", function () {
@@ -631,30 +647,39 @@ transferShowDetails.addEventListener("click", function () {
 requestLoanBtn.addEventListener("click", function () {
   removeActiveNavExcept(requestLoanBtn);
   removeActivePageExcept(requestLoanBottom);
+  hideDashboardNav();
   topTextDescription.textContent = "Request Loan";
   showBalance(balanceDiv);
 });
 overviewBtn.addEventListener("click", function () {
   removeActiveNavExcept(overviewBtn);
   removeActivePageExcept(overviewBottom);
+  hideDashboardNav();
+
   showBalance(balanceDiv);
   topTextDescription.textContent = "Transaction Overview";
 });
 loanOverviewLink.addEventListener("click", function () {
   removeActiveNavExcept(overviewBtn);
   removeActivePageExcept(overviewBottom);
+  hideDashboardNav();
+
   showBalance(balanceDiv);
   topTextDescription.textContent = "Transaction Overview";
 });
 bankDetailsBtn.addEventListener("click", function () {
   removeActiveNavExcept(bankDetailsBtn);
   removeActivePageExcept(bankDetailsBottom);
+  hideDashboardNav();
+
   topTextDescription.textContent = `Bank Details`;
   hideBalance(balanceDiv);
 });
 helpSupportBtn.addEventListener("click", function () {
   removeActiveNavExcept(helpSupportBtn);
   removeActivePageExcept(helpSupportBottom);
+  hideDashboardNav();
+
   topTextDescription.textContent = `Help & Support`;
   hideBalance(balanceDiv);
 });
@@ -662,6 +687,8 @@ updateDetailsBtn.addEventListener("click", function () {
   showSignup();
   removeActiveNavExcept(updateDetailsBtn);
   removeActivePageExcept(updateDetailsBottom);
+  hideDashboardNav();
+
   topTextDescription.textContent = `Sign-in to others`;
   hideBalance(balanceDiv);
 });

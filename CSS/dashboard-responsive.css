@@ -10,9 +10,12 @@
     opacity: 0;
     transform: translateX(-100%);
     overflow-y: scroll;
+    transition-duration: 400ms;
   }
-  .open .navigation {
+  .open.navigation {
     opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
     transform: translateX(-0%);
   }
   .displays {
@@ -23,6 +26,21 @@
     max-width: 100%;
     margin-left: 2rem;
     margin-right: 2rem;
+  }
+  .top-section-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .btn-dashboard-nav {
+    border: none;
+    display: block;
+  }
+  .icon-dashboard-nav {
+    height: fit-content;
+    width: fit-content;
+    font-size: 3rem;
+    color: var(--textheadingdark);
   }
   .user-name {
     font-size: 1.4rem;

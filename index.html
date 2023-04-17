@@ -22,7 +22,7 @@
 </head>
 
 <body>
-  <div class="general-home disabled">
+  <div class="general-home">
     <header class="header">
       <div class="header-container container page-width">
         <a href="index.html">
@@ -362,7 +362,12 @@
     <!--------------- DASHBOARD DISPLAY ----------------------------------------->
     <main class="displays">
       <section class="top-section paddingLR">
-        <p class="user-name">Hi, John</p>
+        <div class="top-section-menu ">
+          <button class="btn-dashboard-nav hide">
+            <i class="fa-solid fa-bars icon-dashboard-nav"></i>
+          </button>
+          <p class="user-name">Hi, John</p>
+        </div>
         <div class="balance-display">
           <h1 class="how-description dashboard-description">Get started with Exedus</h1>
           <div class="balance-div disabled">
@@ -376,7 +381,7 @@
       </section>
 
       <!--------------- MY HOME DISPLAY  ----------------------------------------->
-      <section class="bottom-section paddingLR home-bottom disabled">
+      <section class="bottom-section paddingLR home-bottom">
         <div class="verified template">
           <div class="verified-left">
             <p class="template-heading">verified</p>
@@ -422,7 +427,7 @@
       </section>
 
       <!--------------- MY ACCOUNT DISPLAY  ----------------------------------------->
-      <section class="bottom-section paddingLR account-bottom ">
+      <section class="bottom-section paddingLR account-bottom disabled">
         <p class="account-user-name">John Doe Smith</p>
         <div class="verified template account-verified">
           <div class="verified-left">
