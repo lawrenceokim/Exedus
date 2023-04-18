@@ -23,6 +23,7 @@
   }
   .displays {
     overflow-x: hidden;
+    width: 100%;
     transition: all 1s;
   }
   .paddingLR {
