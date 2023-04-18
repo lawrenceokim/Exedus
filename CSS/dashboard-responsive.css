@@ -3,6 +3,9 @@
     font-size: 1.4rem;
     display: flex;
   }
+  .dashboard-btn-close {
+    display: block;
+  }
   .navigation {
     position: fixed;
     width: 65%;
@@ -53,6 +56,9 @@
   }
 
   /********* my home display ************/
+  .home-bottom .verified-right {
+    margin-bottom: 2rem;
+  }
   .verified {
     flex-direction: column-reverse;
   }
@@ -112,6 +118,9 @@
   }
 
   /***************** my account display ******** */
+  .account-bottom .verified-right {
+    margin-bottom: 2rem;
+  }
   .account-bottom-heading {
     margin: 1rem 1rem 1rem 0;
   }
@@ -145,5 +154,28 @@
   }
   .account-grid-slot-2 .text-left {
     width: 50%;
+  }
+  /***************** my account display ******** */
+  .update-signup-form-wrapper {
+    flex-direction: column;
+    gap: 0;
+    height: auto;
+  }
+  .update-signup-wrapper > p {
+    font-size: 1.6rem;
+  }
+  .update-signup-container .grid-slot-1 {
+    font-size: 1.4rem;
+    min-height: 3rem;
+  }
+  /************* successful login display **************/
+  body .successful-popup {
+    width: 85%;
+  }
+  .successful-popup .template-heading {
+    margin-bottom: 0;
+  }
+  .successful-popup .template-description {
+    font-size: 1.4rem;
   }
 }

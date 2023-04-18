@@ -146,7 +146,7 @@ body .overlay {
   margin-top: 1rem;
 }
 .dashboard-btn-close {
-  display: block;
+  display: none;
   font-size: 4rem;
   cursor: pointer;
   z-index: 50;
