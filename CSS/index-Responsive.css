@@ -138,8 +138,7 @@ html {
 
   .desktop-nav {
     position: fixed;
-    background: linear-gradient(to bottom, #010119, #0000006d),
-      url(/images/pawel-czerwinski-FP_3L2fvHog-unsplash.webp);
+    background: var(--background);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -156,7 +155,6 @@ html {
     transform: translateX(100%);
     transition-duration: 400ms;
     opacity: 0;
-    pointer-events: none;
     visibility: hidden;
   }
   .logo-close-btn {
