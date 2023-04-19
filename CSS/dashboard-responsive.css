@@ -169,6 +169,42 @@
     font-size: 1.4rem;
     min-height: 3rem;
   }
+
+  /***************** transfer display ******** */
+  .account-btns {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .account-btn-left {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 0.5rem;
+  }
+  .account-btn-left .cta-btn2,
+  .account-btn-left .cta-btn {
+    width: 50%;
+  }
+  .cta-btn,
+  .cta-btn2 {
+    width: 100%;
+  }
+  .transfer-btns-display {
+    display: flex;
+    flex-direction: column;
+    max-height: none;
+  }
+  .transfer-btns-display .form {
+    width: 100%;
+  }
+  .transfer-existing-users {
+    max-width: none;
+    margin-top: 7rem;
+  }
+  /***************** request loan display ******** */
+  /***************** overview display ******** */
+  /***************** bank details display ******** */
+  /***************** help & support display ******** */
   /************* successful login display **************/
   body .successful-popup {
     width: 85%;
