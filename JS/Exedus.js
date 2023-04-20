@@ -286,7 +286,7 @@ const displayUsersDetails = function () {
                   <p class="bank-name-duplicate">${account1.bankNameShort}</p>
                 </div>
                 <div class="text-right">
-                  <p class="bank-desc">Bank Account Number</p>
+                  <p class="bank-desc">Account Number</p>
                   <p class="bank-number">${account1.accountNumber}</p>
                 </div>
               </div>
@@ -313,7 +313,7 @@ const displayUsersDetails = function () {
                   <p class="bank-name-duplicate">${account2.bankNameShort}</p>
                 </div>
                 <div class="text-right">
-                  <p class="bank-desc">Bank Account Number</p>
+                  <p class="bank-desc">Account Number</p>
                   <p class="bank-number">${account2.accountNumber}</p>
                 </div>
               </div>
@@ -340,7 +340,7 @@ const displayUsersDetails = function () {
                   <p class="bank-name-duplicate">${account3.bankNameShort}</p>
                 </div>
                 <div class="text-right">
-                  <p class="bank-desc">Bank Account Number</p>
+                  <p class="bank-desc">Account Number</p>
                   <p class="bank-number">${account3.accountNumber}</p>
                 </div>
               </div>
@@ -367,13 +367,40 @@ const displayUsersDetails = function () {
                   <p class="bank-name-duplicate">${account4.bankNameShort}</p>
                 </div>
                 <div class="text-right">
-                  <p class="bank-desc">Bank Account Number</p>
+                  <p class="bank-desc">Account Number</p>
                   <p class="bank-number">${account4.accountNumber}</p>
                 </div>
               </div>
               <div class="grid-slot-3">
                 <div class="text-left">
                   <p class="bank-desc">${account4.pin}</p>
+                </div>
+                <div class="text-right">
+                  <button class="cta-btn2">Login</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid-card template">
+              <div class="grid-slot-1">
+                <p class="existing-username">${account5.owner}</p>
+                <div class="account-type"><span class="account-flag"><img src="/images/Property 1=usa-flag-2496027.png"
+                      alt="usa flag"></span>${account5.accountType}</div>
+                <i class="fa-regular fa-trash-can"></i>
+              </div>
+              <div class="grid-slot-2">
+                <div class="text-left">
+                  <p class="bank-desc">Bank Name</p>
+                  <p class="bank-name-duplicate">${account5.bankNameShort}</p>
+                </div>
+                <div class="text-right">
+                  <p class="bank-desc">Account Number</p>
+                  <p class="bank-number">${account5.accountNumber}</p>
+                </div>
+              </div>
+              <div class="grid-slot-3">
+                <div class="text-left">
+                  <p class="bank-desc">${account5.pin}</p>
                 </div>
                 <div class="text-right">
                   <button class="cta-btn2">Login</button>

@@ -140,6 +140,9 @@
   .grid-slot-3 .text-left {
     width: 50%;
   }
+  .text-left {
+    width: 50%;
+  }
   .text-right {
     margin-right: 1rem;
     width: 50%;
@@ -185,8 +188,7 @@
   .account-btn-left .cta-btn {
     width: 50%;
   }
-  .cta-btn,
-  .cta-btn2 {
+  .acct-btn-right {
     width: 100%;
   }
   .transfer-btns-display {
@@ -200,6 +202,32 @@
   .transfer-existing-users {
     max-width: none;
     margin-top: 7rem;
+  }
+  .account-type {
+    justify-content: none;
+    width: 19rem;
+    height: 3rem;
+    overflow: hidden;
+  }
+  .grid-slot-1 {
+    height: 5rem;
+  }
+  .make-transfer-bottom .existing-username {
+    line-height: 1.1rem;
+  }
+  .make-transfer-bottom .account-type {
+    line-height: 1rem;
+    text-align: left;
+  }
+  .grid-slot-2 {
+    min-height: 5rem;
+  }
+  .make-transfer-bottom .bank-desc {
+    line-height: 1.2rem;
+  }
+  .make-transfer-bottom .text-right .cta-btn2 {
+    width: 85%;
+    font-size: 1.2rem;
   }
   /***************** request loan display ******** */
   /***************** overview display ******** */

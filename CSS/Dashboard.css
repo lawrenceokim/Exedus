@@ -671,6 +671,7 @@ body .overlay {
   background: rgba(90, 92, 92, 0.1);
   border-radius: 1rem;
   color: #5a5c5c;
+  margin-left: auto;
 }
 .account-flag {
   display: flex;
@@ -679,7 +680,7 @@ body .overlay {
 }
 .grid-slot-1 .fa-trash-can {
   margin-left: auto;
-  margin-right: 2rem;
+  margin-right: 1rem;
   cursor: pointer;
   transition-duration: 500ms;
 }

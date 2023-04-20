@@ -464,12 +464,12 @@ html {
     font-size: 1.2rem;
     min-height: 2.5rem;
     justify-content: flex-start;
-    margin-left: 1rem;
   }
   .existing-username {
     margin-left: 0rem;
     font-size: 1.2rem;
     line-height: 0.6rem;
+    margin-left: 1rem;
   }
   .grid-slot-2 {
     font-size: 1.2rem;
