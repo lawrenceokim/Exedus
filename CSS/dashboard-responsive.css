@@ -230,6 +230,26 @@
     font-size: 1.2rem;
   }
   /***************** request loan display ******** */
+  .request-loan-bottom .verified {
+    padding: 2rem;
+    margin-top: 3rem;
+  }
+  .request-loan-numberbubbles {
+    display: none;
+  }
+  .slides-box {
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    height: max-content;
+  }
+  .request-loan-bottom .verified-left {
+    flex-direction: column;
+    text-align: justify;
+  }
+  .slide-box-img-container {
+    max-width: 100%;
+  }
   /***************** overview display ******** */
   /***************** bank details display ******** */
   /***************** help & support display ******** */
