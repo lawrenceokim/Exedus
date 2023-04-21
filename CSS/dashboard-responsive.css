@@ -20,6 +20,7 @@
     pointer-events: auto;
     visibility: visible;
     transform: translateX(-0%);
+    z-index: 10;
   }
   .displays {
     overflow-x: hidden;
@@ -251,6 +252,62 @@
     max-width: 100%;
   }
   /***************** overview display ******** */
+  .select-sort-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 4rem;
+    width: 100%;
+    justify-content: unset;
+    align-items: center;
+    align-items: flex-end;
+  }
+  .overview-right {
+    align-items: center;
+    justify-content: end;
+    gap: 1.8rem;
+    margin-left: unset;
+    margin-top: 3rem;
+  }
+  .overview-right span {
+    font-size: 1.4rem;
+  }
+  .overview-bottom select {
+    width: 100%;
+  }
+  .sort {
+    margin-left: 0;
+  }
+  .overview-btn {
+    flex-direction: column-reverse;
+  }
+  .movements-container {
+    height: 40rem;
+    margin-top: 1rem;
+    border-radius: 1rem;
+  }
+  .movements-wrapper-scroll {
+    width: 70rem;
+    height: 100%;
+  }
+  .movements-reference-value {
+    font-size: 1.2rem;
+  }
+  .movements-type-style {
+    font-size: 1.2rem;
+  }
+  .movements-value {
+    font-size: 1.4rem;
+  }
+  .movements-row-top div {
+    font-size: 1.4rem;
+  }
+  .movements-row {
+    padding: 2rem 2rem;
+  }
+  .movements-type {
+    margin-left: 1rem;
+  }
   /***************** bank details display ******** */
   /***************** help & support display ******** */
   /************* successful login display **************/
