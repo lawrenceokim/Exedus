@@ -145,6 +145,12 @@ body .overlay {
   border-bottom: 0.01rem solid #b8c9c980;
   margin-top: 1rem;
 }
+.dashboard-btn-back {
+  display: none;
+  color: #ffffff99;
+  font-size: 3rem;
+  transform: rotateY(180deg);
+}
 .dashboard-btn-close {
   display: none;
   font-size: 4rem;

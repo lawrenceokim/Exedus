@@ -1,4 +1,7 @@
 @media (max-width: 425px) {
+  .grid-card-container::-webkit-scrollbar {
+    display: none;
+  }
   .general-dashboard {
     font-size: 1.4rem;
     display: flex;
@@ -15,12 +18,24 @@
     overflow-y: scroll;
     transition-duration: 400ms;
   }
+  .navigation::-webkit-scrollbar {
+    display: none;
+  }
   .open.navigation {
     opacity: 1;
     pointer-events: auto;
     visibility: visible;
     transform: translateX(-0%);
     z-index: 10;
+  }
+  .img-div a {
+    text-decoration: none;
+  }
+  .img-div img {
+    display: none;
+  }
+  .dashboard-btn-back {
+    display: block;
   }
   .displays {
     overflow-x: hidden;
