@@ -322,6 +322,9 @@
     width: 70rem;
     height: 100%;
   }
+  .movements {
+    height: 33rem;
+  }
   .movements-reference-value {
     font-size: 1.2rem;
   }

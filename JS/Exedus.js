@@ -52,8 +52,9 @@ const signupImg = document.querySelector(".signup-img-div");
 const dashboardNav = document.querySelector(".navigation");
 const dashboardCloseBtn = document.querySelector(".dashboard-btn-close");
 const dashboardOpenBtn = document.querySelector(".btn-dashboard-nav");
+const btnSort = document.querySelector(".sort");
 
-// DASHBOARD BUTTONS
+// DASHBOARD NAV BUTTONS
 const homeBtn = document.querySelector(".home");
 const accountBtn = document.querySelector(".account");
 const transferBtn = document.querySelector(".make-transfer");
@@ -63,7 +64,7 @@ const bankDetailsBtn = document.querySelector(".bank-details");
 const helpSupportBtn = document.querySelector(".help-support");
 const updateDetailsBtn = document.querySelector(".update-details");
 
-// DASHBOARD
+// DASHBOARD BOTTOMS
 const dashboardPage = document.querySelector(".general-dashboard");
 const homeBottom = document.querySelector(".home-bottom");
 const accountBottom = document.querySelector(".account-bottom");
@@ -618,12 +619,10 @@ loanBtnSubmit.addEventListener("click", function (e) {
   }
 });
 
-const displayMovements = function (movement) {
+const displayMovements = function (movement, sort = false) {
   containerMovements.innerHTML = "";
-  const receiverAcc = accounts.find(
-    (acc) => acc.username === loanReceiverName.value
-  );
-  movement.forEach(function (mov) {
+  const movs = sort ? movement.slice().sort((a, b) => a - b) : movement;
+  movs.forEach(function (mov) {
     const type = mov > 0 ? "deposit" : "withdrawal";
     const html = `
           <div class="movements-row movements-style">
@@ -718,6 +717,12 @@ updateDetailsBtn.addEventListener("click", function () {
 
   topTextDescription.textContent = `Sign-in to others`;
   hideBalance(balanceDiv);
+});
+let sorted = false;
+btnSort.addEventListener("click", function (e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
 });
 
 /*ATTENTION

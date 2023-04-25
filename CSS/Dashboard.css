@@ -570,15 +570,14 @@ body .overlay {
 }
 /* MOVEMENTS */
 .movements-container {
-  overflow-x: scroll;
   overflow-y: hidden;
-  height: 55rem;
+  height: 46rem;
   margin-top: 3rem;
 }
-.movements-wrapper-scroll {
+/* .movements-wrapper-scroll {
   width: 100%;
   height: 100%;
-}
+} */
 .movements-row-top {
   position: sticky;
   top: 0;
@@ -595,7 +594,7 @@ body .overlay {
   background-color: #fff;
   border-radius: 0 0 1rem 1rem;
   overflow-y: scroll;
-  height: 100%;
+  height: 40rem;
 }
 .movements-row {
   padding: 3rem 2rem;
