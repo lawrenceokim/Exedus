@@ -301,14 +301,18 @@ body .overlay {
 }
 .service-cards {
   display: flex;
-  gap: 1.6rem;
+  /* align-items: center; */
+}
+.service-cards-wrapper {
+  display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1.6rem;
 }
 .service-card {
   padding: 2rem 2rem;
   text-align: left;
-  width: 40rem;
+  width: 100%;
   height: 100%;
 }
 .service-card i {
