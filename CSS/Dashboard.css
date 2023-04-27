@@ -187,6 +187,10 @@ body .overlay {
 .icon-text:hover {
   background: #ffffff13;
 }
+.cta-btn2.btn-close {
+  margin-top: 2rem;
+  width: 85%;
+}
 .active-nav {
   background: #ffffff26 !important;
   color: #ffffff;

@@ -718,7 +718,7 @@ updateDetailsBtn.addEventListener("click", function () {
   topTextDescription.textContent = `Sign-in to others`;
   hideBalance(balanceDiv);
 });
-let sorted = false;
+let sorted = false; //state variable
 btnSort.addEventListener("click", function (e) {
   e.preventDefault();
   displayMovements(currentAccount.movements, !sorted);

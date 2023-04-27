@@ -42,6 +42,10 @@
   .settings-div {
     margin-bottom: 2rem;
   }
+  .cta-btn2.btn-close {
+    width: 80%;
+    color: lightcoral;
+  }
   .displays {
     overflow-x: hidden;
     width: 100%;
