@@ -190,6 +190,7 @@ body .overlay {
 .cta-btn2.btn-close {
   margin-top: 2rem;
   width: 85%;
+  color: lightcoral;
 }
 .active-nav {
   background: #ffffff26 !important;
