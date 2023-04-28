@@ -53,6 +53,7 @@ const dashboardNav = document.querySelector(".navigation");
 const dashboardCloseBtn = document.querySelector(".dashboard-btn-close");
 const dashboardOpenBtn = document.querySelector(".btn-dashboard-nav");
 const btnSort = document.querySelector(".sort");
+const btnCloseAccount = document.querySelector(".btn-close-account");
 
 // DASHBOARD NAV BUTTONS
 const homeBtn = document.querySelector(".home");
@@ -644,6 +645,32 @@ const displayMovements = function (movement, sort = false) {
   });
 };
 // displayMovements(account1.movements);
+
+/*
+////////// close account button //////////////
+btnCloseAccount.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  if (
+    inputCloseUsername.value === currentAccount.username &&
+    +inputClosePin.value === currentAccount.pin
+  ) {
+    const index = accounts.findIndex(
+      (acc) => acc.username === currentAccount.username
+    );
+    console.log(index);
+    // .indexOf(23)
+
+    // Delete account
+    accounts.splice(index, 1);
+
+    // Hide UI
+    containerApp.style.opacity = 0;
+  }
+
+  inputCloseUsername.value = inputClosePin.value = "";
+});
+*/
 //////////////////////////////////////////////////////////////////////////////////////////////
 homeBtn.addEventListener("click", function () {
   removeActiveNavExcept(homeBtn);
@@ -731,9 +758,6 @@ btnSort.addEventListener("click", function (e) {
 });
 
 /*ATTENTION
-1. make the beneficiary's name show ie who's getting the money
-2. check OR and AND gate properties
-3. tried making it in a way that anybody can log in and get their own account details
-4. make popup to show some login details
-5. transfered amount isn't showing at receiver's end
+1. create a div for closing the account when btnCloseAccount is clicked.
+2. make the beneficiary's name show ie who's getting the money.
 */

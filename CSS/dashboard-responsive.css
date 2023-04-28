@@ -7,7 +7,6 @@
     display: flex;
   }
   body .overlay {
-    position: sticky;
     backdrop-filter: blur(0rem);
   }
   .dashboard-btn-close {
