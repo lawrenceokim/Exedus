@@ -44,6 +44,7 @@ header {
   align-items: center;
   height: 8rem;
   background: var(--background);
+  z-index: 6;
 }
 .header-container {
   display: flex;
@@ -506,7 +507,6 @@ body .overlay {
   right: 3rem;
 }
 .grid-card-container {
-  max-height: 31.5rem;
   width: 40%;
   overflow-y: scroll;
   display: flex;

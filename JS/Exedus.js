@@ -80,22 +80,16 @@ const transferExistingUsers = document.querySelector(
   ".transfer-existing-users"
 );
 
-////////// mobile nav button //////////////
-btnNavOpen.addEventListener("click", function () {
-  headerEl.classList.add("nav-open");
-});
-btnNavClose.addEventListener("click", function () {
-  headerEl.classList.remove("nav-open");
-});
-dashboardOpenBtn.addEventListener("click", () =>
-  dashboardNav.classList.add("open")
-);
-dashboardCloseBtn.addEventListener("click", () =>
-  dashboardNav.classList.remove("open")
-);
 //****************FUNCTIONS *************************************/
-const hideDashboardNav = function () {
+const hideMobileNav = function () {
   dashboardNav.classList.remove("open");
+  headerEl.classList.remove("nav-open");
+  overlay.classList.add("disabled");
+};
+const showMobileNav = function () {
+  dashboardNav.classList.add("open");
+  headerEl.classList.add("nav-open");
+  overlay.classList.remove("disabled");
 };
 const hideSignup = function () {
   overlay.classList.add("disabled");
@@ -137,6 +131,13 @@ const removeActivePageExcept = function (e) {
 };
 const showBalance = (e) => e.classList.remove("disabled");
 const hideBalance = (e) => e.classList.add("disabled");
+
+////////// mobile nav buttons //////////////
+btnNavOpen.addEventListener("click", showMobileNav);
+btnNavClose.addEventListener("click", hideMobileNav);
+dashboardOpenBtn.addEventListener("click", showMobileNav);
+dashboardCloseBtn.addEventListener("click", hideMobileNav);
+
 //////////////////// ACCOUNTS /////////////////////////////////////
 const account1 = {
   owner: "Jessica Davis",
@@ -412,6 +413,7 @@ const displayUsersDetails = function () {
   transferExistingUsers.insertAdjacentHTML("afterbegin", html);
 };
 displayUsersDetails();
+
 //*********************************EVENT LISTENERS ***********************************/
 selectAccountBtn.forEach((btn) =>
   btn.addEventListener("click", function () {
@@ -503,7 +505,7 @@ selectAccountBtn.forEach((btn) =>
     );
   })
 );
-////// Display AccountSwitch message ///////
+////////////////////////////// Display AccountSwitch message ///////
 const displaySuccessfulSwitch = function () {
   successfulPopup.innerHTML = "";
   html = `
@@ -516,8 +518,11 @@ const displaySuccessfulSwitch = function () {
 };
 btnSignup.forEach((btn) => btn.addEventListener("click", showSignup));
 btnClose.addEventListener("click", hideSignup);
-overlay.addEventListener("click", hideSignup);
 successfulOverlay.addEventListener("click", hideSuccessPopup);
+overlay.addEventListener("click", function () {
+  hideSignup();
+  hideMobileNav();
+});
 
 ////////// signup button //////////////
 let currentAccount;
@@ -574,7 +579,7 @@ transferBtnSubmit.addEventListener("click", function (e) {
   e.preventDefault();
   const amount = Number(inputTransferAmount.value);
   const receiverAcc = accounts.find(
-    (acc) => acc.username === inputTransferTo.value
+    (acc) => acc.username === inputTransferTo.value.toLowerCase()
   );
 
   if (
@@ -644,13 +649,13 @@ homeBtn.addEventListener("click", function () {
   removeActiveNavExcept(homeBtn);
   removeActivePageExcept(homeBottom);
   hideBalance(balanceDiv);
-  hideDashboardNav();
+  hideMobileNav();
   topTextDescription.textContent = `Get started with Exedus`;
 });
 accountBtn.addEventListener("click", function () {
   removeActiveNavExcept(accountBtn);
   removeActivePageExcept(accountBottom);
-  hideDashboardNav();
+  hideMobileNav();
   topTextDescription.textContent = `My Account`;
   accountUserName.textContent = currentAccount.owner;
   showBalance(balanceDiv);
@@ -664,7 +669,7 @@ transferBtn.addEventListener("click", function () {
   removeActiveNavExcept(transferBtn);
   removeActivePageExcept(makeTransferBottom);
   showBalance(balanceDiv);
-  hideDashboardNav();
+  hideMobileNav();
   topTextDescription.textContent = `Make Transfer`;
 });
 transferShowDetails.addEventListener("click", function () {
@@ -673,14 +678,14 @@ transferShowDetails.addEventListener("click", function () {
 requestLoanBtn.addEventListener("click", function () {
   removeActiveNavExcept(requestLoanBtn);
   removeActivePageExcept(requestLoanBottom);
-  hideDashboardNav();
+  hideMobileNav();
   topTextDescription.textContent = "Request Loan";
   showBalance(balanceDiv);
 });
 overviewBtn.addEventListener("click", function () {
   removeActiveNavExcept(overviewBtn);
   removeActivePageExcept(overviewBottom);
-  hideDashboardNav();
+  hideMobileNav();
 
   showBalance(balanceDiv);
   topTextDescription.textContent = "Transaction Overview";
@@ -688,7 +693,7 @@ overviewBtn.addEventListener("click", function () {
 loanOverviewLink.addEventListener("click", function () {
   removeActiveNavExcept(overviewBtn);
   removeActivePageExcept(overviewBottom);
-  hideDashboardNav();
+  hideMobileNav();
 
   showBalance(balanceDiv);
   topTextDescription.textContent = "Transaction Overview";
@@ -696,7 +701,7 @@ loanOverviewLink.addEventListener("click", function () {
 bankDetailsBtn.addEventListener("click", function () {
   removeActiveNavExcept(bankDetailsBtn);
   removeActivePageExcept(bankDetailsBottom);
-  hideDashboardNav();
+  hideMobileNav();
 
   topTextDescription.textContent = `Bank Details`;
   hideBalance(balanceDiv);
@@ -704,7 +709,7 @@ bankDetailsBtn.addEventListener("click", function () {
 helpSupportBtn.addEventListener("click", function () {
   removeActiveNavExcept(helpSupportBtn);
   removeActivePageExcept(helpSupportBottom);
-  hideDashboardNav();
+  hideMobileNav();
 
   topTextDescription.textContent = `Help & Support`;
   hideBalance(balanceDiv);
@@ -713,7 +718,7 @@ updateDetailsBtn.addEventListener("click", function () {
   showSignup();
   removeActiveNavExcept(updateDetailsBtn);
   removeActivePageExcept(updateDetailsBottom);
-  hideDashboardNav();
+  hideMobileNav();
 
   topTextDescription.textContent = `Sign-in to others`;
   hideBalance(balanceDiv);

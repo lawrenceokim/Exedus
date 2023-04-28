@@ -6,6 +6,10 @@
     font-size: 1.4rem;
     display: flex;
   }
+  body .overlay {
+    position: sticky;
+    backdrop-filter: blur(0rem);
+  }
   .dashboard-btn-close {
     display: block;
   }
@@ -124,7 +128,10 @@
     display: unset;
     position: relative;
     overflow: scroll;
-    height: 35rem;
+    height: 29rem;
+  }
+  .service-cards::-webkit-scrollbar {
+    display: none;
   }
   .service-cards-wrapper {
     display: block;
