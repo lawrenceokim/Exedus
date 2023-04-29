@@ -146,7 +146,6 @@ body .overlay {
   margin-top: 1rem;
 }
 .dashboard-btn-back {
-  display: none;
   color: #ffffff99;
   font-size: 3rem;
   transform: rotateY(180deg);
@@ -192,6 +191,9 @@ body .overlay {
   width: 85%;
   color: lightcoral;
 }
+/* .btn-close-account.active-nav {
+  background: #ffffff26;
+} */
 .active-nav {
   background: #ffffff26 !important;
   color: #ffffff;

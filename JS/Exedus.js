@@ -53,7 +53,6 @@ const dashboardNav = document.querySelector(".navigation");
 const dashboardCloseBtn = document.querySelector(".dashboard-btn-close");
 const dashboardOpenBtn = document.querySelector(".btn-dashboard-nav");
 const btnSort = document.querySelector(".sort");
-const btnCloseAccount = document.querySelector(".btn-close-account");
 
 // DASHBOARD NAV BUTTONS
 const homeBtn = document.querySelector(".home");
@@ -64,6 +63,7 @@ const overviewBtn = document.querySelector(".overview");
 const bankDetailsBtn = document.querySelector(".bank-details");
 const helpSupportBtn = document.querySelector(".help-support");
 const updateDetailsBtn = document.querySelector(".update-details");
+const btnCloseAccount = document.querySelector(".btn-close-account");
 
 // DASHBOARD BOTTOMS
 const dashboardPage = document.querySelector(".general-dashboard");
@@ -80,6 +80,7 @@ const transferShowDetails = document.querySelector(".tranfer-btn-show-details");
 const transferExistingUsers = document.querySelector(
   ".transfer-existing-users"
 );
+const closeAccountBottom = document.querySelector(".close-account");
 
 //****************FUNCTIONS *************************************/
 const hideMobileNav = function () {
@@ -117,6 +118,7 @@ const removeActiveNavExcept = function (e) {
   bankDetailsBtn.classList.remove("active-nav");
   helpSupportBtn.classList.remove("active-nav");
   updateDetailsBtn.classList.remove("active-nav");
+  btnCloseAccount.classList.remove("active-nav");
   return e.classList.add("active-nav");
 };
 const removeActivePageExcept = function (e) {
@@ -128,6 +130,7 @@ const removeActivePageExcept = function (e) {
   bankDetailsBottom.classList.add("disabled");
   helpSupportBottom.classList.add("disabled");
   updateDetailsBottom.classList.add("disabled");
+  closeAccountBottom.classList.add("disabled");
   return e.classList.remove("disabled");
 };
 const showBalance = (e) => e.classList.remove("disabled");
@@ -749,6 +752,14 @@ updateDetailsBtn.addEventListener("click", function () {
 
   topTextDescription.textContent = `Sign-in to others`;
   hideBalance(balanceDiv);
+});
+btnCloseAccount.addEventListener("click", function (e) {
+  e.preventDefault();
+  removeActivePageExcept(closeAccountBottom);
+  removeActiveNavExcept(btnCloseAccount);
+  hideMobileNav();
+  hideBalance(balanceDiv);
+  topTextDescription.textContent = "Close Account";
 });
 let sorted = false; //state variable
 btnSort.addEventListener("click", function (e) {

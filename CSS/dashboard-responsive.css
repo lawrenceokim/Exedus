@@ -9,9 +9,6 @@
   body .overlay {
     backdrop-filter: blur(0rem);
   }
-  .dashboard-btn-close {
-    display: block;
-  }
   .navigation {
     position: fixed;
     width: 65%;
@@ -40,6 +37,9 @@
     display: none;
   }
   .dashboard-btn-back {
+    display: block;
+  }
+  .dashboard-btn-close {
     display: block;
   }
   .settings-div {
