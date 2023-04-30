@@ -114,7 +114,6 @@
   }
   .template .template-heading {
     font-size: 2rem;
-    margin-bottom: 0.5rem;
     text-align: left;
   }
   .verified-left button {
@@ -294,7 +293,7 @@
     padding: 2rem;
     margin-top: 3rem;
   }
-  .request-loan-numberbubbles {
+  .request-loan-bottom .numberbubbles {
     display: none;
   }
   .slides-box {
@@ -388,6 +387,48 @@
     text-align: left;
   }
   /***************** help & support display ******** */
+  /************* close account display **************/
+  .close-account .template {
+    padding: 1rem 1.7rem;
+  }
+  .close-account .template-heading {
+    margin-bottom: 0;
+  }
+  .close-account .template-description {
+    text-align: left;
+  }
+  .close-account .numberbubbles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 3rem;
+    align-items: flex-start;
+    width: 100%;
+    gap: 1rem;
+    justify-content: unset;
+    padding-bottom: 3rem;
+    border-bottom: 0.1rem solid rgba(90, 92, 92, 0.2);
+  }
+  .close-account .numberbubble-box {
+    justify-content: unset;
+  }
+  .close-account .box-number {
+    padding: 1.7rem;
+    height: 1rem;
+    width: 1rem;
+    margin-right: 1rem;
+    font-size: 1.4rem;
+  }
+  .close-account .box-description {
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+  .close-account .form-container {
+    margin-top: 3rem;
+  }
+  .close-account .form {
+    width: 100%;
+  }
+
   /************* successful login display **************/
   body .successful-popup {
     width: 85%;
