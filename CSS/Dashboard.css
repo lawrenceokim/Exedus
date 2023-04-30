@@ -260,6 +260,10 @@ body .overlay {
   display: flex;
   align-items: baseline;
   gap: 0.5rem;
+  padding: 1rem;
+  background: #ffff;
+  border-radius: 1rem;
+  box-shadow: 0 0 0.6rem #0003;
 }
 .balance-label {
   font-size: 2.2rem;
@@ -404,7 +408,7 @@ body .overlay {
   margin-top: 2rem;
   width: 100%;
   overflow-y: hidden;
-  max-height: 42.4rem;
+  max-height: 50.5rem;
 }
 .transfer-existing-users {
   display: flex;
@@ -412,7 +416,7 @@ body .overlay {
   gap: 2rem;
   width: 100%;
   margin-top: 3rem;
-  max-height: 40rem;
+  max-height: 50rem;
   overflow-y: scroll;
 }
 .existing-username {

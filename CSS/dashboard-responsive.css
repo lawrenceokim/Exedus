@@ -261,6 +261,10 @@
   .transfer-existing-users {
     max-width: none;
     margin-top: 7rem;
+    border-top: 0.5rem solid #0009;
+  }
+  .transfer-existing-users::-webkit-scrollbar {
+    display: none;
   }
   .account-type {
     justify-content: none;
@@ -424,6 +428,9 @@
   }
   .close-account .form-container {
     margin-top: 3rem;
+    padding: 2rem;
+    border: 0.1rem solid #0002;
+    border-radius: 1rem;
   }
   .close-account .form {
     width: 100%;
