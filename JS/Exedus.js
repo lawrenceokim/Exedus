@@ -301,7 +301,7 @@ const displayUsersDetails = function () {
                   <p class="bank-desc">${account1.pin}</p>
                 </div>
                 <div class="text-right">
-                  <button class="cta-btn2">Login</button>
+                  <button class="cta-btn2">active</button>
                 </div>
               </div>
             </div>
@@ -328,7 +328,7 @@ const displayUsersDetails = function () {
                   <p class="bank-desc">${account2.pin}</p>
                 </div>
                 <div class="text-right">
-                  <button class="cta-btn2">Login</button>
+                  <button class="cta-btn2">active</button>
                 </div>
               </div>
             </div>
@@ -355,7 +355,7 @@ const displayUsersDetails = function () {
                   <p class="bank-desc">${account3.pin}</p>
                 </div>
                 <div class="text-right">
-                  <button class="cta-btn2">Login</button>
+                  <button class="cta-btn2">active</button>
                 </div>
               </div>
             </div>
@@ -382,7 +382,7 @@ const displayUsersDetails = function () {
                   <p class="bank-desc">${account4.pin}</p>
                 </div>
                 <div class="text-right">
-                  <button class="cta-btn2">Login</button>
+                  <button class="cta-btn2">active</button>
                 </div>
               </div>
             </div>
@@ -409,7 +409,7 @@ const displayUsersDetails = function () {
                   <p class="bank-desc">${account5.pin}</p>
                 </div>
                 <div class="text-right">
-                  <button class="cta-btn2">Login</button>
+                  <button class="cta-btn2">active</button>
                 </div>
               </div>
             </div>
@@ -769,6 +769,6 @@ btnSort.addEventListener("click", function (e) {
 });
 
 /*ATTENTION
-1. create a div for closing the account when btnCloseAccount is clicked.
-2. make the beneficiary's name show ie who's getting the money.
+1. make the beneficiary's name show ie who's getting the money.
+2. display error message if user inputs an invalid account details when closing an account.
 */

@@ -37,7 +37,7 @@
     display: none;
   }
   .dashboard-btn-back {
-    display: block;
+    display: block !important;
   }
   .dashboard-btn-close {
     display: block;

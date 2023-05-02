@@ -146,6 +146,7 @@ body .overlay {
   margin-top: 1rem;
 }
 .dashboard-btn-back {
+  display: none !important;
   color: #ffffff99;
   font-size: 3rem;
   transform: rotateY(180deg);
