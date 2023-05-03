@@ -53,6 +53,11 @@ const dashboardNav = document.querySelector(".navigation");
 const dashboardCloseBtn = document.querySelector(".dashboard-btn-close");
 const dashboardOpenBtn = document.querySelector(".btn-dashboard-nav");
 const btnSort = document.querySelector(".sort");
+const btnCloseAccountSubmit = document.querySelector(
+  ".close-account-btn-submit"
+);
+const inputCloseUsername = document.querySelector(".close-account-name");
+const inputClosePin = document.querySelector(".close-account-pin");
 
 // DASHBOARD NAV BUTTONS
 const homeBtn = document.querySelector(".home");
@@ -122,6 +127,7 @@ const removeActiveNavExcept = function (e) {
   return e.classList.add("active-nav");
 };
 const removeActivePageExcept = function (e) {
+  homePage.classList.add("disabled");
   homeBottom.classList.add("disabled");
   accountBottom.classList.add("disabled");
   makeTransferBottom.classList.add("disabled");
@@ -542,8 +548,9 @@ signUpBtn.addEventListener("click", function (e) {
       currentAccount.username
     )}`;
     accountEmail.textContent = userEmail.value;
-    homePage.classList.add("disabled");
     dashboardPage.classList.remove("disabled");
+    removeActivePageExcept(homeBottom);
+    removeActiveNavExcept(homeBtn);
     hideSignup();
     updateUI(currentAccount);
     displayBankDetails();
@@ -649,13 +656,13 @@ const displayMovements = function (movement, sort = false) {
 };
 // displayMovements(account1.movements);
 
-/*
 ////////// close account button //////////////
-btnCloseAccount.addEventListener("click", function (e) {
+btnCloseAccountSubmit.addEventListener("click", function (e) {
   e.preventDefault();
 
   if (
-    inputCloseUsername.value === currentAccount.username &&
+    inputCloseUsername.value.toLowerCase() ===
+      currentAccount.username.toLowerCase() &&
     +inputClosePin.value === currentAccount.pin
   ) {
     const index = accounts.findIndex(
@@ -667,13 +674,14 @@ btnCloseAccount.addEventListener("click", function (e) {
     // Delete account
     accounts.splice(index, 1);
 
-    // Hide UI
-    containerApp.style.opacity = 0;
+    dashboardPage.classList.add("disabled");
+    removeActivePageExcept(homePage);
+    hideMobileNav();
   }
 
   inputCloseUsername.value = inputClosePin.value = "";
 });
-*/
+
 //////////////////////////////////////////////////////////////////////////////////////////////
 homeBtn.addEventListener("click", function () {
   removeActiveNavExcept(homeBtn);
