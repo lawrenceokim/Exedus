@@ -546,7 +546,7 @@ const displayInvalidMessage = function () {
     <div class="invalid-wrapper">
       <div class="verified-left flex-align">
         <p class="template-heading"><i class="fa-sharp fa-solid fa-info"></i></p>
-        <p class="template-description">Error finding <span class='template-desc-user'>account</span>. Please confirm
+        <p class="template-description">Error finding <span class='template-desc-user'>account</span>. Please check
           inputs.
         </p>
       </div>
@@ -588,9 +588,11 @@ signUpBtn.addEventListener("click", function (e) {
     displayBankDetails();
     inputLoginPin.value = "";
     userName.value = "";
+    invalidOverlay.style.border = "0.5rem solid green";
   } else {
     showInvalidMessagePopup();
     displayInvalidMessage();
+    invalidOverlay.style.border = "0.5rem solid red";
   }
 });
 signUpBtn2.addEventListener("click", function (e) {
@@ -617,9 +619,11 @@ signUpBtn2.addEventListener("click", function (e) {
     displayBankDetails();
     inputLoginPin2.value = "";
     userName2.value = "";
+    invalidOverlay.style.border = "0.5rem solid green";
   } else {
     showInvalidMessagePopup();
     displayInvalidMessage();
+    invalidOverlay.style.border = "0.5rem solid red";
   }
 });
 ////////// transfer button //////////////
