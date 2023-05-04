@@ -2,6 +2,7 @@
 const btnNavOpen = document.querySelector(".btn-mobile-nav");
 const btnNavClose = document.querySelector(".nav-btn-close");
 const overlay = document.querySelector(".overlay");
+const invalidOverlay = document.querySelector(".invalid-overlay");
 const successfulOverlay = document.querySelector(".successful-overlay");
 const btnClose = document.querySelector(".btn-close");
 const signupPopUp = document.querySelector(".signup-container");
@@ -58,6 +59,7 @@ const btnCloseAccountSubmit = document.querySelector(
 );
 const inputCloseUsername = document.querySelector(".close-account-name");
 const inputClosePin = document.querySelector(".close-account-pin");
+const invalidMessage = document.querySelector(".invalid-message-popup");
 
 // DASHBOARD NAV BUTTONS
 const homeBtn = document.querySelector(".home");
@@ -103,8 +105,16 @@ const hideSignup = function () {
   signupPopUp.classList.add("disabled");
 };
 const hideSuccessPopup = function () {
-  successfulOverlay.classList.add("disabled");
+  invalidOverlay.classList.add("disabled");
   successfulPopup.classList.add("disabled");
+};
+const hideInvalidMessagePopup = function () {
+  invalidOverlay.classList.add("disabled");
+  invalidMessage.classList.add("disabled");
+};
+const showInvalidMessagePopup = function () {
+  invalidOverlay.classList.remove("disabled");
+  invalidMessage.classList.remove("disabled");
 };
 const showSignup = function () {
   signupPopUp.classList.remove("disabled");
@@ -112,7 +122,7 @@ const showSignup = function () {
 };
 const showSuccessPopup = function () {
   successfulPopup.classList.remove("disabled");
-  successfulOverlay.classList.remove("disabled");
+  invalidOverlay.classList.remove("disabled");
 };
 const removeActiveNavExcept = function (e) {
   homeBtn.classList.remove("active-nav");
@@ -519,19 +529,41 @@ selectAccountBtn.forEach((btn) =>
 const displaySuccessfulSwitch = function () {
   successfulPopup.innerHTML = "";
   html = `
+  <div class="congrats-wrapper">
     <div class="verified-left flex-align">
         <p class="template-heading"><i class="fa-sharp fa-solid fa-info"></i></p>
         <p class="template-description">Successfully signed-in as <span class='template-desc-user'>${currentAccount.owner}</span></p>
       </div>
+  </div>
   `;
   successfulPopup.insertAdjacentHTML("afterbegin", html);
 };
+
+////////////////////////////// Display InvalidMessage popup ///////
+const displayInvalidMessage = function () {
+  invalidMessage.innerHTML = "";
+  html = `
+    <div class="invalid-wrapper">
+      <div class="verified-left flex-align">
+        <p class="template-heading"><i class="fa-sharp fa-solid fa-info"></i></p>
+        <p class="template-description">Error finding <span class='template-desc-user'>account</span>. Please confirm
+          inputs.
+        </p>
+      </div>
+    </div>
+  `;
+  invalidMessage.insertAdjacentHTML("afterbegin", html);
+};
+
 btnSignup.forEach((btn) => btn.addEventListener("click", showSignup));
 btnClose.addEventListener("click", hideSignup);
-successfulOverlay.addEventListener("click", hideSuccessPopup);
 overlay.addEventListener("click", function () {
   hideSignup();
   hideMobileNav();
+});
+invalidOverlay.addEventListener("click", function () {
+  hideInvalidMessagePopup();
+  hideSuccessPopup();
 });
 
 ////////// signup button //////////////
@@ -556,6 +588,9 @@ signUpBtn.addEventListener("click", function (e) {
     displayBankDetails();
     inputLoginPin.value = "";
     userName.value = "";
+  } else {
+    showInvalidMessagePopup();
+    displayInvalidMessage();
   }
 });
 signUpBtn2.addEventListener("click", function (e) {
@@ -578,11 +613,13 @@ signUpBtn2.addEventListener("click", function (e) {
     removeActivePageExcept(homeBottom);
     hideBalance(balanceDiv);
     topTextDescription.textContent = `Get started with Exedus`;
-    hideSignup();
     updateUI(currentAccount);
     displayBankDetails();
     inputLoginPin2.value = "";
     userName2.value = "";
+  } else {
+    showInvalidMessagePopup();
+    displayInvalidMessage();
   }
 });
 ////////// transfer button //////////////

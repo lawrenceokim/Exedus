@@ -400,12 +400,11 @@ body .signup-container {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 50%;
-
   background-color: white;
   padding: 2rem 3rem;
   border-radius: 5px;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
-  z-index: 10;
+  z-index: 6;
 }
 .signup-wrapper {
   position: relative;
@@ -470,6 +469,20 @@ body .overlay {
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(0.3rem);
   z-index: 5;
+  transition-duration: 600ms;
+}
+
+body .invalid-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(0rem);
+  z-index: 7;
   transition-duration: 600ms;
 }
 .signup-form {

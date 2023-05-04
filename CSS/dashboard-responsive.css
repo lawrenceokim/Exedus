@@ -446,4 +446,19 @@
   .successful-popup .template-description {
     font-size: 1.4rem;
   }
+
+  /************* Invalid Message display **************/
+  body .invalid-message-popup {
+    width: 85%;
+    padding: 1rem 1rem;
+  }
+  .invalid-wrapper {
+    padding: 1rem 1rem;
+  }
+  .invalid-message-popup .template-heading {
+    margin-bottom: 0;
+  }
+  .invalid-message-popup .template-description {
+    font-size: 1.4rem;
+  }
 }
