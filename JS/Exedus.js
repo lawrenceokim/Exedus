@@ -539,14 +539,28 @@ const displaySuccessfulSwitch = function () {
   successfulPopup.insertAdjacentHTML("afterbegin", html);
 };
 
+////////////////////////////// Display AccountSwitch message ///////
+const displaySuccessfulAccountClosed = function (e) {
+  successfulPopup.innerHTML = "";
+  html = `
+  <div class="congrats-wrapper">
+    <div class="verified-left flex-align">
+        <p class="template-heading"><i class="fa-sharp fa-solid fa-info"></i></p>
+        <p class="template-description">Successfully Deleted <span class='template-desc-user'>${e}</span>'s Account</p>
+      </div>
+  </div>
+  `;
+  successfulPopup.insertAdjacentHTML("afterbegin", html);
+};
+
 ////////////////////////////// Display InvalidMessage popup ///////
-const displayInvalidMessage = function () {
+const displayInvalidMessage = function (e) {
   invalidMessage.innerHTML = "";
   html = `
     <div class="invalid-wrapper">
       <div class="verified-left flex-align">
         <p class="template-heading"><i class="fa-sharp fa-solid fa-info"></i></p>
-        <p class="template-description">Error finding <span class='template-desc-user'>account</span>. Please check
+        <p class="template-description">Error finding <span class='template-desc-user'>${e}</span>. Please check
           inputs.
         </p>
       </div>
@@ -581,6 +595,8 @@ signUpBtn.addEventListener("click", function (e) {
     )}`;
     accountEmail.textContent = userEmail.value;
     dashboardPage.classList.remove("disabled");
+    showSuccessPopup();
+    displaySuccessfulSwitch();
     removeActivePageExcept(homeBottom);
     removeActiveNavExcept(homeBtn);
     hideSignup();
@@ -589,10 +605,12 @@ signUpBtn.addEventListener("click", function (e) {
     inputLoginPin.value = "";
     userName.value = "";
     invalidOverlay.style.border = "0.5rem solid green";
+    invalidOverlay.style.backgroundColor = "rgba(62, 255, 3, 0.2)";
   } else {
     showInvalidMessagePopup();
-    displayInvalidMessage();
+    displayInvalidMessage("Account User");
     invalidOverlay.style.border = "0.5rem solid red";
+    invalidOverlay.style.backgroundColor = "rgba(255, 3, 3, 0.2)";
   }
 });
 signUpBtn2.addEventListener("click", function (e) {
@@ -620,10 +638,12 @@ signUpBtn2.addEventListener("click", function (e) {
     inputLoginPin2.value = "";
     userName2.value = "";
     invalidOverlay.style.border = "0.5rem solid green";
+    invalidOverlay.style.backgroundColor = "rgba(62, 255, 3, 0.2)";
   } else {
     showInvalidMessagePopup();
-    displayInvalidMessage();
+    displayInvalidMessage("Account");
     invalidOverlay.style.border = "0.5rem solid red";
+    invalidOverlay.style.backgroundColor = "rgba(255, 3, 3, 0.2)";
   }
 });
 ////////// transfer button //////////////
@@ -656,7 +676,7 @@ transferBtnSubmit.addEventListener("click", function (e) {
 loanBtnSubmit.addEventListener("click", function (e) {
   e.preventDefault();
 
-  const amount = Number(inputLoanAmount.value);
+  const amount = Math.floor(inputLoanAmount.value);
   const receiverAcc = accounts.find(
     (acc) => acc.username === loanReceiverName.value
   );
@@ -683,9 +703,9 @@ const displayMovements = function (movement, sort = false) {
     const type = mov > 0 ? "deposit" : "withdrawal";
     const html = `
           <div class="movements-row movements-style">
-            <div class="movements-reference-value flex-align">${Math.floor(
-              100000 + Math.random() * 200000
-            )}</div>
+            <div class="movements-reference-value flex-align">${
+              Math.floor(Math.random() * (100000 - 200000) + 1) + 200000
+            }</div>
             <div class="movements-beneficiary flex-align">unknown</div>
             <div class="movements-type-${type} movements-type-style flex-align">${type}</div>
             <div class="movements-value flex-align">${Math.abs(mov)} ₦</div>
@@ -716,8 +736,17 @@ btnCloseAccountSubmit.addEventListener("click", function (e) {
     accounts.splice(index, 1);
 
     dashboardPage.classList.add("disabled");
+    showSuccessPopup();
+    displaySuccessfulAccountClosed(currentAccount.username);
     removeActivePageExcept(homePage);
     hideMobileNav();
+    invalidOverlay.style.border = "0.5rem solid green";
+    invalidOverlay.style.backgroundColor = "rgba(62, 255, 3, 0.2)";
+  } else {
+    showInvalidMessagePopup();
+    displayInvalidMessage("User");
+    invalidOverlay.style.border = "0.5rem solid red";
+    invalidOverlay.style.backgroundColor = "rgba(255, 3, 3, 0.2)";
   }
 
   inputCloseUsername.value = inputClosePin.value = "";
@@ -819,5 +848,5 @@ btnSort.addEventListener("click", function (e) {
 
 /*ATTENTION
 1. make the beneficiary's name show ie who's getting the money.
-2. display error message if user inputs an invalid account details when closing an account.
+2. also display error message if user inputs wrong inputs in clossing account's form.
 */

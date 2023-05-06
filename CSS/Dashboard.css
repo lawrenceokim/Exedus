@@ -136,7 +136,11 @@ body .overlay {
   font-weight: 400;
   top: 0;
   left: 0;
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.navigation::-webkit-scrollbar {
+  display: none;
 }
 .img-div {
   display: flex;
@@ -475,6 +479,7 @@ body .overlay {
   height: auto;
 }
 .form-container {
+  margin-top: 3rem;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -790,6 +795,14 @@ body .overlay {
 }
 .update-details-bottom .grid-card-container {
   height: 34rem;
+}
+
+/**************************** CLOSE ACCOUNT DISPLAY  ***************************/
+.close-account .form-container {
+  justify-content: start;
+}
+.close-account .form {
+  width: 50%;
 }
 
 /* CONGRATS POP-UP */
