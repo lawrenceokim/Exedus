@@ -604,23 +604,22 @@ signUpBtn.addEventListener("click", function (e) {
     displayBankDetails();
     inputLoginPin.value = "";
     userName.value = "";
-    invalidOverlay.style.border = "0.5rem solid green";
-    invalidOverlay.style.backgroundColor = "rgba(62, 255, 3, 0.2)";
+    invalidOverlay.style.border = "0.5rem solid rgba(62, 255, 3, 0.3)";
+    invalidOverlay.style.backgroundColor = "rgba(62, 255, 3, 0.081)";
   } else {
     showInvalidMessagePopup();
     displayInvalidMessage("Account User");
-    invalidOverlay.style.border = "0.5rem solid red";
-    invalidOverlay.style.backgroundColor = "rgba(255, 3, 3, 0.2)";
+    invalidOverlay.style.border = "0.5rem solid rgba(255, 3, 3, 0.3)";
+    invalidOverlay.style.backgroundColor = "rgba(255, 3, 3, 0.081)";
   }
 });
+/////////////////////////////// switching account //////////////////////////////////////////////
 signUpBtn2.addEventListener("click", function (e) {
   e.preventDefault();
   // currentAccount = accounts.find((acc) => acc.username === userName.value);to login with username.
-  currentAccount = accounts.find(
-    (acc) => acc.pin === Number(inputLoginPin2.value)
-  );
+  currentAccount = accounts.find((acc) => acc.pin === +inputLoginPin2.value);
   console.log(currentAccount);
-  if (currentAccount?.pin === Number(inputLoginPin2.value)) {
+  if (currentAccount?.pin === +inputLoginPin2.value) {
     userNameTop.textContent = `Welcome, ${capitalizeFirstLetter(
       currentAccount.username
     )}`;
@@ -637,19 +636,19 @@ signUpBtn2.addEventListener("click", function (e) {
     displayBankDetails();
     inputLoginPin2.value = "";
     userName2.value = "";
-    invalidOverlay.style.border = "0.5rem solid green";
-    invalidOverlay.style.backgroundColor = "rgba(62, 255, 3, 0.2)";
+    invalidOverlay.style.border = "0.5rem solid rgba(62, 255, 3, 0.3)";
+    invalidOverlay.style.backgroundColor = "rgba(62, 255, 3, 0.081)";
   } else {
     showInvalidMessagePopup();
     displayInvalidMessage("Account");
-    invalidOverlay.style.border = "0.5rem solid red";
-    invalidOverlay.style.backgroundColor = "rgba(255, 3, 3, 0.2)";
+    invalidOverlay.style.border = "0.5rem solid rgba(255, 3, 3, 0.3)";
+    invalidOverlay.style.backgroundColor = "rgba(255, 3, 3, 0.081)";
   }
 });
 ////////// transfer button //////////////
 transferBtnSubmit.addEventListener("click", function (e) {
   e.preventDefault();
-  const amount = Number(inputTransferAmount.value);
+  const amount = +inputTransferAmount.value;
   const receiverAcc = accounts.find(
     (acc) => acc.username === inputTransferTo.value.toLowerCase()
   );
@@ -678,7 +677,7 @@ loanBtnSubmit.addEventListener("click", function (e) {
 
   const amount = Math.floor(inputLoanAmount.value);
   const receiverAcc = accounts.find(
-    (acc) => acc.username === loanReceiverName.value
+    (acc) => acc.username === loanReceiverName.value.toLowerCase()
   );
   const receiverAccNumber = accounts.find(
     (acc) => acc.accountNumber === Number(loanReceiverNumber.value)
@@ -687,7 +686,7 @@ loanBtnSubmit.addEventListener("click", function (e) {
     amount > 0 &&
     receiverAcc &&
     receiverAccNumber &&
-    receiverAcc.username === currentAccount.username &&
+    // receiverAcc.username === currentAccount.username &&
     currentAccount.movements.some((mov) => mov >= amount * 0.1)
   ) {
     receiverAcc.movements.push(amount);
@@ -706,7 +705,7 @@ const displayMovements = function (movement, sort = false) {
             <div class="movements-reference-value flex-align">${
               Math.floor(Math.random() * (100000 - 200000) + 1) + 200000
             }</div>
-            <div class="movements-beneficiary flex-align">unknown</div>
+            <div class="movements-beneficiary flex-align">bank</div>
             <div class="movements-type-${type} movements-type-style flex-align">${type}</div>
             <div class="movements-value flex-align">${Math.abs(mov)} ₦</div>
             <div class="movements-date flex-align">3 days ago</div>
@@ -740,13 +739,13 @@ btnCloseAccountSubmit.addEventListener("click", function (e) {
     displaySuccessfulAccountClosed(currentAccount.username);
     removeActivePageExcept(homePage);
     hideMobileNav();
-    invalidOverlay.style.border = "0.5rem solid green";
-    invalidOverlay.style.backgroundColor = "rgba(62, 255, 3, 0.2)";
+    invalidOverlay.style.border = "0.5rem solid rgba(62, 255, 3, 0.3)";
+    invalidOverlay.style.backgroundColor = "rgba(62, 255, 3, 0.081)";
   } else {
     showInvalidMessagePopup();
     displayInvalidMessage("User");
-    invalidOverlay.style.border = "0.5rem solid red";
-    invalidOverlay.style.backgroundColor = "rgba(255, 3, 3, 0.2)";
+    invalidOverlay.style.border = "0.5rem solid rgba(255, 3, 3, 0.3)";
+    invalidOverlay.style.backgroundColor = "rgba(255, 3, 3, 0.081)";
   }
 
   inputCloseUsername.value = inputClosePin.value = "";
@@ -848,5 +847,4 @@ btnSort.addEventListener("click", function (e) {
 
 /*ATTENTION
 1. make the beneficiary's name show ie who's getting the money.
-2. also display error message if user inputs wrong inputs in clossing account's form.
 */
