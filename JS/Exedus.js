@@ -603,6 +603,7 @@ signUpBtn.addEventListener("click", function (e) {
     updateUI(currentAccount);
     displayBankDetails();
     inputLoginPin.value = "";
+    accountEmail.value = "";
     userName.value = "";
     invalidOverlay.style.border = "0.5rem solid rgba(62, 255, 3, 0.3)";
     invalidOverlay.style.backgroundColor = "rgba(62, 255, 3, 0.081)";
