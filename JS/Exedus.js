@@ -739,7 +739,8 @@ btnCloseAccountSubmit.addEventListener("click", function (e) {
     showSuccessPopup();
     displaySuccessfulAccountClosed(currentAccount.username);
     removeActivePageExcept(homePage);
-    hideMobileNav();
+    dashboardNav.classList.remove("open");
+    headerEl.classList.remove("nav-open");
     invalidOverlay.style.border = "0.5rem solid rgba(62, 255, 3, 0.3)";
     invalidOverlay.style.backgroundColor = "rgba(62, 255, 3, 0.081)";
   } else {
