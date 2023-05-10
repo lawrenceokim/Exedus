@@ -595,6 +595,7 @@ signUpBtn.addEventListener("click", function (e) {
     )}`;
     accountEmail.textContent = userEmail.value;
     dashboardPage.classList.remove("disabled");
+    hideMobileNav();
     showSuccessPopup();
     displaySuccessfulSwitch();
     removeActivePageExcept(homeBottom);
