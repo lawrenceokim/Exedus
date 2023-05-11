@@ -22,6 +22,7 @@ const userNameTop = document.querySelector(".user-name");
 const topTextDescription = document.querySelector(".dashboard-description");
 const loanOverviewLink = document.querySelector(".request-loan-span-link");
 const containerMovements = document.querySelector(".movements");
+const row = document.querySelector(".movements-row");
 const movementsBeneficiary = document.querySelectorAll(
   ".movements-beneficiary"
 );
@@ -784,7 +785,6 @@ overviewBtn.addEventListener("click", function () {
   removeActiveNavExcept(overviewBtn);
   removeActivePageExcept(overviewBottom);
   hideMobileNav();
-
   showBalance(balanceDiv);
   topTextDescription.textContent = "Transaction Overview";
 });
@@ -834,6 +834,9 @@ btnSort.addEventListener("click", function (e) {
   e.preventDefault();
   displayMovements(currentAccount.movements, !sorted);
   sorted = !sorted;
+  [...document.querySelectorAll(".movements-row")].forEach(function (row, i) {
+    if (i % 2 === 0) row.style.backgroundColor = "#5a5c5c29";
+  });
 });
 
 /*ATTENTION
