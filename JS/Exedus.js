@@ -531,7 +531,7 @@ const displaySuccessfulSwitch = function () {
   html = `
   <div class="congrats-wrapper">
     <div class="verified-left flex-align">
-        <p class="template-heading"><i class="fa-sharp fa-solid fa-info"></i></p>
+        <p class="template-heading"><i class="fa-solid fa-check fa-info" style="color: green; border: 0.3rem solid green"></i></p>
         <p class="template-description">Successfully signed-in as <span class='template-desc-user'>${currentAccount.owner}</span></p>
       </div>
   </div>
@@ -545,7 +545,7 @@ const displaySuccessfulAccountClosed = function (e) {
   html = `
   <div class="congrats-wrapper">
     <div class="verified-left flex-align">
-        <p class="template-heading"><i class="fa-sharp fa-solid fa-info"></i></p>
+        <p class="template-heading"><i class="fa-solid fa-check fa-info" style="color: green; border: 0.3rem solid green"></i></p>
         <p class="template-description">Successfully Deleted <span class='template-desc-user'>${e}</span>'s Account</p>
       </div>
   </div>
@@ -559,7 +559,7 @@ const displayInvalidMessage = function (e) {
   html = `
     <div class="invalid-wrapper">
       <div class="verified-left flex-align">
-        <p class="template-heading"><i class="fa-sharp fa-solid fa-info"></i></p>
+        <p class="template-heading"><i class="fa-solid fa-xmark fa-info" style="color: red; border: 0.3rem solid red"></i></p>
         <p class="template-description">Error finding <span class='template-desc-user'>${e}</span>. Please check
           inputs.
         </p>
@@ -606,13 +606,9 @@ signUpBtn.addEventListener("click", function (e) {
     inputLoginPin.value = "";
     accountEmail.value = "";
     userName.value = "";
-    invalidOverlay.style.border = "0.5rem solid rgba(62, 255, 3, 0.3)";
-    invalidOverlay.style.backgroundColor = "rgba(62, 255, 3, 0.081)";
   } else {
     showInvalidMessagePopup();
     displayInvalidMessage("Account User");
-    invalidOverlay.style.border = "0.5rem solid rgba(255, 3, 3, 0.3)";
-    invalidOverlay.style.backgroundColor = "rgba(255, 3, 3, 0.081)";
   }
 });
 /////////////////////////////// switching account //////////////////////////////////////////////
@@ -638,13 +634,9 @@ signUpBtn2.addEventListener("click", function (e) {
     displayBankDetails();
     inputLoginPin2.value = "";
     userName2.value = "";
-    invalidOverlay.style.border = "0.5rem solid rgba(62, 255, 3, 0.3)";
-    invalidOverlay.style.backgroundColor = "rgba(62, 255, 3, 0.081)";
   } else {
     showInvalidMessagePopup();
     displayInvalidMessage("Account");
-    invalidOverlay.style.border = "0.5rem solid rgba(255, 3, 3, 0.3)";
-    invalidOverlay.style.backgroundColor = "rgba(255, 3, 3, 0.081)";
   }
 });
 ////////// transfer button //////////////
@@ -742,13 +734,9 @@ btnCloseAccountSubmit.addEventListener("click", function (e) {
     removeActivePageExcept(homePage);
     dashboardNav.classList.remove("open");
     headerEl.classList.remove("nav-open");
-    invalidOverlay.style.border = "0.5rem solid rgba(62, 255, 3, 0.3)";
-    invalidOverlay.style.backgroundColor = "rgba(62, 255, 3, 0.081)";
   } else {
     showInvalidMessagePopup();
     displayInvalidMessage("User");
-    invalidOverlay.style.border = "0.5rem solid rgba(255, 3, 3, 0.3)";
-    invalidOverlay.style.backgroundColor = "rgba(255, 3, 3, 0.081)";
   }
 
   inputCloseUsername.value = inputClosePin.value = "";
@@ -850,4 +838,5 @@ btnSort.addEventListener("click", function (e) {
 
 /*ATTENTION
 1. make the beneficiary's name show ie who's getting the money.
+2. make overlayPopups color a bit darker.
 */
