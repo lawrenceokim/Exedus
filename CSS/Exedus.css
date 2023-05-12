@@ -480,7 +480,7 @@ body .invalid-overlay {
   bottom: 0;
   width: 100vw;
   height: 100vh;
-  backdrop-filter: blur(0rem);
+  backdrop-filter: blur(0.5rem);
   z-index: 7;
   transition-duration: 600ms;
 }
