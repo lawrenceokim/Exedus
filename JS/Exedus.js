@@ -19,6 +19,7 @@ const signUpBtn = document.querySelector(".signup-btn-submit");
 const signUpBtn2 = document.querySelector(".signup-btn-submit2");
 const bankDetails = document.querySelector(".grid-username");
 const userNameTop = document.querySelector(".user-name");
+const labelDate = document.querySelector(".date");
 const topTextDescription = document.querySelector(".dashboard-description");
 const loanOverviewLink = document.querySelector(".request-loan-span-link");
 const containerMovements = document.querySelector(".movements");
@@ -580,6 +581,16 @@ invalidOverlay.addEventListener("click", function () {
   hideInvalidMessagePopup();
   hideSuccessPopup();
 });
+
+////////////// creating date/time ////////////////////////////////
+const now = new Date();
+const day = `${now.getDate()}`.padStart(2, 0);
+const month = `${now.getMonth() + 1}`.padStart(2, 0);
+const year = now.getFullYear();
+const hour = now.getHours();
+const min = now.getMinutes();
+
+labelDate.textContent = `${day}/${month}/${year}, ${hour}:${min}`;
 
 ////////// signup button //////////////
 let currentAccount;
