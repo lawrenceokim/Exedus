@@ -20,6 +20,7 @@ const signUpBtn2 = document.querySelector(".signup-btn-submit2");
 const bankDetails = document.querySelector(".grid-username");
 const userNameTop = document.querySelector(".user-name");
 const labelDate = document.querySelector(".date");
+const labelMovementDate = document.querySelector(".movements-date");
 const topTextDescription = document.querySelector(".dashboard-description");
 const loanOverviewLink = document.querySelector(".request-loan-span-link");
 const containerMovements = document.querySelector(".movements");
@@ -169,6 +170,18 @@ const account1 = {
   bankNameShort: "Firstbank",
   accountNumber: 1009345243,
   accountType: "Dollar Account",
+  movementsDates: [
+    "2022-11-01T13:15:33.035Z",
+    "2022-11-30T09:48:16.867Z",
+    "2022-12-25T06:04:23.907Z",
+    "2023-01-25T14:18:46.235Z",
+    "2023-02-05T16:33:06.386Z",
+    "2023-04-10T14:43:26.374Z",
+    "2023-06-25T18:49:59.371Z",
+    "2023-07-26T12:01:20.894Z",
+  ],
+  currency: "USD",
+  locale: "en-US",
 };
 const account2 = {
   owner: "Steven Thomas Williams",
@@ -178,6 +191,18 @@ const account2 = {
   bankNameShort: "Zenithbank",
   accountNumber: 2009445243,
   accountType: "Naira Account",
+  movementsDates: [
+    "2022-11-01T13:15:33.035Z",
+    "2022-11-30T09:48:16.867Z",
+    "2022-12-25T06:04:23.907Z",
+    "2023-01-25T14:18:46.235Z",
+    "2023-02-05T16:33:06.386Z",
+    "2023-04-10T14:43:26.374Z",
+    "2023-06-25T18:49:59.371Z",
+    "2023-07-26T12:01:20.894Z",
+  ],
+  currency: "NGN",
+  locale: "en_NG",
 };
 const account3 = {
   owner: "Sarah Smith",
@@ -187,6 +212,18 @@ const account3 = {
   bankNameShort: "GTbank",
   accountNumber: 3009445243,
   accountType: "Naira Account",
+  movementsDates: [
+    "2022-11-01T13:15:33.035Z",
+    "2022-11-30T09:48:16.867Z",
+    "2022-12-25T06:04:23.907Z",
+    "2023-01-25T14:18:46.235Z",
+    "2023-02-05T16:33:06.386Z",
+    "2023-04-10T14:43:26.374Z",
+    "2023-06-25T18:49:59.371Z",
+    "2023-07-26T12:01:20.894Z",
+  ],
+  currency: "NGN",
+  locale: "en_NG",
 };
 const account4 = {
   owner: "Lawrence Okim",
@@ -196,6 +233,18 @@ const account4 = {
   bankNameShort: "UBA",
   accountNumber: 4009445243,
   accountType: "Dollar Account",
+  movementsDates: [
+    "2022-11-01T13:15:33.035Z",
+    "2022-11-30T09:48:16.867Z",
+    "2022-12-25T06:04:23.907Z",
+    "2023-01-25T14:18:46.235Z",
+    "2023-02-05T16:33:06.386Z",
+    "2023-04-10T14:43:26.374Z",
+    "2023-06-25T18:49:59.371Z",
+    "2023-07-26T12:01:20.894Z",
+  ],
+  currency: "USD",
+  locale: "en-US",
 };
 const account5 = {
   owner: "Guest",
@@ -205,6 +254,18 @@ const account5 = {
   bankNameShort: "UBA",
   accountNumber: 5009445243,
   accountType: "Dollar Account",
+  movementsDates: [
+    "2022-11-01T13:15:33.035Z",
+    "2022-11-30T09:48:16.867Z",
+    "2022-12-25T06:04:23.907Z",
+    "2023-01-25T14:18:46.235Z",
+    "2023-02-05T16:33:06.386Z",
+    "2023-04-10T14:43:26.374Z",
+    "2023-06-25T18:49:59.371Z",
+    "2023-07-26T12:01:20.894Z",
+  ],
+  currency: "USD",
+  locale: "en-US",
 };
 const accounts = [account1, account2, account3, account4, account5];
 
@@ -254,7 +315,7 @@ function capitalizeFirstLetter(string) {
 const updateUI = function (acc) {
   calcDisplayBalance(acc);
   calcDisplaySummary(acc);
-  displayMovements(acc.movements);
+  displayMovements(acc);
 };
 
 const displayBankDetails = function () {
@@ -701,11 +762,20 @@ loanBtnSubmit.addEventListener("click", function (e) {
   }
 });
 
-const displayMovements = function (movement, sort = false) {
+const displayMovements = function (acc, sort = false) {
   containerMovements.innerHTML = "";
-  const movs = sort ? movement.slice().sort((a, b) => a - b) : movement;
-  movs.forEach(function (mov) {
+  const movs = sort
+    ? acc.movements.slice().sort((a, b) => a - b)
+    : acc.movements;
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? "deposit" : "withdrawal";
+
+    const now = new Date(acc.movementsDates[i]);
+    const day = `${now.getDate()}`.padStart(2, 0);
+    const month = `${now.getMonth() + 1}`.padStart(2, 0);
+    const year = now.getFullYear();
+    const displayDate = `${day}/${month}/${year}`;
+
     const html = `
           <div class="movements-row movements-style">
             <div class="movements-reference-value flex-align">${
@@ -714,7 +784,7 @@ const displayMovements = function (movement, sort = false) {
             <div class="movements-beneficiary flex-align">bank</div>
             <div class="movements-type-${type} movements-type-style flex-align">${type}</div>
             <div class="movements-value flex-align">${Math.abs(mov)} ₦</div>
-            <div class="movements-date flex-align">3 days ago</div>
+            <div class="movements-date flex-align">${displayDate}</div>
           </div>`;
 
     containerMovements.insertAdjacentHTML("afterbegin", html);
