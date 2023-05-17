@@ -643,16 +643,6 @@ invalidOverlay.addEventListener("click", function () {
   hideSuccessPopup();
 });
 
-////////////// creating date/time ////////////////////////////////
-const now = new Date();
-const day = `${now.getDate()}`.padStart(2, 0);
-const month = `${now.getMonth() + 1}`.padStart(2, 0);
-const year = now.getFullYear();
-const hour = `${now.getHours()}`.padStart(2, 0);
-const min = `${now.getMinutes()}`.padStart(2, 0);
-
-labelDate.textContent = `${day}/${month}/${year}, ${hour}:${min}`;
-
 ////////// signup button //////////////
 let currentAccount;
 signUpBtn.addEventListener("click", function (e) {
@@ -676,6 +666,16 @@ signUpBtn.addEventListener("click", function (e) {
     hideSignup();
     updateUI(currentAccount);
     displayBankDetails();
+
+    ////////////// creating date/time ////////////////////////////////
+    const now = new Date();
+    const day = `${now.getDate()}`.padStart(2, 0);
+    const month = `${now.getMonth() + 1}`.padStart(2, 0);
+    const year = now.getFullYear();
+    const hour = `${now.getHours()}`.padStart(2, 0);
+    const min = `${now.getMinutes()}`.padStart(2, 0);
+    labelDate.textContent = `${day}/${month}/${year}, ${hour}:${min}`;
+
     inputLoginPin.value = "";
     accountEmail.value = "";
     userName.value = "";
@@ -728,6 +728,8 @@ transferBtnSubmit.addEventListener("click", function (e) {
   ) {
     currentAccount.movements.push(-amount);
     receiverAcc.movements.push(amount);
+    currentAccount.movementsDates.push(new Date().toISOString());
+    receiverAcc.movementsDates.push(new Date().toISOString());
     updateUI(currentAccount);
     inputTransferAmount.value =
       inputTransferTo.value =
@@ -736,6 +738,9 @@ transferBtnSubmit.addEventListener("click", function (e) {
     inputTransferAmount.blur();
     inputTransferTo.blur();
     inputNarration.blur();
+  } else {
+    showInvalidMessagePopup();
+    displayInvalidMessage("User");
   }
 });
 ////////// loan button //////////////
@@ -752,18 +757,23 @@ loanBtnSubmit.addEventListener("click", function (e) {
   if (
     amount > 0 &&
     receiverAcc &&
-    receiverAccNumber &&
+    // receiverAccNumber &&
     // receiverAcc.username === currentAccount.username &&
     currentAccount.movements.some((mov) => mov >= amount * 0.1)
   ) {
     receiverAcc.movements.push(amount);
+    receiverAcc.movementsDates.push(new Date().toISOString());
     updateUI(currentAccount);
     inputLoanAmount.value = "";
+  } else {
+    showInvalidMessagePopup();
+    displayInvalidMessage("User");
   }
 });
 
 const displayMovements = function (acc, sort = false) {
   containerMovements.innerHTML = "";
+
   const movs = sort
     ? acc.movements.slice().sort((a, b) => a - b)
     : acc.movements;
@@ -913,7 +923,7 @@ btnCloseAccount.addEventListener("click", function (e) {
 let sorted = false; //state variable
 btnSort.addEventListener("click", function (e) {
   e.preventDefault();
-  displayMovements(currentAccount.movements, !sorted);
+  displayMovements(currentAccount, !sorted);
   sorted = !sorted;
   [...document.querySelectorAll(".movements-row")].forEach(function (row, i) {
     if (i % 2 === 0) row.style.backgroundColor = "#5a5c5c29";
@@ -922,5 +932,5 @@ btnSort.addEventListener("click", function (e) {
 
 /*ATTENTION
 1. make the beneficiary's name show ie who's getting the money.
-2. make overlayPopups color a bit darker.
+2. make length of movementsDate the same as length of movements.
 */
