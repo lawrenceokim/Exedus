@@ -92,75 +92,6 @@ const transferExistingUsers = document.querySelector(
 );
 const closeAccountBottom = document.querySelector(".close-account");
 
-//****************FUNCTIONS *************************************/
-const hideMobileNav = function () {
-  dashboardNav.classList.remove("open");
-  headerEl.classList.remove("nav-open");
-  overlay.classList.add("disabled");
-};
-const showMobileNav = function () {
-  dashboardNav.classList.add("open");
-  headerEl.classList.add("nav-open");
-  overlay.classList.remove("disabled");
-};
-const hideSignup = function () {
-  overlay.classList.add("disabled");
-  signupPopUp.classList.add("disabled");
-};
-const hideSuccessPopup = function () {
-  invalidOverlay.classList.add("disabled");
-  successfulPopup.classList.add("disabled");
-};
-const hideInvalidMessagePopup = function () {
-  invalidOverlay.classList.add("disabled");
-  invalidMessage.classList.add("disabled");
-};
-const showInvalidMessagePopup = function () {
-  invalidOverlay.classList.remove("disabled");
-  invalidMessage.classList.remove("disabled");
-};
-const showSignup = function () {
-  signupPopUp.classList.remove("disabled");
-  overlay.classList.remove("disabled");
-};
-const showSuccessPopup = function () {
-  successfulPopup.classList.remove("disabled");
-  invalidOverlay.classList.remove("disabled");
-};
-const removeActiveNavExcept = function (e) {
-  homeBtn.classList.remove("active-nav");
-  accountBtn.classList.remove("active-nav");
-  transferBtn.classList.remove("active-nav");
-  requestLoanBtn.classList.remove("active-nav");
-  overviewBtn.classList.remove("active-nav");
-  bankDetailsBtn.classList.remove("active-nav");
-  helpSupportBtn.classList.remove("active-nav");
-  updateDetailsBtn.classList.remove("active-nav");
-  btnCloseAccount.classList.remove("active-nav");
-  return e.classList.add("active-nav");
-};
-const removeActivePageExcept = function (e) {
-  homePage.classList.add("disabled");
-  homeBottom.classList.add("disabled");
-  accountBottom.classList.add("disabled");
-  makeTransferBottom.classList.add("disabled");
-  requestLoanBottom.classList.add("disabled");
-  overviewBottom.classList.add("disabled");
-  bankDetailsBottom.classList.add("disabled");
-  helpSupportBottom.classList.add("disabled");
-  updateDetailsBottom.classList.add("disabled");
-  closeAccountBottom.classList.add("disabled");
-  return e.classList.remove("disabled");
-};
-const showBalance = (e) => e.classList.remove("disabled");
-const hideBalance = (e) => e.classList.add("disabled");
-
-////////// mobile nav buttons //////////////
-btnNavOpen.addEventListener("click", showMobileNav);
-btnNavClose.addEventListener("click", hideMobileNav);
-dashboardOpenBtn.addEventListener("click", showMobileNav);
-dashboardCloseBtn.addEventListener("click", hideMobileNav);
-
 //////////////////// ACCOUNTS /////////////////////////////////////
 const account1 = {
   owner: "Jessica Davis",
@@ -269,6 +200,68 @@ const account5 = {
 };
 const accounts = [account1, account2, account3, account4, account5];
 
+//***************************** */ FUNCTIONS **********************************/
+const hideMobileNav = function () {
+  dashboardNav.classList.remove("open");
+  headerEl.classList.remove("nav-open");
+  overlay.classList.add("disabled");
+};
+const showMobileNav = function () {
+  dashboardNav.classList.add("open");
+  headerEl.classList.add("nav-open");
+  overlay.classList.remove("disabled");
+};
+const hideSignup = function () {
+  overlay.classList.add("disabled");
+  signupPopUp.classList.add("disabled");
+};
+const hideSuccessPopup = function () {
+  invalidOverlay.classList.add("disabled");
+  successfulPopup.classList.add("disabled");
+};
+const hideInvalidMessagePopup = function () {
+  invalidOverlay.classList.add("disabled");
+  invalidMessage.classList.add("disabled");
+};
+const showInvalidMessagePopup = function () {
+  invalidOverlay.classList.remove("disabled");
+  invalidMessage.classList.remove("disabled");
+};
+const showSignup = function () {
+  signupPopUp.classList.remove("disabled");
+  overlay.classList.remove("disabled");
+};
+const showSuccessPopup = function () {
+  successfulPopup.classList.remove("disabled");
+  invalidOverlay.classList.remove("disabled");
+};
+const removeActiveNavExcept = function (e) {
+  homeBtn.classList.remove("active-nav");
+  accountBtn.classList.remove("active-nav");
+  transferBtn.classList.remove("active-nav");
+  requestLoanBtn.classList.remove("active-nav");
+  overviewBtn.classList.remove("active-nav");
+  bankDetailsBtn.classList.remove("active-nav");
+  helpSupportBtn.classList.remove("active-nav");
+  updateDetailsBtn.classList.remove("active-nav");
+  btnCloseAccount.classList.remove("active-nav");
+  return e.classList.add("active-nav");
+};
+const removeActivePageExcept = function (e) {
+  homePage.classList.add("disabled");
+  homeBottom.classList.add("disabled");
+  accountBottom.classList.add("disabled");
+  makeTransferBottom.classList.add("disabled");
+  requestLoanBottom.classList.add("disabled");
+  overviewBottom.classList.add("disabled");
+  bankDetailsBottom.classList.add("disabled");
+  helpSupportBottom.classList.add("disabled");
+  updateDetailsBottom.classList.add("disabled");
+  closeAccountBottom.classList.add("disabled");
+  return e.classList.remove("disabled");
+};
+const showBalance = (e) => e.classList.remove("disabled");
+const hideBalance = (e) => e.classList.add("disabled");
 const calcDisplayBalance = function (acc) {
   acc.balance = acc.movements.reduce((acc, mov) => acc + mov, acc.movements[0]);
   balanceValue.textContent = `${acc.balance} ₦`;
@@ -317,6 +310,35 @@ const updateUI = function (acc) {
   calcDisplaySummary(acc);
   displayMovements(acc);
 };
+
+const displayMovements = function (acc, sort = false) {
+  containerMovements.innerHTML = "";
+  const movs = sort
+    ? acc.movements.slice().sort((a, b) => a - b)
+    : acc.movements;
+  movs.forEach(function (mov, i) {
+    const type = mov > 0 ? "deposit" : "withdrawal";
+    const now = new Date(acc.movementsDates[i]);
+    const day = `${now.getDate()}`.padStart(2, 0);
+    const month = `${now.getMonth() + 1}`.padStart(2, 0);
+    const year = now.getFullYear();
+    const displayDate = `${day}/${month}/${year}`;
+
+    const html = `
+          <div class="movements-row movements-style">
+            <div class="movements-reference-value flex-align">${
+              Math.floor(Math.random() * (100000 - 200000) + 1) + 200000
+            }</div>
+            <div class="movements-beneficiary flex-align">bank</div>
+            <div class="movements-type-${type} movements-type-style flex-align">${type}</div>
+            <div class="movements-value flex-align">${Math.abs(mov)} ₦</div>
+            <div class="movements-date flex-align">${displayDate}</div>
+          </div>`;
+
+    containerMovements.insertAdjacentHTML("afterbegin", html);
+  });
+};
+// displayMovements(account1.movements);
 
 const displayBankDetails = function () {
   bankUsersContainer.innerHTML = "";
@@ -497,7 +519,58 @@ const displayUsersDetails = function () {
 };
 displayUsersDetails();
 
+// Display AccountSwitch message ///////
+const displaySuccessfulSwitch = function () {
+  successfulPopup.innerHTML = "";
+  html = `
+  <div class="congrats-wrapper">
+    <div class="verified-left flex-align">
+        <p class="template-heading"><i class="fa-solid fa-check fa-info" style="color: green; border: 0.3rem solid green"></i></p>
+        <p class="template-description">Successfully signed-in as <span class='template-desc-user'>${currentAccount.owner}</span></p>
+      </div>
+  </div>
+  `;
+  successfulPopup.insertAdjacentHTML("afterbegin", html);
+};
+
+// Display AccountSwitch message ///////
+const displaySuccessfulAccountClosed = function (e) {
+  successfulPopup.innerHTML = "";
+  html = `
+  <div class="congrats-wrapper">
+    <div class="verified-left flex-align">
+        <p class="template-heading"><i class="fa-solid fa-check fa-info" style="color: green; border: 0.3rem solid green"></i></p>
+        <p class="template-description">Successfully Deleted <span class='template-desc-user'>${e}</span>'s Account</p>
+      </div>
+  </div>
+  `;
+  successfulPopup.insertAdjacentHTML("afterbegin", html);
+};
+
+// Display InvalidMessage popup ///////
+const displayInvalidMessage = function (e) {
+  invalidMessage.innerHTML = "";
+  html = `
+    <div class="invalid-wrapper">
+      <div class="verified-left flex-align">
+        <p class="template-heading"><i class="fa-solid fa-xmark fa-info" style="color: red; border: 0.3rem solid red"></i></p>
+        <p class="template-description">Error finding <span class='template-desc-user'>${e}</span>. Please check
+          inputs.
+        </p>
+      </div>
+    </div>
+  `;
+  invalidMessage.insertAdjacentHTML("afterbegin", html);
+};
+
 //*********************************EVENT LISTENERS ***********************************/
+// mobile nav buttons //////
+btnNavOpen.addEventListener("click", showMobileNav);
+btnNavClose.addEventListener("click", hideMobileNav);
+dashboardOpenBtn.addEventListener("click", showMobileNav);
+dashboardCloseBtn.addEventListener("click", hideMobileNav);
+
+/////////
 selectAccountBtn.forEach((btn) =>
   btn.addEventListener("click", function () {
     ExistingUsersSignup.forEach((btn) => btn.classList.toggle("disabled"));
@@ -588,49 +661,6 @@ selectAccountBtn.forEach((btn) =>
     );
   })
 );
-////////////////////////////// Display AccountSwitch message ///////
-const displaySuccessfulSwitch = function () {
-  successfulPopup.innerHTML = "";
-  html = `
-  <div class="congrats-wrapper">
-    <div class="verified-left flex-align">
-        <p class="template-heading"><i class="fa-solid fa-check fa-info" style="color: green; border: 0.3rem solid green"></i></p>
-        <p class="template-description">Successfully signed-in as <span class='template-desc-user'>${currentAccount.owner}</span></p>
-      </div>
-  </div>
-  `;
-  successfulPopup.insertAdjacentHTML("afterbegin", html);
-};
-
-////////////////////////////// Display AccountSwitch message ///////
-const displaySuccessfulAccountClosed = function (e) {
-  successfulPopup.innerHTML = "";
-  html = `
-  <div class="congrats-wrapper">
-    <div class="verified-left flex-align">
-        <p class="template-heading"><i class="fa-solid fa-check fa-info" style="color: green; border: 0.3rem solid green"></i></p>
-        <p class="template-description">Successfully Deleted <span class='template-desc-user'>${e}</span>'s Account</p>
-      </div>
-  </div>
-  `;
-  successfulPopup.insertAdjacentHTML("afterbegin", html);
-};
-
-////////////////////////////// Display InvalidMessage popup ///////
-const displayInvalidMessage = function (e) {
-  invalidMessage.innerHTML = "";
-  html = `
-    <div class="invalid-wrapper">
-      <div class="verified-left flex-align">
-        <p class="template-heading"><i class="fa-solid fa-xmark fa-info" style="color: red; border: 0.3rem solid red"></i></p>
-        <p class="template-description">Error finding <span class='template-desc-user'>${e}</span>. Please check
-          inputs.
-        </p>
-      </div>
-    </div>
-  `;
-  invalidMessage.insertAdjacentHTML("afterbegin", html);
-};
 
 btnSignup.forEach((btn) => btn.addEventListener("click", showSignup));
 btnClose.addEventListener("click", hideSignup);
@@ -770,37 +800,6 @@ loanBtnSubmit.addEventListener("click", function (e) {
     displayInvalidMessage("User");
   }
 });
-
-const displayMovements = function (acc, sort = false) {
-  containerMovements.innerHTML = "";
-
-  const movs = sort
-    ? acc.movements.slice().sort((a, b) => a - b)
-    : acc.movements;
-  movs.forEach(function (mov, i) {
-    const type = mov > 0 ? "deposit" : "withdrawal";
-
-    const now = new Date(acc.movementsDates[i]);
-    const day = `${now.getDate()}`.padStart(2, 0);
-    const month = `${now.getMonth() + 1}`.padStart(2, 0);
-    const year = now.getFullYear();
-    const displayDate = `${day}/${month}/${year}`;
-
-    const html = `
-          <div class="movements-row movements-style">
-            <div class="movements-reference-value flex-align">${
-              Math.floor(Math.random() * (100000 - 200000) + 1) + 200000
-            }</div>
-            <div class="movements-beneficiary flex-align">bank</div>
-            <div class="movements-type-${type} movements-type-style flex-align">${type}</div>
-            <div class="movements-value flex-align">${Math.abs(mov)} ₦</div>
-            <div class="movements-date flex-align">${displayDate}</div>
-          </div>`;
-
-    containerMovements.insertAdjacentHTML("afterbegin", html);
-  });
-};
-// displayMovements(account1.movements);
 
 ////////// close account button //////////////
 btnCloseAccountSubmit.addEventListener("click", function (e) {
