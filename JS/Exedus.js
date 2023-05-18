@@ -200,7 +200,7 @@ const account5 = {
 };
 const accounts = [account1, account2, account3, account4, account5];
 
-//***************************** */ FUNCTIONS **********************************/
+//***************************** FUNCTIONS **********************************/
 const hideMobileNav = function () {
   dashboardNav.classList.remove("open");
   headerEl.classList.remove("nav-open");
@@ -311,6 +311,15 @@ const updateUI = function (acc) {
   displayMovements(acc);
 };
 
+const formatMovementDate = function (date) {
+  const calcDaysPassed = (date1, date2) =>
+    Math.abs(date2 - date1) / (1000 * 60 * 60 * 24);
+  const day = `${date.getDate()}`.padStart(2, 0);
+  const month = `${date.getMonth() + 1}`.padStart(2, 0);
+  const year = date.getFullYear();
+  return `${day}/${month}/${year}`;
+};
+
 const displayMovements = function (acc, sort = false) {
   containerMovements.innerHTML = "";
   const movs = sort
@@ -318,12 +327,8 @@ const displayMovements = function (acc, sort = false) {
     : acc.movements;
   movs.forEach(function (mov, i) {
     const type = mov > 0 ? "deposit" : "withdrawal";
-    const now = new Date(acc.movementsDates[i]);
-    const day = `${now.getDate()}`.padStart(2, 0);
-    const month = `${now.getMonth() + 1}`.padStart(2, 0);
-    const year = now.getFullYear();
-    const displayDate = `${day}/${month}/${year}`;
-
+    const date = new Date(acc.movementsDates[i]);
+    const displayDate = formatMovementDate(date);
     const html = `
           <div class="movements-row movements-style">
             <div class="movements-reference-value flex-align">${
