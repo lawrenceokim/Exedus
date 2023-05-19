@@ -116,7 +116,7 @@ const account1 = {
   locale: "en-US",
 };
 const account2 = {
-  owner: "Steven Thomas Williams",
+  owner: "Abdul Usman",
   pin: 2222,
   interestRate: 1.2,
   movements: [100, 200, 250, 4000, -1000, 40],
@@ -138,7 +138,7 @@ const account2 = {
   locale: "en_NG",
 };
 const account3 = {
-  owner: "Sarah Smith",
+  owner: "Tobi Adedoyin",
   pin: 3333,
   interestRate: 1.2,
   movements: [100, 200, 250, 4000, -1000, -90],
@@ -166,7 +166,7 @@ const account4 = {
   movements: [100, 200, 250, 4000, -1000, -100],
   bankNameShort: "UBA",
   accountNumber: 4009445243,
-  accountType: "Dollar Account",
+  accountType: "Naira Account",
   referenceNumber: [
     18490321, 13390355, 10555777, 19626289, 14432765, 12989018, 13387966,
   ],
@@ -178,17 +178,17 @@ const account4 = {
     "2023-05-18T18:49:59.371Z",
     "2023-05-19T12:01:20.894Z",
   ],
-  currency: "USD",
-  locale: "en-US",
+  currency: "NGN",
+  locale: "en-NG",
 };
 const account5 = {
-  owner: "Guest",
+  owner: "Nazor Chinonye",
   pin: 5555,
   interestRate: 1.2,
   movements: [100, 200, 250, 4000, -1000, 600],
   bankNameShort: "UBA",
   accountNumber: 5009445243,
-  accountType: "Dollar Account",
+  accountType: "Naira Account",
   referenceNumber: [
     18490321, 13390355, 10555777, 19626289, 14432765, 12989018, 13387966,
   ],
@@ -200,8 +200,8 @@ const account5 = {
     "2023-05-18T18:49:59.371Z",
     "2023-05-19T12:01:20.894Z",
   ],
-  currency: "USD",
-  locale: "en-US",
+  currency: "NGN",
+  locale: "en-NG",
 };
 const accounts = [account1, account2, account3, account4, account5];
 
@@ -359,31 +359,32 @@ const displayMovements = function (acc, sort = false) {
 
 const displayBankDetails = function () {
   bankUsersContainer.innerHTML = "";
+  const flag =
+    currentAccount.accountType === "Dollar Account"
+      ? '"/images/Property 1=usa-flag-2496027.png"'
+      : '"/images/Property 1=nigeria-flag-2495945.png"';
 
   const html = `
           <div class="grid-card template">
             <div class="grid-slot-1">
-              <p class="grid-username">${(bankDetails.textContent =
-                currentAccount.owner)}</p>
-              <div class="account-type"><span class="account-flag"><img src="/images/Property 1=usa-flag-2496027.png"
-                    alt="usa flag"></span>Dollar account</div>
+              <p class="grid-username">${currentAccount.owner}</p>
+              <div class="account-type"><span class="account-flag"><img src=${flag}
+                    alt="flag"></span>${currentAccount.accountType}</div>
               <i class="fa-regular fa-trash-can"></i>
             </div>
             <div class="grid-slot-2">
               <div class="text-left">
                 <p class="bank-desc">Bank Name</p>
-                <p class="bank-name">${(bankName.textContent =
-                  currentAccount.bankNameShort)}</p>
+                <p class="bank-name">${currentAccount.bankNameShort}</p>
               </div>
               <div class="text-right">
                 <p class="bank-desc">Bank Account Number</p>
-                <p class="bank-name-right bank-account-number">${(bankAccountNumber.textContent =
-                  currentAccount.accountNumber)}</p>
+                <p class="bank-name-right bank-account-number">${currentAccount.accountNumber}</p>
               </div>
             </div>
             <div class="grid-slot-3">
               <div class="text-left">
-                <p class="bank-desc">Lorem ipsum dolor sit amet consectetur,<br> adipisicing elit!</p>
+                <p class="bank-desc">Pin<br>${currentAccount.pin}</p>
               </div>
               <div class="text-right">
                 <button class="account-status-complete">Completed</button>
@@ -395,13 +396,15 @@ const displayBankDetails = function () {
 };
 const displayUsersDetails = function () {
   transferExistingUsers.innerHTML = "";
-
   const html = `
             <div class="grid-card template">
               <div class="grid-slot-1">
                 <p class="existing-username">${account1.owner}</p>
-                <div class="account-type"><span class="account-flag"><img src="/images/Property 1=usa-flag-2496027.png"
-                      alt="usa flag"></span>${account1.accountType}</div>
+                <div class="account-type"><span class="account-flag"><img src=${
+                  account1.accountType === "Dollar Account"
+                    ? '"/images/Property 1=usa-flag-2496027.png"'
+                    : '"/images/Property 1=nigeria-flag-2495945.png"'
+                } alt="flag"></span>${account1.accountType}</div>
                 <i class="fa-regular fa-trash-can"></i>
               </div>
               <div class="grid-slot-2">
@@ -428,7 +431,12 @@ const displayUsersDetails = function () {
               <div class="grid-slot-1">
                 <p class="existing-username">${account2.owner}</p>
                 <div class="account-type"><span class="account-flag"><img
-                      src="/images/Property 1=nigeria-flag-2495945.png" alt="usa flag"></span>${account2.accountType}</div>
+                     src=${
+                       account2.accountType === "Dollar Account"
+                         ? '"/images/Property 1=usa-flag-2496027.png"'
+                         : '"/images/Property 1=nigeria-flag-2495945.png"'
+                     } 
+                    alt="flag"></span>${account2.accountType}</div>
                 <i class="fa-regular fa-trash-can"></i>
               </div>
               <div class="grid-slot-2">
@@ -455,7 +463,12 @@ const displayUsersDetails = function () {
               <div class="grid-slot-1">
                 <p class="existing-username">${account3.owner}</p>
                 <div class="account-type"><span class="account-flag"><img
-                      src="/images/Property 1=nigeria-flag-2495945.png" alt="usa flag"></span>${account3.accountType}</div>
+                       src=${
+                         account3.accountType === "Dollar Account"
+                           ? '"/images/Property 1=usa-flag-2496027.png"'
+                           : '"/images/Property 1=nigeria-flag-2495945.png"'
+                       } 
+                    alt="flag"></span>${account3.accountType}</div>
                 <i class="fa-regular fa-trash-can"></i>
               </div>
               <div class="grid-slot-2">
@@ -481,8 +494,12 @@ const displayUsersDetails = function () {
             <div class="grid-card template">
               <div class="grid-slot-1">
                 <p class="existing-username">${account4.owner}</p>
-                <div class="account-type"><span class="account-flag"><img src="/images/Property 1=usa-flag-2496027.png"
-                      alt="usa flag"></span>${account4.accountType}</div>
+                <div class="account-type"><span class="account-flag"><img src=${
+                  account4.accountType === "Dollar Account"
+                    ? '"/images/Property 1=usa-flag-2496027.png"'
+                    : '"/images/Property 1=nigeria-flag-2495945.png"'
+                } 
+                    alt="flag"></span>${account4.accountType}</div>
                 <i class="fa-regular fa-trash-can"></i>
               </div>
               <div class="grid-slot-2">
@@ -508,8 +525,12 @@ const displayUsersDetails = function () {
             <div class="grid-card template">
               <div class="grid-slot-1">
                 <p class="existing-username">${account5.owner}</p>
-                <div class="account-type"><span class="account-flag"><img src="/images/Property 1=usa-flag-2496027.png"
-                      alt="usa flag"></span>${account5.accountType}</div>
+                <div class="account-type"><span class="account-flag"><img src=${
+                  account5.accountType === "Dollar Account"
+                    ? '"/images/Property 1=usa-flag-2496027.png"'
+                    : '"/images/Property 1=nigeria-flag-2495945.png"'
+                } 
+                    alt="flag"></span>${account5.accountType}</div>
                 <i class="fa-regular fa-trash-can"></i>
               </div>
               <div class="grid-slot-2">
@@ -716,12 +737,18 @@ signUpBtn.addEventListener("click", function (e) {
 
     ////////////// creating date/time ////////////////////////////////
     const now = new Date();
-    const day = `${now.getDate()}`.padStart(2, 0);
-    const month = `${now.getMonth() + 1}`.padStart(2, 0);
-    const year = now.getFullYear();
-    const hour = `${now.getHours()}`.padStart(2, 0);
-    const min = `${now.getMinutes()}`.padStart(2, 0);
-    labelDate.textContent = `${day}/${month}/${year}, ${hour}:${min}`;
+    const options = {
+      minute: "numeric",
+      hour: "numeric",
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      weekday: "long",
+    };
+    const locale = navigator.language;
+    labelDate.textContent = new Intl.DateTimeFormat(locale, options).format(
+      now
+    );
 
     inputLoginPin.value = "";
     accountEmail.value = "";
