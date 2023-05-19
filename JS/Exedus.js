@@ -97,19 +97,20 @@ const account1 = {
   owner: "Jessica Davis",
   pin: 1111,
   interestRate: 1.2,
-  movements: [100, 200, 250, 4000, -1000, 30, -100],
+  movements: [100, 200, 250, 4000, -1000, 30],
   bankNameShort: "Firstbank",
   accountNumber: 1009345243,
   accountType: "Dollar Account",
+  referenceNumber: [
+    18490321, 13390355, 10555777, 19626289, 14432765, 12989018, 13387966,
+  ],
   movementsDates: [
-    "2022-11-01T13:15:33.035Z",
-    "2022-11-30T09:48:16.867Z",
     "2022-12-25T06:04:23.907Z",
     "2023-01-25T14:18:46.235Z",
-    "2023-02-05T16:33:06.386Z",
-    "2023-04-10T14:43:26.374Z",
-    "2023-06-25T18:49:59.371Z",
-    "2023-07-26T12:01:20.894Z",
+    "2023-02-26T16:33:06.386Z",
+    "2023-04-29T14:43:26.374Z",
+    "2023-05-18T18:49:59.371Z",
+    "2023-05-19T12:01:20.894Z",
   ],
   currency: "USD",
   locale: "en-US",
@@ -118,19 +119,20 @@ const account2 = {
   owner: "Steven Thomas Williams",
   pin: 2222,
   interestRate: 1.2,
-  movements: [100, 200, 250, 4000, -1000],
+  movements: [100, 200, 250, 4000, -1000, 40],
   bankNameShort: "Zenithbank",
   accountNumber: 2009445243,
   accountType: "Naira Account",
+  referenceNumber: [
+    18490321, 13390355, 10555777, 19626289, 14432765, 12989018, 13387966,
+  ],
   movementsDates: [
-    "2022-11-01T13:15:33.035Z",
-    "2022-11-30T09:48:16.867Z",
     "2022-12-25T06:04:23.907Z",
     "2023-01-25T14:18:46.235Z",
-    "2023-02-05T16:33:06.386Z",
-    "2023-04-10T14:43:26.374Z",
-    "2023-06-25T18:49:59.371Z",
-    "2023-07-26T12:01:20.894Z",
+    "2023-02-26T16:33:06.386Z",
+    "2023-04-29T14:43:26.374Z",
+    "2023-05-18T18:49:59.371Z",
+    "2023-05-19T12:01:20.894Z",
   ],
   currency: "NGN",
   locale: "en_NG",
@@ -139,19 +141,20 @@ const account3 = {
   owner: "Sarah Smith",
   pin: 3333,
   interestRate: 1.2,
-  movements: [100, 200, 250, 4000, -1000],
+  movements: [100, 200, 250, 4000, -1000, -90],
   bankNameShort: "GTbank",
   accountNumber: 3009445243,
   accountType: "Naira Account",
+  referenceNumber: [
+    18490321, 13390355, 10555777, 19626289, 14432765, 12989018, 13387966,
+  ],
   movementsDates: [
-    "2022-11-01T13:15:33.035Z",
-    "2022-11-30T09:48:16.867Z",
     "2022-12-25T06:04:23.907Z",
     "2023-01-25T14:18:46.235Z",
-    "2023-02-05T16:33:06.386Z",
-    "2023-04-10T14:43:26.374Z",
-    "2023-06-25T18:49:59.371Z",
-    "2023-07-26T12:01:20.894Z",
+    "2023-02-26T16:33:06.386Z",
+    "2023-04-29T14:43:26.374Z",
+    "2023-05-18T18:49:59.371Z",
+    "2023-05-19T12:01:20.894Z",
   ],
   currency: "NGN",
   locale: "en_NG",
@@ -160,19 +163,20 @@ const account4 = {
   owner: "Lawrence Okim",
   pin: 4444,
   interestRate: 1.2,
-  movements: [100, 200, 250, 4000, -1000],
+  movements: [100, 200, 250, 4000, -1000, -100],
   bankNameShort: "UBA",
   accountNumber: 4009445243,
   accountType: "Dollar Account",
+  referenceNumber: [
+    18490321, 13390355, 10555777, 19626289, 14432765, 12989018, 13387966,
+  ],
   movementsDates: [
-    "2022-11-01T13:15:33.035Z",
-    "2022-11-30T09:48:16.867Z",
     "2022-12-25T06:04:23.907Z",
     "2023-01-25T14:18:46.235Z",
-    "2023-02-05T16:33:06.386Z",
-    "2023-04-10T14:43:26.374Z",
-    "2023-06-25T18:49:59.371Z",
-    "2023-07-26T12:01:20.894Z",
+    "2023-02-26T16:33:06.386Z",
+    "2023-04-29T14:43:26.374Z",
+    "2023-05-18T18:49:59.371Z",
+    "2023-05-19T12:01:20.894Z",
   ],
   currency: "USD",
   locale: "en-US",
@@ -185,15 +189,16 @@ const account5 = {
   bankNameShort: "UBA",
   accountNumber: 5009445243,
   accountType: "Dollar Account",
+  referenceNumber: [
+    18490321, 13390355, 10555777, 19626289, 14432765, 12989018, 13387966,
+  ],
   movementsDates: [
-    "2022-11-01T13:15:33.035Z",
-    "2022-11-30T09:48:16.867Z",
     "2022-12-25T06:04:23.907Z",
     "2023-01-25T14:18:46.235Z",
-    "2023-02-05T16:33:06.386Z",
-    "2023-04-10T14:43:26.374Z",
-    "2023-06-25T18:49:59.371Z",
-    "2023-07-26T12:01:20.894Z",
+    "2023-02-26T16:33:06.386Z",
+    "2023-04-29T14:43:26.374Z",
+    "2023-05-18T18:49:59.371Z",
+    "2023-05-19T12:01:20.894Z",
   ],
   currency: "USD",
   locale: "en-US",
@@ -313,12 +318,20 @@ const updateUI = function (acc) {
 
 const formatMovementDate = function (date) {
   const calcDaysPassed = (date1, date2) =>
-    Math.abs(date2 - date1) / (1000 * 60 * 60 * 24);
+    Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
+  const daysPassed = calcDaysPassed(new Date(), date);
+  if (daysPassed === 0) return "Today";
+  if (daysPassed === 1) return "Yesterday";
+  if (daysPassed <= 7) return `${daysPassed} days ago`;
+  //else
   const day = `${date.getDate()}`.padStart(2, 0);
   const month = `${date.getMonth() + 1}`.padStart(2, 0);
   const year = date.getFullYear();
   return `${day}/${month}/${year}`;
 };
+
+const randomNumberRange = (min, max) =>
+  Math.trunc(Math.random() * (max - min) + 1) + min;
 
 const displayMovements = function (acc, sort = false) {
   containerMovements.innerHTML = "";
@@ -327,13 +340,12 @@ const displayMovements = function (acc, sort = false) {
     : acc.movements;
   movs.forEach(function (mov, i) {
     const type = mov > 0 ? "deposit" : "withdrawal";
+    const reference = acc.referenceNumber[i];
     const date = new Date(acc.movementsDates[i]);
     const displayDate = formatMovementDate(date);
     const html = `
           <div class="movements-row movements-style">
-            <div class="movements-reference-value flex-align">${
-              Math.floor(Math.random() * (100000 - 200000) + 1) + 200000
-            }</div>
+            <div class="movements-reference-value flex-align">${reference}</div>
             <div class="movements-beneficiary flex-align">bank</div>
             <div class="movements-type-${type} movements-type-style flex-align">${type}</div>
             <div class="movements-value flex-align">${Math.abs(mov)} ₦</div>
@@ -765,6 +777,8 @@ transferBtnSubmit.addEventListener("click", function (e) {
     receiverAcc.movements.push(amount);
     currentAccount.movementsDates.push(new Date().toISOString());
     receiverAcc.movementsDates.push(new Date().toISOString());
+    currentAccount.referenceNumber.push(randomNumberRange(10000000, 20000000));
+    receiverAcc.referenceNumber.push(randomNumberRange(10000000, 20000000));
     updateUI(currentAccount);
     inputTransferAmount.value =
       inputTransferTo.value =
@@ -798,6 +812,7 @@ loanBtnSubmit.addEventListener("click", function (e) {
   ) {
     receiverAcc.movements.push(amount);
     receiverAcc.movementsDates.push(new Date().toISOString());
+    receiverAcc.referenceNumber.push(randomNumberRange(10000000, 20000000));
     updateUI(currentAccount);
     inputLoanAmount.value = "";
   } else {
