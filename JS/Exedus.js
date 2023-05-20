@@ -135,7 +135,7 @@ const account2 = {
     "2023-05-19T12:01:20.894Z",
   ],
   currency: "NGN",
-  locale: "en_NG",
+  locale: "en-NG",
 };
 const account3 = {
   owner: "Tobi Adedoyin",
@@ -157,7 +157,7 @@ const account3 = {
     "2023-05-19T12:01:20.894Z",
   ],
   currency: "NGN",
-  locale: "en_NG",
+  locale: "en-NG",
 };
 const account4 = {
   owner: "Lawrence Okim",
@@ -316,7 +316,7 @@ const updateUI = function (acc) {
   displayMovements(acc);
 };
 
-const formatMovementDate = function (date) {
+const formatMovementDate = function (date, locale) {
   const calcDaysPassed = (date1, date2) =>
     Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
   const daysPassed = calcDaysPassed(new Date(), date);
@@ -324,12 +324,22 @@ const formatMovementDate = function (date) {
   if (daysPassed === 1) return "Yesterday";
   if (daysPassed <= 7) return `${daysPassed} days ago`;
   //else
-  const day = `${date.getDate()}`.padStart(2, 0);
-  const month = `${date.getMonth() + 1}`.padStart(2, 0);
-  const year = date.getFullYear();
-  return `${day}/${month}/${year}`;
+  return new Intl.DateTimeFormat(locale).format(date);
 };
-
+const createDateTime = function () {
+  const now = new Date();
+  const options = {
+    minute: "numeric",
+    hour: "numeric",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    weekday: "long",
+  };
+  // const locale = navigator.language;
+  const locale = currentAccount.locale;
+  labelDate.textContent = new Intl.DateTimeFormat(locale, options).format(now);
+};
 const randomNumberRange = (min, max) =>
   Math.trunc(Math.random() * (max - min) + 1) + min;
 
@@ -342,7 +352,7 @@ const displayMovements = function (acc, sort = false) {
     const type = mov > 0 ? "deposit" : "withdrawal";
     const reference = acc.referenceNumber[i];
     const date = new Date(acc.movementsDates[i]);
-    const displayDate = formatMovementDate(date);
+    const displayDate = formatMovementDate(date, acc.locale);
     const html = `
           <div class="movements-row movements-style">
             <div class="movements-reference-value flex-align">${reference}</div>
@@ -734,22 +744,7 @@ signUpBtn.addEventListener("click", function (e) {
     hideSignup();
     updateUI(currentAccount);
     displayBankDetails();
-
-    ////////////// creating date/time ////////////////////////////////
-    const now = new Date();
-    const options = {
-      minute: "numeric",
-      hour: "numeric",
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-      weekday: "long",
-    };
-    const locale = navigator.language;
-    labelDate.textContent = new Intl.DateTimeFormat(locale, options).format(
-      now
-    );
-
+    createDateTime();
     inputLoginPin.value = "";
     accountEmail.value = "";
     userName.value = "";
@@ -779,6 +774,7 @@ signUpBtn2.addEventListener("click", function (e) {
     topTextDescription.textContent = `Get started with Exedus`;
     updateUI(currentAccount);
     displayBankDetails();
+    createDateTime();
     inputLoginPin2.value = "";
     userName2.value = "";
   } else {
@@ -971,12 +967,11 @@ btnSort.addEventListener("click", function (e) {
   e.preventDefault();
   displayMovements(currentAccount, !sorted);
   sorted = !sorted;
-  [...document.querySelectorAll(".movements-row")].forEach(function (row, i) {
-    if (i % 2 === 0) row.style.backgroundColor = "#5a5c5c29";
-  });
+  // [...document.querySelectorAll(".movements-row")].forEach(function (row, i) {
+  //   if (i % 2 === 0) row.style.backgroundColor = "#5a5c5c29";
+  // });
 });
 
 /*ATTENTION
 1. make the beneficiary's name show ie who's getting the money.
-2. make length of movementsDate the same as length of movements.
 */
