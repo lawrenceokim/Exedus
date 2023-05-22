@@ -265,11 +265,21 @@ const removeActivePageExcept = function (e) {
   closeAccountBottom.classList.add("disabled");
   return e.classList.remove("disabled");
 };
+const formatCurrency = function (value, locale, currency) {
+  return new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency: currency,
+  }).format(Math.abs(value));
+};
 const showBalance = (e) => e.classList.remove("disabled");
 const hideBalance = (e) => e.classList.add("disabled");
 const calcDisplayBalance = function (acc) {
   acc.balance = acc.movements.reduce((acc, mov) => acc + mov, acc.movements[0]);
-  balanceValue.textContent = `${acc.balance} ₦`;
+  balanceValue.textContent = formatCurrency(
+    acc.balance,
+    acc.locale,
+    acc.currency
+  );
 };
 // calcDisplayBalance(account1);
 
@@ -277,19 +287,23 @@ const calcDisplaySummary = function (acc) {
   const incomes = acc.movements
     .filter((mov) => mov > 0)
     .reduce((acc, cur) => acc + cur);
-  balanceIn.textContent = `${incomes} ₦`;
+  balanceIn.textContent = formatCurrency(incomes, acc.locale, acc.currency);
 
   const out = acc.movements
     .filter((mov) => mov < 0)
     .reduce((acc, mov) => acc + mov);
-  balanceOut.textContent = `${Math.abs(out)} ₦`;
+  balanceOut.textContent = formatCurrency(out, acc.locale, acc.currency);
 
   const interest = acc.movements
     .filter((mov) => mov > 0)
     .map((deposit) => (deposit * acc.interestRate) / 100)
     .filter((int) => int >= 1)
     .reduce((acc, int) => acc + int, 0);
-  balanceInterest.textContent = `${Math.round(Math.abs(interest) * 10) / 10} ₦`;
+  balanceInterest.textContent = formatCurrency(
+    Math.round(interest * 10) / 10,
+    acc.locale,
+    acc.currency
+  );
 };
 // calcDisplaySummary(account1);
 
@@ -353,12 +367,14 @@ const displayMovements = function (acc, sort = false) {
     const reference = acc.referenceNumber[i];
     const date = new Date(acc.movementsDates[i]);
     const displayDate = formatMovementDate(date, acc.locale);
+    const FormattedMovements = formatCurrency(mov, acc.locale, acc.currency);
+
     const html = `
           <div class="movements-row movements-style">
             <div class="movements-reference-value flex-align">${reference}</div>
             <div class="movements-beneficiary flex-align">bank</div>
             <div class="movements-type-${type} movements-type-style flex-align">${type}</div>
-            <div class="movements-value flex-align">${Math.abs(mov)} ₦</div>
+            <div class="movements-value flex-align">${FormattedMovements}</div>
             <div class="movements-date flex-align">${displayDate}</div>
           </div>`;
 

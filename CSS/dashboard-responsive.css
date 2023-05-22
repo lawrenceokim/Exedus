@@ -93,6 +93,11 @@
   }
   .balance-value {
     font-size: 3rem;
+    max-width: 14.8rem;
+    overflow-x: scroll;
+  }
+  .balance-value::-webkit-scrollbar {
+    display: none;
   }
 
   /********* my home display ************/
@@ -327,9 +332,16 @@
   .overview-right {
     align-items: center;
     justify-content: end;
-    gap: 1.8rem;
+    gap: 2rem;
     margin-left: unset;
     margin-top: 3rem;
+  }
+  .overview-in,
+  .overview-out,
+  .overview-interest {
+    display: flex;
+    text-align: end;
+    flex-direction: column;
   }
   .overview-right span {
     font-size: 1.4rem;
