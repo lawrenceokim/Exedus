@@ -317,7 +317,7 @@ body .overlay {
 }
 .service-cards {
   display: flex;
-  /* align-items: center; */
+  margin-bottom: 4rem;
 }
 .service-cards-wrapper {
   display: flex;

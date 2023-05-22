@@ -126,7 +126,7 @@
     display: unset;
     position: relative;
     overflow: scroll;
-    height: 29rem;
+    height: 30rem;
   }
   .service-cards::-webkit-scrollbar {
     display: none;

@@ -967,9 +967,9 @@ btnSort.addEventListener("click", function (e) {
   e.preventDefault();
   displayMovements(currentAccount, !sorted);
   sorted = !sorted;
-  // [...document.querySelectorAll(".movements-row")].forEach(function (row, i) {
-  //   if (i % 2 === 0) row.style.backgroundColor = "#5a5c5c29";
-  // });
+  [...document.querySelectorAll(".movements-row")].forEach(function (row, i) {
+    if (i % 2 === 0) row.style.backgroundColor = "#5a5c5c29";
+  });
 });
 
 /*ATTENTION
