@@ -90,6 +90,8 @@
 
   .balance-display {
     flex-direction: column-reverse;
+    gap: 1rem;
+    height: 10rem;
   }
   .balance-value {
     font-size: 3rem;

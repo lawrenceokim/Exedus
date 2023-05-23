@@ -849,11 +849,17 @@ loanBtnSubmit.addEventListener("click", function (e) {
     // receiverAcc.username === currentAccount.username &&
     currentAccount.movements.some((mov) => mov >= amount * 0.1)
   ) {
-    receiverAcc.movements.push(amount);
-    receiverAcc.movementsDates.push(new Date().toISOString());
-    receiverAcc.referenceNumber.push(randomNumberRange(10000000, 20000000));
-    updateUI(currentAccount);
-    inputLoanAmount.value = "";
+    setTimeout(
+      () => (
+        receiverAcc.movements.push(amount),
+        receiverAcc.movementsDates.push(new Date().toISOString()),
+        receiverAcc.referenceNumber.push(randomNumberRange(10000000, 20000000)),
+        updateUI(currentAccount),
+        (inputLoanAmount.value = ""),
+        (loanReceiverName.value = "")
+      ),
+      3000
+    );
   } else {
     showInvalidMessagePopup();
     displayInvalidMessage("User");
@@ -990,4 +996,9 @@ btnSort.addEventListener("click", function (e) {
 
 /*ATTENTION
 1. make the beneficiary's name show ie who's getting the money.
+2. set timmer to display loading animation when user logs in.
+3. set delay timmer when user request loan. ✅
+4. make timmer's milliseconds a random figure from a certain range.
+5. set loading animation when user request's a loan also.
+6. display the timmer at the bottom-right corner of the viewport.
 */
