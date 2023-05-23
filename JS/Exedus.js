@@ -1,4 +1,5 @@
 "use-strict";
+const copyrightYear = document.querySelector(".copyright-year");
 const btnNavOpen = document.querySelector(".btn-mobile-nav");
 const btnNavClose = document.querySelector(".nav-btn-close");
 const overlay = document.querySelector(".overlay");
@@ -205,6 +206,7 @@ const account5 = {
 };
 const accounts = [account1, account2, account3, account4, account5];
 
+copyrightYear.textContent = new Date().getFullYear();
 //***************************** FUNCTIONS **********************************/
 const hideMobileNav = function () {
   dashboardNav.classList.remove("open");
@@ -320,7 +322,7 @@ createUsername(accounts);
 function capitalizeFirstLetter(string) {
   const first = string.split(" ")[0].charAt(0).toUpperCase();
   const others = string.split(" ")[0].slice(1);
-  console.log(first, others);
+  // console.log(first, others);
   return first + others;
 }
 
@@ -590,7 +592,7 @@ const displaySuccessfulSwitch = function () {
   <div class="congrats-wrapper">
     <div class="verified-left flex-align">
         <p class="template-heading"><i class="fa-solid fa-check fa-info" style="color: green; border: 0.3rem solid green"></i></p>
-        <p class="template-description">Successfully signed-in as <span class='template-desc-user'>${currentAccount.owner}</span></p>
+        <p class="template-description">Successfully signed-in as <span class='template-desc-user'>${currentAccount.owner}.</span><br> Auto-logout in 5 minutes!</p>
       </div>
   </div>
   `;
@@ -625,6 +627,25 @@ const displayInvalidMessage = function (e) {
     </div>
   `;
   invalidMessage.insertAdjacentHTML("afterbegin", html);
+};
+
+const setLogoutTimer = function () {
+  let time = 300;
+  const countDown = function () {
+    const min = String(Math.trunc(time / 60)).padStart(2, 0);
+    const sec = String(time % 60).padStart(2, 0);
+
+    if (time === 0) {
+      removeActivePageExcept(homePage);
+      dashboardPage.classList.add("disabled");
+      dashboardNav.classList.remove("open");
+      headerEl.classList.remove("nav-open");
+    }
+    time--;
+  };
+  countDown();
+  const timer = setInterval(countDown, 1000);
+  return timer;
 };
 
 //*********************************EVENT LISTENERS ***********************************/
@@ -738,14 +759,14 @@ invalidOverlay.addEventListener("click", function () {
 });
 
 ////////// signup button //////////////
-let currentAccount;
+let currentAccount, timer;
 signUpBtn.addEventListener("click", function (e) {
   e.preventDefault();
   // currentAccount = accounts.find((acc) => acc.username === userName.value);to login with username.
   currentAccount = accounts.find(
     (acc) => acc.pin === Number(inputLoginPin.value)
   );
-  console.log(currentAccount);
+  // console.log(currentAccount);
   if (currentAccount?.pin === Number(inputLoginPin.value)) {
     userNameTop.textContent = `Welcome, ${capitalizeFirstLetter(
       currentAccount.username
@@ -758,12 +779,16 @@ signUpBtn.addEventListener("click", function (e) {
     removeActivePageExcept(homeBottom);
     removeActiveNavExcept(homeBtn);
     hideSignup();
-    updateUI(currentAccount);
     displayBankDetails();
     createDateTime();
     inputLoginPin.value = "";
     accountEmail.value = "";
     userName.value = "";
+
+    clearInterval(timer);
+    timer = setLogoutTimer();
+
+    updateUI(currentAccount);
   } else {
     showInvalidMessagePopup();
     displayInvalidMessage("Account User");
@@ -788,11 +813,15 @@ signUpBtn2.addEventListener("click", function (e) {
     removeActivePageExcept(homeBottom);
     hideBalance(balanceDiv);
     topTextDescription.textContent = `Get started with Exedus`;
-    updateUI(currentAccount);
     displayBankDetails();
     createDateTime();
     inputLoginPin2.value = "";
     userName2.value = "";
+
+    clearInterval(timer);
+    timer = setLogoutTimer();
+
+    updateUI(currentAccount);
   } else {
     showInvalidMessagePopup();
     displayInvalidMessage("Account");
@@ -818,7 +847,6 @@ transferBtnSubmit.addEventListener("click", function (e) {
     receiverAcc.movementsDates.push(new Date().toISOString());
     currentAccount.referenceNumber.push(randomNumberRange(10000000, 20000000));
     receiverAcc.referenceNumber.push(randomNumberRange(10000000, 20000000));
-    updateUI(currentAccount);
     inputTransferAmount.value =
       inputTransferTo.value =
       inputNarration.value =
@@ -826,6 +854,9 @@ transferBtnSubmit.addEventListener("click", function (e) {
     inputTransferAmount.blur();
     inputTransferTo.blur();
     inputNarration.blur();
+    clearInterval(timer);
+    timer = setLogoutTimer();
+    updateUI(currentAccount);
   } else {
     showInvalidMessagePopup();
     displayInvalidMessage("User");
@@ -854,12 +885,14 @@ loanBtnSubmit.addEventListener("click", function (e) {
         receiverAcc.movements.push(amount),
         receiverAcc.movementsDates.push(new Date().toISOString()),
         receiverAcc.referenceNumber.push(randomNumberRange(10000000, 20000000)),
-        updateUI(currentAccount),
         (inputLoanAmount.value = ""),
-        (loanReceiverName.value = "")
+        (loanReceiverName.value = ""),
+        updateUI(currentAccount)
       ),
       3000
     );
+    clearInterval(timer);
+    timer = setLogoutTimer();
   } else {
     showInvalidMessagePopup();
     displayInvalidMessage("User");
@@ -1000,5 +1033,7 @@ btnSort.addEventListener("click", function (e) {
 3. set delay timmer when user request loan. ✅
 4. make timmer's milliseconds a random figure from a certain range.
 5. set loading animation when user request's a loan also.
-6. display the timmer at the bottom-right corner of the viewport.
+6. display the timer when user clicks on the username displayed at the top.
+7. set timmer to hide successful login message popup even if user doesn't close it.
+8. set the current year in the copyright div.
 */
