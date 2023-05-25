@@ -640,6 +640,8 @@ const setLogoutTimer = function () {
       dashboardPage.classList.add("disabled");
       dashboardNav.classList.remove("open");
       headerEl.classList.remove("nav-open");
+      invalidOverlay.classList.add("disabled");
+      successfulPopup.classList.add("disabled");
     }
     time--;
   };
@@ -1034,6 +1036,6 @@ btnSort.addEventListener("click", function (e) {
 4. make timmer's milliseconds a random figure from a certain range.
 5. set loading animation when user request's a loan also.
 6. display the timer when user clicks on the username displayed at the top.
-7. set timmer to hide successful login message popup even if user doesn't close it.
-8. set the current year in the copyright div.
+7. set timmer to hide successful login message popup even if user doesn't close it.✅
+8. set the current year in the copyright div.✅
 */

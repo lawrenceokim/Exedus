@@ -92,9 +92,8 @@ header {
   height: 0.3rem;
   position: absolute;
   bottom: -0.2rem;
-  /* left: 50%; */
-  /* transform: translateX(-50%); */
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   background: var(--secondarycolor);
   transition: width 500ms;
 }
@@ -123,6 +122,7 @@ header {
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
+  /* height: 95vh; */
 }
 .hero {
   display: grid;
