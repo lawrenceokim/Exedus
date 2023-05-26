@@ -151,7 +151,6 @@ html {
     gap: 4rem;
     align-items: flex-start;
     flex-direction: column;
-    border-radius: 1rem 0 0 1rem;
     transform: translateX(100%);
     transition-duration: 400ms;
     opacity: 0;
@@ -302,10 +301,8 @@ html {
     width: 100%;
   }
   .signup-form {
-    padding: 1.1rem;
     width: 100%;
-    background: #0e27a517;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
   }
   .existing-users-wrapper {
     right: 0rem;
