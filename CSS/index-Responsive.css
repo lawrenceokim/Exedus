@@ -489,6 +489,12 @@ html {
   }
 }
 
+@media (max-width: 425px) {
+  .section-how {
+    padding-top: 8rem;
+  }
+}
+
 @media (max-width: 400px) {
   .desktop-nav {
     gap: 3rem;
