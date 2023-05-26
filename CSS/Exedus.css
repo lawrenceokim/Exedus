@@ -77,16 +77,16 @@ header {
   font-weight: 500;
   line-height: 1.9rem;
 }
-.desktop-nav-link a:link,
-.desktop-nav-link a:visited {
+.desktop-nav-link-text {
   position: relative;
   text-decoration: none;
   padding: 0.6rem 0rem;
   display: flex;
   align-items: center;
   color: #fff;
+  cursor: pointer;
 }
-.desktop-nav-link a::after {
+.desktop-nav-link-text::after {
   content: "";
   width: 0%;
   height: 0.3rem;
@@ -97,8 +97,10 @@ header {
   background: var(--secondarycolor);
   transition: width 500ms;
 }
-.desktop-nav-link a:hover::after,
-.desktop-nav-link a:active::after {
+.desktop-nav-link-text:hover::after {
+  width: 100%;
+}
+.desktop-nav-link-text.active::after {
   width: 100%;
 }
 /*MOBILE NAV*/
@@ -196,9 +198,11 @@ header {
 }
 
 /* HOW SECTION */
+.section-how {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
 .how-wrapper {
-  margin-top: 5.7rem;
-  margin-bottom: 5.7rem;
   display: flex;
   /* align-items: center; */
   text-align: center;
@@ -266,8 +270,7 @@ header {
 /* FOOTER */
 .footer {
   color: var(--textheadingbig);
-  margin-top: 7rem;
-  padding: 5rem 0 1.5rem 0rem;
+  padding: 5rem 0 2rem 0rem;
   background: linear-gradient(to top right, #171746, #000000);
 }
 .footer-container {

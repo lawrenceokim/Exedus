@@ -19,7 +19,7 @@ const homePage = document.querySelector(".general-home");
 const signUpBtn = document.querySelector(".signup-btn-submit");
 const signUpBtn2 = document.querySelector(".signup-btn-submit2");
 const bankDetails = document.querySelector(".grid-username");
-const userNameTop = document.querySelector(".user-name");
+const userNameTop = document.querySelector(".currentuser-display");
 const labelDate = document.querySelector(".date");
 const labelMovementDate = document.querySelector(".movements-date");
 const topTextDescription = document.querySelector(".dashboard-description");
@@ -29,6 +29,8 @@ const row = document.querySelector(".movements-row");
 const movementsBeneficiary = document.querySelectorAll(
   ".movements-beneficiary"
 );
+const btnLearnMore = document.querySelector(".btn-learn-more");
+const section1 = document.querySelector(".section-how");
 const balanceValue = document.querySelector(".balance-value");
 const balanceIn = document.querySelector(".overview-in-figures");
 const balanceOut = document.querySelector(".overview-out-figures");
@@ -52,6 +54,8 @@ const selectAccountBtn = document.querySelectorAll(".select-account");
 const ExistingUsersSignup = document.querySelectorAll(
   ".existing-users-wrapper"
 );
+const btnUsernameContainer = document.querySelector(".currentuser-container");
+const btnUsernameDropdown = document.querySelector(".currentuser-dropdown");
 const headerEl = document.querySelector(".header");
 const signupImg = document.querySelector(".signup-img-div");
 const dashboardNav = document.querySelector(".navigation");
@@ -650,12 +654,26 @@ const setLogoutTimer = function () {
   return timer;
 };
 
+//************************************************************************************/
+//************************************************************************************* */
 //*********************************EVENT LISTENERS ***********************************/
 // mobile nav buttons //////
 btnNavOpen.addEventListener("click", showMobileNav);
 btnNavClose.addEventListener("click", hideMobileNav);
 dashboardOpenBtn.addEventListener("click", showMobileNav);
 dashboardCloseBtn.addEventListener("click", hideMobileNav);
+btnUsernameContainer.addEventListener("click", function () {
+  btnUsernameDropdown.classList.toggle("active");
+
+  // if(btnUsernameDropdown.classList.contains('active'))
+});
+
+btnLearnMore.addEventListener("click", function () {
+  // const s1coords = section1.getBoundingClientRect();
+  section1.scrollIntoView({
+    behavior: "smooth",
+  });
+});
 
 /////////
 selectAccountBtn.forEach((btn) =>
@@ -770,7 +788,7 @@ signUpBtn.addEventListener("click", function (e) {
   );
   // console.log(currentAccount);
   if (currentAccount?.pin === Number(inputLoginPin.value)) {
-    userNameTop.textContent = `Welcome, ${capitalizeFirstLetter(
+    userNameTop.textContent = `${capitalizeFirstLetter(
       currentAccount.username
     )}`;
     accountEmail.textContent = userEmail.value;
@@ -803,7 +821,7 @@ signUpBtn2.addEventListener("click", function (e) {
   currentAccount = accounts.find((acc) => acc.pin === +inputLoginPin2.value);
   console.log(currentAccount);
   if (currentAccount?.pin === +inputLoginPin2.value) {
-    userNameTop.textContent = `Welcome, ${capitalizeFirstLetter(
+    userNameTop.textContent = `${capitalizeFirstLetter(
       currentAccount.username
     )}`;
     accountEmail.textContent = userEmail2.value;

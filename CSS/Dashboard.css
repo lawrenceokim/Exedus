@@ -237,11 +237,30 @@ body .overlay {
   color: var(--textparagraph);
 }
 .user-name {
+  display: flex;
   text-align: right;
   line-height: 1.3;
-
   font-size: 1.6rem;
   font-weight: 500;
+  align-items: center;
+  justify-content: right;
+}
+.currentuser-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 2rem;
+  border: 0.2rem solid #666;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+.currentuser-dropdown {
+  margin-left: 0.3rem;
+  transition-duration: 500ms;
+}
+.currentuser-dropdown.active {
+  transform: rotate(-180deg);
 }
 .top-section .template-description {
   font-size: 1.6rem;

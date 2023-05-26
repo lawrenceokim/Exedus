@@ -227,3 +227,8 @@
     transform 0.4s cubic-bezier(0.18, 1.25, 0.4, 1), visibility 0.4s linear;
   transform: scale(1);
 }
+input:focus {
+  outline: none;
+  /* border-color: #719ece;
+  box-shadow: 0 0 10px #719ece; */
+}
