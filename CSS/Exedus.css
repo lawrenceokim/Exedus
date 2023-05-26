@@ -236,7 +236,6 @@ header {
   text-align: left;
   width: 37rem;
   height: 40rem;
-  background: linear-gradient(to bottom, #ffffff, #39393829);
   padding: 2rem;
   border-radius: 1rem;
   transition-duration: 1s;
@@ -251,7 +250,7 @@ header {
   overflow: hidden;
 }
 .card-img {
-  width: 100%;
+  width: 70%;
   height: 100%;
 }
 .card-heading {

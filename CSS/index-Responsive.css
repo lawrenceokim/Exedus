@@ -94,6 +94,9 @@ html {
   .card {
     height: 40rem;
   }
+  .card-img {
+    width: 85%;
+  }
   .cta-btn,
   .cta-btn2 {
     font-size: 1.4rem;
