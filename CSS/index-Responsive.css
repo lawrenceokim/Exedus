@@ -294,7 +294,7 @@ html {
     overflow-y: scroll;
     overflow-x: hidden;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
   }
   .signup-form-wrapper {
     display: flex;
@@ -324,7 +324,7 @@ html {
     margin-top: 5rem;
   }
   .signup-wrapper .btn-close {
-    top: 0rem;
+    top: 2rem;
     right: -4rem;
     padding: 0.5rem 4rem 0.5rem 0.9rem;
     border-radius: 2rem 0 0 2rem;
