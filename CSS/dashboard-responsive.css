@@ -188,6 +188,10 @@
   .account-bottom .verified-right {
     margin-bottom: 2rem;
   }
+  .account-bottom .card-img {
+    width: 70%;
+    height: 100%;
+  }
   .account-bottom-heading {
     margin: 1rem;
   }

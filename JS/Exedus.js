@@ -646,6 +646,7 @@ const setLogoutTimer = function () {
       headerEl.classList.remove("nav-open");
       invalidOverlay.classList.add("disabled");
       successfulPopup.classList.add("disabled");
+      hideSignup();
     }
     time--;
   };
@@ -678,9 +679,16 @@ btnLearnMore.addEventListener("click", function () {
 /////////
 selectAccountBtn.forEach((btn) =>
   btn.addEventListener("click", function () {
+    btn.classList.toggle("show");
     ExistingUsersSignup.forEach((btn) => btn.classList.toggle("disabled"));
-    signupImg.classList.toggle("disabled");
     ExistingUsersSignup.forEach((displays) => (displays.innerHTML = ""));
+
+    if (btn.classList.contains("show")) {
+      btn.textContent = "hide";
+    } else {
+      btn.textContent = "Show";
+    }
+
     const html = `
           <p class="grid-card-desc">Choose account to log-in as below.</p>
           <div class="grid-card-container">
@@ -761,6 +769,7 @@ selectAccountBtn.forEach((btn) =>
               </div>
             </div>
   `;
+
     ExistingUsersSignup.forEach((displays) =>
       displays.insertAdjacentHTML("afterbegin", html)
     );

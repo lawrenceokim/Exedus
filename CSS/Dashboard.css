@@ -390,6 +390,10 @@ body .overlay {
   column-gap: 2.6rem;
   margin-top: 2.6rem;
 }
+.account-bottom .card-img {
+  width: 100%;
+  height: 157%;
+}
 .account-bottom-heading {
   font-weight: 400;
   font-size: 1.6rem;
