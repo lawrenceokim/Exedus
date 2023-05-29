@@ -109,6 +109,7 @@ const account1 = {
   referenceNumber: [
     18490321, 13390355, 10555777, 19626289, 14432765, 12989018, 13387966,
   ],
+  beneficiary: [],
   movementsDates: [
     "2022-12-25T06:04:23.907Z",
     "2023-01-25T14:18:46.235Z",
@@ -131,6 +132,7 @@ const account2 = {
   referenceNumber: [
     18490321, 13390355, 10555777, 19626289, 14432765, 12989018, 13387966,
   ],
+  beneficiary: [],
   movementsDates: [
     "2022-12-25T06:04:23.907Z",
     "2023-01-25T14:18:46.235Z",
@@ -153,6 +155,7 @@ const account3 = {
   referenceNumber: [
     18490321, 13390355, 10555777, 19626289, 14432765, 12989018, 13387966,
   ],
+  beneficiary: [],
   movementsDates: [
     "2022-12-25T06:04:23.907Z",
     "2023-01-25T14:18:46.235Z",
@@ -175,6 +178,7 @@ const account4 = {
   referenceNumber: [
     18490321, 13390355, 10555777, 19626289, 14432765, 12989018, 13387966,
   ],
+  beneficiary: [],
   movementsDates: [
     "2022-12-25T06:04:23.907Z",
     "2023-01-25T14:18:46.235Z",
@@ -197,6 +201,7 @@ const account5 = {
   referenceNumber: [
     18490321, 13390355, 10555777, 19626289, 14432765, 12989018, 13387966,
   ],
+  beneficiary: [],
   movementsDates: [
     "2022-12-25T06:04:23.907Z",
     "2023-01-25T14:18:46.235Z",
@@ -374,11 +379,12 @@ const displayMovements = function (acc, sort = false) {
     const date = new Date(acc.movementsDates[i]);
     const displayDate = formatMovementDate(date, acc.locale);
     const FormattedMovements = formatCurrency(mov, acc.locale, acc.currency);
+    const displayBeneficiary = acc.beneficiary[i];
 
     const html = `
           <div class="movements-row movements-style">
             <div class="movements-reference-value flex-align">${reference}</div>
-            <div class="movements-beneficiary flex-align">bank</div>
+            <div class="movements-beneficiary flex-align">${displayBeneficiary}</div>
             <div class="movements-type-${type} movements-type-style flex-align">${type}</div>
             <div class="movements-value flex-align">${FormattedMovements}</div>
             <div class="movements-date flex-align">${displayDate}</div>
@@ -871,6 +877,8 @@ transferBtnSubmit.addEventListener("click", function (e) {
     receiverAcc?.username !== currentAccount.username
   ) {
     currentAccount.movements.push(-amount);
+    receiverAcc.beneficiary.push(currentAccount.username);
+    currentAccount.beneficiary.push(currentAccount.username);
     receiverAcc.movements.push(amount);
     currentAccount.movementsDates.push(new Date().toISOString());
     receiverAcc.movementsDates.push(new Date().toISOString());
@@ -914,6 +922,7 @@ loanBtnSubmit.addEventListener("click", function (e) {
         receiverAcc.movements.push(amount),
         receiverAcc.movementsDates.push(new Date().toISOString()),
         receiverAcc.referenceNumber.push(randomNumberRange(10000000, 20000000)),
+        receiverAcc.beneficiary.push(currentAccount.username),
         (inputLoanAmount.value = ""),
         (loanReceiverName.value = ""),
         updateUI(currentAccount)
