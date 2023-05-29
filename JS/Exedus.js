@@ -109,7 +109,7 @@ const account1 = {
   referenceNumber: [
     18490321, 13390355, 10555777, 19626289, 14432765, 12989018, 13387966,
   ],
-  beneficiary: [],
+  beneficiary: ["bank", "bank", "bank", "bank", "bank", "bank"],
   movementsDates: [
     "2022-12-25T06:04:23.907Z",
     "2023-01-25T14:18:46.235Z",
@@ -132,7 +132,7 @@ const account2 = {
   referenceNumber: [
     18490321, 13390355, 10555777, 19626289, 14432765, 12989018, 13387966,
   ],
-  beneficiary: [],
+  beneficiary: ["bank", "bank", "bank", "bank", "bank", "bank"],
   movementsDates: [
     "2022-12-25T06:04:23.907Z",
     "2023-01-25T14:18:46.235Z",
@@ -155,7 +155,7 @@ const account3 = {
   referenceNumber: [
     18490321, 13390355, 10555777, 19626289, 14432765, 12989018, 13387966,
   ],
-  beneficiary: [],
+  beneficiary: ["bank", "bank", "bank", "bank", "bank", "bank"],
   movementsDates: [
     "2022-12-25T06:04:23.907Z",
     "2023-01-25T14:18:46.235Z",
@@ -178,7 +178,7 @@ const account4 = {
   referenceNumber: [
     18490321, 13390355, 10555777, 19626289, 14432765, 12989018, 13387966,
   ],
-  beneficiary: [],
+  beneficiary: ["bank", "bank", "bank", "bank", "bank", "bank"],
   movementsDates: [
     "2022-12-25T06:04:23.907Z",
     "2023-01-25T14:18:46.235Z",
@@ -201,7 +201,7 @@ const account5 = {
   referenceNumber: [
     18490321, 13390355, 10555777, 19626289, 14432765, 12989018, 13387966,
   ],
-  beneficiary: [],
+  beneficiary: ["bank", "bank", "bank", "bank", "bank", "bank"],
   movementsDates: [
     "2022-12-25T06:04:23.907Z",
     "2023-01-25T14:18:46.235Z",
