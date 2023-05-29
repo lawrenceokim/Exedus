@@ -878,7 +878,7 @@ transferBtnSubmit.addEventListener("click", function (e) {
   ) {
     currentAccount.movements.push(-amount);
     receiverAcc.beneficiary.push(currentAccount.username);
-    currentAccount.beneficiary.push(currentAccount.username);
+    currentAccount.beneficiary.push("Me");
     receiverAcc.movements.push(amount);
     currentAccount.movementsDates.push(new Date().toISOString());
     receiverAcc.movementsDates.push(new Date().toISOString());
@@ -910,6 +910,11 @@ loanBtnSubmit.addEventListener("click", function (e) {
   const receiverAccNumber = accounts.find(
     (acc) => acc.accountNumber === Number(loanReceiverNumber.value)
   );
+  const accBeneficiary =
+    currentAccount.username === receiverAcc.username
+      ? "Me"
+      : currentAccount.username;
+
   if (
     amount > 0 &&
     receiverAcc &&
@@ -922,7 +927,7 @@ loanBtnSubmit.addEventListener("click", function (e) {
         receiverAcc.movements.push(amount),
         receiverAcc.movementsDates.push(new Date().toISOString()),
         receiverAcc.referenceNumber.push(randomNumberRange(10000000, 20000000)),
-        receiverAcc.beneficiary.push(currentAccount.username),
+        receiverAcc.beneficiary.push(accBeneficiary),
         (inputLoanAmount.value = ""),
         (loanReceiverName.value = ""),
         updateUI(currentAccount)
