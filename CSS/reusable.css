@@ -55,8 +55,7 @@
 .cta-btn2:hover {
   background: #ffffff1e;
 }
-.cta-btn:hover,
-.cta-btn:active {
+.cta-btn:hover {
   background: var(--primarycolordarker);
 }
 .cta-btn1 {

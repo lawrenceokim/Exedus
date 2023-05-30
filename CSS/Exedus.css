@@ -2,7 +2,7 @@
   --primarycolor: #0e27a5;
   --primaryheadingcolor: #0000ff98;
   --background: #0c0b21;
-  --primarycolordarker: #171746;
+  --primarycolordarker: #0a1c7a;
   --textheadingbig: #ffffff;
   --textparagraphsmall: #ffffff;
   --spacegrotesk: "Space Grotesk", sans-serif;
@@ -77,16 +77,17 @@ header {
   font-weight: 500;
   line-height: 1.9rem;
 }
-.desktop-nav-link-text {
-  position: relative;
+.desktop-nav-link-text:link,
+.desktop-nav-link-text:visited {
   text-decoration: none;
   padding: 0.6rem 0rem;
-  display: flex;
-  align-items: center;
+  display: block;
   color: #fff;
   cursor: pointer;
+  transition: all 0.3s;
 }
-.desktop-nav-link-text::after {
+/* .desktop-nav-link-text:link::after,
+.desktop-nav-link-text:visited::after {
   content: "";
   width: 0%;
   height: 0.3rem;
@@ -97,12 +98,12 @@ header {
   background: var(--secondarycolor);
   transition: width 500ms;
 }
+
+.desktop-nav-link-text:active::after,
 .desktop-nav-link-text:hover::after {
   width: 100%;
-}
-.desktop-nav-link-text.active::after {
-  width: 100%;
-}
+} */
+
 /*MOBILE NAV*/
 .btn-mobile-nav {
   border: none;

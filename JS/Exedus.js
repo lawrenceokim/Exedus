@@ -1,4 +1,5 @@
 "use-strict";
+const nav = document.querySelector(".desktop-nav");
 const copyrightYear = document.querySelector(".copyright-year");
 const btnNavOpen = document.querySelector(".btn-mobile-nav");
 const btnNavClose = document.querySelector(".nav-btn-close");
@@ -226,6 +227,17 @@ const showMobileNav = function () {
   dashboardNav.classList.add("open");
   headerEl.classList.add("nav-open");
   overlay.classList.remove("disabled");
+};
+const handleHover = function (e) {
+  if (e.target.classList.contains("desktop-nav-link-hover")) {
+    const link = e.target;
+    const siblings = link
+      .closest(".desktop-nav")
+      .querySelectorAll(".desktop-nav-link-hover");
+    siblings.forEach((el) => {
+      if (el !== link) el.style.opacity = this;
+    });
+  }
 };
 const hideSignup = function () {
   overlay.classList.add("disabled");
@@ -671,9 +683,10 @@ dashboardOpenBtn.addEventListener("click", showMobileNav);
 dashboardCloseBtn.addEventListener("click", hideMobileNav);
 btnUsernameContainer.addEventListener("click", function () {
   btnUsernameDropdown.classList.toggle("active");
-
   // if(btnUsernameDropdown.classList.contains('active'))
 });
+nav.addEventListener("mouseover", handleHover.bind(0.3));
+nav.addEventListener("mouseout", handleHover.bind(1));
 
 btnLearnMore.addEventListener("click", function () {
   // const s1coords = section1.getBoundingClientRect();
