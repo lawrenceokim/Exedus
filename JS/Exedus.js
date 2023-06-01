@@ -285,20 +285,6 @@ const init = function () {
   activateDot(0);
 };
 init();
-btnRight.addEventListener("click", nextSlide);
-btnLeft.addEventListener("click", prevSlide);
-dotContainer.addEventListener("click", function (e) {
-  if (e.target.classList.contains("dots__dot")) {
-    const { slide } = e.target.dataset;
-    goToSlide(slide);
-    activateDot(slide);
-  }
-});
-document.addEventListener("keydown", function (e) {
-  if (e.key === "ArrowLeft") prevSlide();
-  e.key === "ArrowRight" && nextSlide();
-});
-
 const hideSignup = function () {
   overlay.classList.add("disabled");
   signupPopUp.classList.add("disabled");
@@ -1048,6 +1034,19 @@ btnCloseAccountSubmit.addEventListener("click", function (e) {
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////////
+btnRight.addEventListener("click", nextSlide);
+btnLeft.addEventListener("click", prevSlide);
+dotContainer.addEventListener("click", function (e) {
+  if (e.target.classList.contains("dots__dot")) {
+    const { slide } = e.target.dataset;
+    goToSlide(slide);
+    activateDot(slide);
+  }
+});
+document.addEventListener("keydown", function (e) {
+  if (e.key === "ArrowLeft") prevSlide();
+  e.key === "ArrowRight" && nextSlide();
+});
 homeBtn.addEventListener("click", function () {
   removeActiveNavExcept(homeBtn);
   removeActivePageExcept(homeBottom);
