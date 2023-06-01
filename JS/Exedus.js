@@ -30,6 +30,10 @@ const row = document.querySelector(".movements-row");
 const movementsBeneficiary = document.querySelectorAll(
   ".movements-beneficiary"
 );
+const slides = document.querySelectorAll(".slide");
+const btnLeft = document.querySelector(".slider__btn--left");
+const btnRight = document.querySelector(".slider__btn--right");
+const dotContainer = document.querySelector(".dots");
 const btnLearnMore = document.querySelector(".btn-learn-more");
 const section1 = document.querySelector(".section-how");
 const balanceValue = document.querySelector(".balance-value");
@@ -239,6 +243,62 @@ const handleHover = function (e) {
     });
   }
 };
+
+let curSlide = 0;
+const maxSlide = slides.length;
+const goToSlide = function (slide) {
+  slides.forEach(
+    (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
+  );
+};
+const nextSlide = function () {
+  if (curSlide === maxSlide - 1) curSlide = 0;
+  else curSlide++;
+  goToSlide(curSlide);
+  activateDot(curSlide);
+};
+const prevSlide = function () {
+  if (curSlide === 0) curSlide = maxSlide - 1;
+  else curSlide--;
+  goToSlide(curSlide);
+  activateDot(curSlide);
+};
+const createDot = function () {
+  slides.forEach(function (_, i) {
+    dotContainer.insertAdjacentHTML(
+      "beforeend",
+      `<button class="dots__dot" data-slide = '${i}'></button>`
+    );
+  });
+};
+const activateDot = function (slide) {
+  document
+    .querySelectorAll(".dots__dot")
+    .forEach((dot) => dot.classList.remove("dots__dot--active"));
+  document
+    .querySelector(`.dots__dot[data-slide = "${slide}"]`)
+    .classList.add("dots__dot--active");
+};
+const init = function () {
+  goToSlide(0);
+  createDot();
+  activateDot(0);
+};
+init();
+btnRight.addEventListener("click", nextSlide);
+btnLeft.addEventListener("click", prevSlide);
+dotContainer.addEventListener("click", function (e) {
+  if (e.target.classList.contains("dots__dot")) {
+    const { slide } = e.target.dataset;
+    goToSlide(slide);
+    activateDot(slide);
+  }
+});
+document.addEventListener("keydown", function (e) {
+  if (e.key === "ArrowLeft") prevSlide();
+  e.key === "ArrowRight" && nextSlide();
+});
+
 const hideSignup = function () {
   overlay.classList.add("disabled");
   signupPopUp.classList.add("disabled");
