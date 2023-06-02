@@ -401,6 +401,16 @@ header {
 
   /* THIS creates the animation! */
   transition: transform 1s;
+
+  -ms-scroll-chaining: none;
+  /* Prevents Metro from swiping to the next tab or app. */
+
+  -ms-scroll-snap-type: mandatory;
+  scroll-snap-type: mandatory;
+  /* Forces a snap scroll behavior on your images. */
+
+  -ms-scroll-snap-points-x: snapInterval(0%, 100%);
+  /* Defines the y and x intervals to snap to when scrolling. */
 }
 
 .slide > img {

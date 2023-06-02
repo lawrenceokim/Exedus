@@ -731,6 +731,9 @@ btnNavOpen.addEventListener("click", showMobileNav);
 btnNavClose.addEventListener("click", hideMobileNav);
 dashboardOpenBtn.addEventListener("click", showMobileNav);
 dashboardCloseBtn.addEventListener("click", hideMobileNav);
+document
+  .querySelectorAll(".desktop-nav-list")
+  .forEach((btn) => btn.addEventListener("click", hideMobileNav));
 btnUsernameContainer.addEventListener("click", function () {
   btnUsernameDropdown.classList.toggle("active");
   // if(btnUsernameDropdown.classList.contains('active'))

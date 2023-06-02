@@ -288,7 +288,7 @@ html {
   }
   .operations__content {
     font-size: 1.4rem;
-    padding: 2rem 3rem 3rem 2rem;
+    padding: 2rem 2rem 2rem 2rem;
   }
   .testimonial {
     width: 77%;
@@ -466,6 +466,8 @@ html {
     font-size: 1.4rem;
   }
   .slider__btn {
+    top: 85%;
+    z-index: 2;
     height: 4.5rem;
     width: 4.5rem;
     font-size: 3rem;
@@ -545,8 +547,14 @@ html {
   .section-how {
     padding-top: 8rem;
   }
-  .slider__btn {
-    display: none;
+  .section__title {
+    max-width: 100%;
+  }
+  .section-description {
+    font-size: 2.6rem;
+  }
+  .operations {
+    margin: 9rem auto 0 auto;
   }
   .testimonial::before {
     top: -5.5rem;
@@ -555,6 +563,15 @@ html {
   }
   .testimonial {
     width: 95%;
+  }
+  .slide {
+    height: 45rem;
+  }
+  .slider__btn--left {
+    left: 25%;
+  }
+  .slider__btn--right {
+    right: 25%;
   }
 }
 
