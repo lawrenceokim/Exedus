@@ -30,6 +30,10 @@ const row = document.querySelector(".movements-row");
 const movementsBeneficiary = document.querySelectorAll(
   ".movements-beneficiary"
 );
+const navLinks = document.querySelector(".desktop-nav-list");
+const tabs = document.querySelectorAll(".operations__tab");
+const tabContainer = document.querySelector(".operations__tab-container");
+const tabContent = document.querySelectorAll(".operations__content");
 const slides = document.querySelectorAll(".slide");
 const btnLeft = document.querySelector(".slider__btn--left");
 const btnRight = document.querySelector(".slider__btn--right");
@@ -1034,6 +1038,27 @@ btnCloseAccountSubmit.addEventListener("click", function (e) {
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////////
+navLinks.addEventListener("click", function (e) {
+  e.preventDefault();
+  const id = e.target.getAttribute("href");
+  console.log(id);
+
+  document.querySelector(id).scrollIntoView({
+    behavior: "smooth",
+  });
+});
+tabContainer.addEventListener("click", function (e) {
+  const clicked = e.target.closest(".operations__tab");
+  if (!clicked) return;
+
+  tabs.forEach((t) => t.classList.remove("operations__tab--active"));
+  tabContent.forEach((t) => t.classList.remove("operations__content--active"));
+
+  clicked.classList.add("operations__tab--active");
+  document
+    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add("operations__content--active");
+});
 btnRight.addEventListener("click", nextSlide);
 btnLeft.addEventListener("click", prevSlide);
 dotContainer.addEventListener("click", function (e) {

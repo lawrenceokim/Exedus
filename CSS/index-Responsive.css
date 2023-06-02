@@ -218,6 +218,15 @@ html {
     width: 55%;
     height: auto;
   }
+  .section-heading {
+    text-align: center;
+  }
+  .section-description {
+    text-align: center;
+  }
+  .btn {
+    padding: 2rem 2rem;
+  }
   .footer-container {
     column-gap: 0.4rem;
   }
@@ -247,6 +256,9 @@ html {
   .icon-mobile-nav {
     font-size: 4rem;
   }
+  .section {
+    padding: 10rem 2rem;
+  }
   .section-hero {
     background: linear-gradient(to bottom, #010119, #0000006d),
       url(/images/freestocks-2MFgs3uK7mo-unsplash.webp);
@@ -266,6 +278,20 @@ html {
   }
   .template-heading {
     text-align: center;
+  }
+  .btn {
+    padding: 1rem 1rem;
+    font-size: 1.4rem;
+  }
+  .operations__content--active {
+    grid-template-columns: 0rem 1fr;
+  }
+  .operations__content {
+    font-size: 1.4rem;
+    padding: 2rem 3rem 3rem 2rem;
+  }
+  .testimonial {
+    width: 77%;
   }
   .footer-container {
     grid-template-columns: 1.5fr;
@@ -421,6 +447,32 @@ html {
   .cta-btn.card-btn {
     margin-top: 2rem;
   }
+  .operations__tab {
+    margin-right: 1.5rem;
+  }
+  .btn {
+    padding: 1rem 1rem;
+  }
+  .operations__tab span {
+    display: none;
+  }
+  .operations__header {
+    font-size: 1.8rem;
+  }
+  .testimonial__header {
+    font-size: 1.8rem;
+  }
+  .testimonial__text {
+    font-size: 1.4rem;
+  }
+  .slider__btn {
+    height: 4.5rem;
+    width: 4.5rem;
+    font-size: 3rem;
+  }
+  .dots {
+    bottom: 15%;
+  }
 }
 
 @media (max-width: 506px) {
@@ -492,6 +544,17 @@ html {
 @media (max-width: 425px) {
   .section-how {
     padding-top: 8rem;
+  }
+  .slider__btn {
+    display: none;
+  }
+  .testimonial::before {
+    top: -5.5rem;
+    left: 0%;
+    font-size: 15rem;
+  }
+  .testimonial {
+    width: 95%;
   }
 }
 
