@@ -118,7 +118,15 @@ const account1 = {
   referenceNumber: [
     18490321, 13390355, 10555777, 19626289, 14432765, 12989018, 13387966,
   ],
-  beneficiary: ["bank", "bank", "bank", "bank", "bank", "bank"],
+  beneficiary: [
+    "My account",
+    "My account",
+    "My account",
+    "My account",
+    "My account",
+    "My account",
+  ],
+  type: ["Loan", "Loan", "Transfer", "Transfer", "Transfer", "Loan"],
   movementsDates: [
     "2022-12-25T06:04:23.907Z",
     "2023-01-25T14:18:46.235Z",
@@ -141,7 +149,15 @@ const account2 = {
   referenceNumber: [
     18490321, 13390355, 10555777, 19626289, 14432765, 12989018, 13387966,
   ],
-  beneficiary: ["bank", "bank", "bank", "bank", "bank", "bank"],
+  beneficiary: [
+    "My account",
+    "My account",
+    "My account",
+    "My account",
+    "My account",
+    "My account",
+  ],
+  type: ["Loan", "Loan", "Transfer", "Transfer", "Transfer", "Loan"],
   movementsDates: [
     "2022-12-25T06:04:23.907Z",
     "2023-01-25T14:18:46.235Z",
@@ -164,7 +180,15 @@ const account3 = {
   referenceNumber: [
     18490321, 13390355, 10555777, 19626289, 14432765, 12989018, 13387966,
   ],
-  beneficiary: ["bank", "bank", "bank", "bank", "bank", "bank"],
+  beneficiary: [
+    "My account",
+    "My account",
+    "My account",
+    "My account",
+    "My account",
+    "My account",
+  ],
+  type: ["Loan", "Loan", "Transfer", "Transfer", "Transfer", "Loan"],
   movementsDates: [
     "2022-12-25T06:04:23.907Z",
     "2023-01-25T14:18:46.235Z",
@@ -187,7 +211,15 @@ const account4 = {
   referenceNumber: [
     18490321, 13390355, 10555777, 19626289, 14432765, 12989018, 13387966,
   ],
-  beneficiary: ["bank", "bank", "bank", "bank", "bank", "bank"],
+  beneficiary: [
+    "My account",
+    "My account",
+    "My account",
+    "My account",
+    "My account",
+    "My account",
+  ],
+  type: ["Loan", "Loan", "Transfer", "Transfer", "Transfer", "Loan"],
   movementsDates: [
     "2022-12-25T06:04:23.907Z",
     "2023-01-25T14:18:46.235Z",
@@ -210,7 +242,15 @@ const account5 = {
   referenceNumber: [
     18490321, 13390355, 10555777, 19626289, 14432765, 12989018, 13387966,
   ],
-  beneficiary: ["bank", "bank", "bank", "bank", "bank", "bank"],
+  beneficiary: [
+    "My account",
+    "My account",
+    "My account",
+    "My account",
+    "My account",
+    "My account",
+  ],
+  type: ["Loan", "Loan", "Transfer", "Transfer", "Transfer", "Loan"],
   movementsDates: [
     "2022-12-25T06:04:23.907Z",
     "2023-01-25T14:18:46.235Z",
@@ -436,17 +476,18 @@ const displayMovements = function (acc, sort = false) {
     ? acc.movements.slice().sort((a, b) => a - b)
     : acc.movements;
   movs.forEach(function (mov, i) {
-    const type = mov > 0 ? "deposit" : "withdrawal";
+    const type = mov > 0 ? "credit" : "debit";
     const reference = acc.referenceNumber[i];
     const date = new Date(acc.movementsDates[i]);
     const displayDate = formatMovementDate(date, acc.locale);
     const FormattedMovements = formatCurrency(mov, acc.locale, acc.currency);
     const displayBeneficiary = acc.beneficiary[i];
+    const displayType = acc.type[i];
 
     const html = `
           <div class="movements-row movements-style">
             <div class="movements-reference-value flex-align">${reference}</div>
-            <div class="movements-beneficiary flex-align">${displayBeneficiary}</div>
+            <div class="movements-beneficiary"><span>${displayType}/</span>${displayBeneficiary}</div>
             <div class="movements-type-${type} movements-type-style flex-align">${type}</div>
             <div class="movements-value flex-align">${FormattedMovements}</div>
             <div class="movements-date flex-align">${displayDate}</div>
@@ -943,9 +984,11 @@ transferBtnSubmit.addEventListener("click", function (e) {
     receiverAcc?.username !== currentAccount.username
   ) {
     currentAccount.movements.push(-amount);
-    receiverAcc.beneficiary.push(currentAccount.username);
-    currentAccount.beneficiary.push("Me");
     receiverAcc.movements.push(amount);
+    currentAccount.beneficiary.push(receiverAcc.username);
+    receiverAcc.beneficiary.push(currentAccount.username);
+    currentAccount.type.push("Transfer to");
+    receiverAcc.type.push("Transfer from");
     currentAccount.movementsDates.push(new Date().toISOString());
     receiverAcc.movementsDates.push(new Date().toISOString());
     currentAccount.referenceNumber.push(randomNumberRange(10000000, 20000000));
@@ -994,6 +1037,9 @@ loanBtnSubmit.addEventListener("click", function (e) {
         receiverAcc.movementsDates.push(new Date().toISOString()),
         receiverAcc.referenceNumber.push(randomNumberRange(10000000, 20000000)),
         receiverAcc.beneficiary.push(accBeneficiary),
+        receiverAcc.type.push("Loan from"),
+        currentAccount.beneficiary.push(receiverAcc.username),
+        currentAccount.type.push("Loan to"),
         (inputLoanAmount.value = ""),
         (loanReceiverName.value = ""),
         updateUI(currentAccount)

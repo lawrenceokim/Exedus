@@ -613,10 +613,13 @@ body .overlay {
   padding: 3rem 2rem;
   border-bottom: 1px solid #eee;
 }
-
+.movements-beneficiary span {
+  color: #1e1e1e;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
 .movements-type {
   font-size: 1.1rem;
-  text-transform: uppercase;
   margin-left: 2rem;
   font-weight: 500;
   color: #fff;
@@ -624,17 +627,16 @@ body .overlay {
 
 .movements-date {
   font-size: 1.1rem;
-  text-transform: uppercase;
   font-weight: 500;
   color: #666;
 }
 
-.movements-type-deposit {
+.movements-type-credit {
   background: #36a50e58;
   color: #36a50e;
 }
 
-.movements-type-withdrawal {
+.movements-type-debit {
   background: #a50e0e58;
   color: #a50e0e;
 }
