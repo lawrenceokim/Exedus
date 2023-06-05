@@ -3,7 +3,11 @@
   outline-offset: 0.5rem solid #223fe6;
   box-shadow: 0 0 0 0.3rem rgba(44, 34, 230, 0.611);
 } */
-
+body {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
 /* GENERAL ELEMENTS */
 .section {
   padding: 15rem 3rem;

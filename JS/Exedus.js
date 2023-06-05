@@ -1,4 +1,6 @@
 "use-strict";
+const spinnerContainer = document.querySelector(".spinner-container");
+const spinnerOverlay = document.querySelector(".spinner-overlay");
 const nav = document.querySelector(".desktop-nav");
 const copyrightYear = document.querySelector(".copyright-year");
 const btnNavOpen = document.querySelector(".btn-mobile-nav");
@@ -1217,7 +1219,7 @@ btnSort.addEventListener("click", function (e) {
 });
 
 /*ATTENTION
-1. make the beneficiary's name show ie who's getting the money.
+1. make the beneficiary's name show ie who's getting the money.✅
 2. set timmer to display loading animation when user logs in.
 3. set delay timmer when user request loan. ✅
 4. make timmer's milliseconds a random figure from a certain range.
