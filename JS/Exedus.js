@@ -765,6 +765,14 @@ const setLogoutTimer = function () {
   const timer = setInterval(countDown, 1000);
   return timer;
 };
+const showLoading = function () {
+  spinnerContainer.classList.remove("disabled");
+  spinnerOverlay.classList.remove("disabled");
+};
+const hideLoading = function () {
+  spinnerContainer.classList.add("disabled");
+  spinnerOverlay.classList.add("disabled");
+};
 
 //************************************************************************************/
 //************************************************************************************* */
@@ -912,27 +920,32 @@ signUpBtn.addEventListener("click", function (e) {
   );
   // console.log(currentAccount);
   if (currentAccount?.pin === Number(inputLoginPin.value)) {
-    userNameTop.textContent = `${capitalizeFirstLetter(
-      currentAccount.username
-    )}`;
-    accountEmail.textContent = userEmail.value;
-    dashboardPage.classList.remove("disabled");
-    hideMobileNav();
-    showSuccessPopup();
-    displaySuccessfulSwitch();
-    removeActivePageExcept(homeBottom);
-    removeActiveNavExcept(homeBtn);
-    hideSignup();
-    displayBankDetails();
-    createDateTime();
-    inputLoginPin.value = "";
-    accountEmail.value = "";
-    userName.value = "";
-
-    clearInterval(timer);
-    timer = setLogoutTimer();
-
-    updateUI(currentAccount);
+    showLoading();
+    setTimeout(
+      () => (
+        hideLoading(),
+        (userNameTop.textContent = `${capitalizeFirstLetter(
+          currentAccount.username
+        )}`),
+        (accountEmail.textContent = userEmail.value),
+        dashboardPage.classList.remove("disabled"),
+        hideMobileNav(),
+        showSuccessPopup(),
+        displaySuccessfulSwitch(),
+        removeActivePageExcept(homeBottom),
+        removeActiveNavExcept(homeBtn),
+        hideSignup(),
+        displayBankDetails(),
+        createDateTime(),
+        (inputLoginPin.value = ""),
+        (accountEmail.value = ""),
+        (userName.value = ""),
+        clearInterval(timer),
+        (timer = setLogoutTimer()),
+        updateUI(currentAccount)
+      ),
+      2000
+    );
   } else {
     showInvalidMessagePopup();
     displayInvalidMessage("Account User");
