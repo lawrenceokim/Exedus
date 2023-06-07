@@ -958,27 +958,32 @@ signUpBtn2.addEventListener("click", function (e) {
   currentAccount = accounts.find((acc) => acc.pin === +inputLoginPin2.value);
   console.log(currentAccount);
   if (currentAccount?.pin === +inputLoginPin2.value) {
-    userNameTop.textContent = `${capitalizeFirstLetter(
-      currentAccount.username
-    )}`;
-    accountEmail.textContent = userEmail2.value;
-    homePage.classList.add("disabled");
-    dashboardPage.classList.remove("disabled");
-    showSuccessPopup();
-    displaySuccessfulSwitch();
-    removeActiveNavExcept(homeBtn);
-    removeActivePageExcept(homeBottom);
-    hideBalance(balanceDiv);
-    topTextDescription.textContent = `Get started with Exedus`;
-    displayBankDetails();
-    createDateTime();
-    inputLoginPin2.value = "";
-    userName2.value = "";
-
-    clearInterval(timer);
-    timer = setLogoutTimer();
-
-    updateUI(currentAccount);
+    showLoading();
+    setTimeout(
+      () => (
+        hideLoading(),
+        (userNameTop.textContent = `${capitalizeFirstLetter(
+          currentAccount.username
+        )}`),
+        (accountEmail.textContent = userEmail2.value),
+        homePage.classList.add("disabled"),
+        dashboardPage.classList.remove("disabled"),
+        showSuccessPopup(),
+        displaySuccessfulSwitch(),
+        removeActiveNavExcept(homeBtn),
+        removeActivePageExcept(homeBottom),
+        hideBalance(balanceDiv),
+        (topTextDescription.textContent = `Get started with Exedus`),
+        displayBankDetails(),
+        createDateTime(),
+        (inputLoginPin2.value = ""),
+        (userName2.value = ""),
+        clearInterval(timer),
+        (timer = setLogoutTimer()),
+        updateUI(currentAccount)
+      ),
+      2000
+    );
   } else {
     showInvalidMessagePopup();
     displayInvalidMessage("Account");

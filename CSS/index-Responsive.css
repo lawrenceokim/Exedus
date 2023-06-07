@@ -573,6 +573,10 @@ html {
   .slider__btn--right {
     right: 25%;
   }
+  body .spinner-container {
+    width: 75%;
+    height: 35%;
+  }
 }
 
 @media (max-width: 400px) {
