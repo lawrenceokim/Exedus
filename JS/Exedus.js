@@ -1,4 +1,5 @@
 "use-strict";
+const currentUserFlag = document.querySelector(".currentuser-flag");
 const spinnerContainer = document.querySelector(".spinner-container");
 const spinnerOverlay = document.querySelector(".spinner-overlay");
 const nav = document.querySelector(".desktop-nav");
@@ -32,7 +33,9 @@ const row = document.querySelector(".movements-row");
 const movementsBeneficiary = document.querySelectorAll(
   ".movements-beneficiary"
 );
+const countDownTime = document.querySelector(".div-time");
 const navLinks = document.querySelector(".desktop-nav-list");
+const userDropdown = document.querySelector(".currentuser-drop-details");
 const tabs = document.querySelectorAll(".operations__tab");
 const tabContainer = document.querySelector(".operations__tab-container");
 const tabContent = document.querySelectorAll(".operations__content");
@@ -747,8 +750,10 @@ const displayInvalidMessage = function (e) {
 const setLogoutTimer = function () {
   let time = 300;
   const countDown = function () {
-    const min = String(Math.trunc(time / 60)).padStart(2, 0);
     const sec = String(time % 60).padStart(2, 0);
+    const min = String(Math.trunc(time / 60) % 60).padStart(2, 0);
+    const hour = String(Math.trunc(min / 60)).padStart(2, 0);
+    countDownTime.textContent = `${hour}:${min}:${sec}`;
 
     if (time === 0) {
       removeActivePageExcept(homePage);
@@ -787,6 +792,7 @@ document
   .forEach((btn) => btn.addEventListener("click", hideMobileNav));
 btnUsernameContainer.addEventListener("click", function () {
   btnUsernameDropdown.classList.toggle("active");
+  userDropdown.classList.toggle("active");
   // if(btnUsernameDropdown.classList.contains('active'))
 });
 nav.addEventListener("mouseover", handleHover.bind(0.3));
@@ -1003,29 +1009,43 @@ transferBtnSubmit.addEventListener("click", function (e) {
     currentAccount.balance >= amount &&
     receiverAcc?.username !== currentAccount.username
   ) {
-    currentAccount.movements.push(-amount);
-    receiverAcc.movements.push(amount);
-    currentAccount.beneficiary.push(receiverAcc.username);
-    receiverAcc.beneficiary.push(currentAccount.username);
-    currentAccount.type.push("Transfer to");
-    receiverAcc.type.push("Transfer from");
-    currentAccount.movementsDates.push(new Date().toISOString());
-    receiverAcc.movementsDates.push(new Date().toISOString());
-    currentAccount.referenceNumber.push(randomNumberRange(10000000, 20000000));
-    receiverAcc.referenceNumber.push(randomNumberRange(10000000, 20000000));
-    inputTransferAmount.value =
-      inputTransferTo.value =
-      inputNarration.value =
-        "";
-    inputTransferAmount.blur();
-    inputTransferTo.blur();
-    inputNarration.blur();
-    clearInterval(timer);
-    timer = setLogoutTimer();
-    updateUI(currentAccount);
+    showLoading();
+    setTimeout(
+      () => (
+        hideLoading(),
+        currentAccount.movements.push(-amount),
+        receiverAcc.movements.push(amount),
+        currentAccount.beneficiary.push(receiverAcc.username),
+        receiverAcc.beneficiary.push(currentAccount.username),
+        currentAccount.type.push("Transfer to"),
+        receiverAcc.type.push("Transfer from"),
+        currentAccount.movementsDates.push(new Date().toISOString()),
+        receiverAcc.movementsDates.push(new Date().toISOString()),
+        currentAccount.referenceNumber.push(
+          randomNumberRange(10000000, 20000000)
+        ),
+        receiverAcc.referenceNumber.push(randomNumberRange(10000000, 20000000)),
+        (inputTransferAmount.value =
+          inputTransferTo.value =
+          inputNarration.value =
+            ""),
+        inputTransferAmount.blur(),
+        inputTransferTo.blur(),
+        inputNarration.blur(),
+        clearInterval(timer),
+        (timer = setLogoutTimer()),
+        updateUI(currentAccount)
+      ),
+      1000
+    );
   } else {
-    showInvalidMessagePopup();
-    displayInvalidMessage("User");
+    showLoading();
+    setTimeout(
+      () => (
+        hideLoading(), showInvalidMessagePopup(), displayInvalidMessage("User")
+      ),
+      1500
+    );
   }
 });
 ////////// loan button //////////////
@@ -1039,10 +1059,6 @@ loanBtnSubmit.addEventListener("click", function (e) {
   const receiverAccNumber = accounts.find(
     (acc) => acc.accountNumber === Number(loanReceiverNumber.value)
   );
-  const accBeneficiary =
-    currentAccount.username === receiverAcc.username
-      ? "Me"
-      : currentAccount.username;
 
   if (
     amount > 0 &&
@@ -1051,15 +1067,20 @@ loanBtnSubmit.addEventListener("click", function (e) {
     // receiverAcc.username === currentAccount.username &&
     currentAccount.movements.some((mov) => mov >= amount * 0.1)
   ) {
+    showLoading();
     setTimeout(
       () => (
+        hideLoading(),
         receiverAcc.movements.push(amount),
         receiverAcc.movementsDates.push(new Date().toISOString()),
         receiverAcc.referenceNumber.push(randomNumberRange(10000000, 20000000)),
-        receiverAcc.beneficiary.push(accBeneficiary),
-        receiverAcc.type.push("Loan from"),
-        currentAccount.beneficiary.push(receiverAcc.username),
-        currentAccount.type.push("Loan to"),
+        currentAccount.username === receiverAcc.username
+          ? currentAccount.beneficiary.push("My Account") &&
+            currentAccount.type.push("Loan to")
+          : receiverAcc.beneficiary.push(currentAccount.username) &&
+            receiverAcc.type.push("Loan from") &&
+            currentAccount.beneficiary.push(receiverAcc.username) &&
+            currentAccount.type.push("Loan to"),
         (inputLoanAmount.value = ""),
         (loanReceiverName.value = ""),
         updateUI(currentAccount)
@@ -1069,8 +1090,13 @@ loanBtnSubmit.addEventListener("click", function (e) {
     clearInterval(timer);
     timer = setLogoutTimer();
   } else {
-    showInvalidMessagePopup();
-    displayInvalidMessage("User");
+    showLoading();
+    setTimeout(
+      () => (
+        hideLoading(), showInvalidMessagePopup(), displayInvalidMessage("User")
+      ),
+      1500
+    );
   }
 });
 
@@ -1083,21 +1109,28 @@ btnCloseAccountSubmit.addEventListener("click", function (e) {
       currentAccount.username.toLowerCase() &&
     +inputClosePin.value === currentAccount.pin
   ) {
-    const index = accounts.findIndex(
-      (acc) => acc.username === currentAccount.username
+    let index;
+    showLoading();
+    setTimeout(
+      () => (
+        hideLoading(),
+        (index = accounts.findIndex(
+          (acc) => acc.username === currentAccount.username
+        )),
+        console.log(index),
+        // .indexOf(23)
+
+        // Delete account
+        accounts.splice(index, 1),
+        dashboardPage.classList.add("disabled"),
+        showSuccessPopup(),
+        displaySuccessfulAccountClosed(currentAccount.username),
+        removeActivePageExcept(homePage),
+        dashboardNav.classList.remove("open"),
+        headerEl.classList.remove("nav-open")
+      ),
+      1500
     );
-    console.log(index);
-    // .indexOf(23)
-
-    // Delete account
-    accounts.splice(index, 1);
-
-    dashboardPage.classList.add("disabled");
-    showSuccessPopup();
-    displaySuccessfulAccountClosed(currentAccount.username);
-    removeActivePageExcept(homePage);
-    dashboardNav.classList.remove("open");
-    headerEl.classList.remove("nav-open");
   } else {
     showInvalidMessagePopup();
     displayInvalidMessage("User");
@@ -1238,11 +1271,11 @@ btnSort.addEventListener("click", function (e) {
 
 /*ATTENTION
 1. make the beneficiary's name show ie who's getting the money.✅
-2. set timmer to display loading animation when user logs in.
+2. set timmer to display loading animation when user logs in.✅
 3. set delay timmer when user request loan. ✅
 4. make timmer's milliseconds a random figure from a certain range.
-5. set loading animation when user request's a loan also.
-6. display the timer when user clicks on the username displayed at the top.
+5. set loading animation when user request's a loan also.✅
+6. display the logout timer when user clicks on the username displayed at the top.
 7. set timmer to hide successful login message popup even if user doesn't close it.✅
 8. set the current year in the copyright div.✅
 */

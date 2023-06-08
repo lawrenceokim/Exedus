@@ -189,7 +189,7 @@ img {
 }
 .movements-style {
   display: grid;
-  grid-template-columns: repeat(5, 1.5fr);
+  grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr;
   text-align: left;
   vertical-align: middle;
 }

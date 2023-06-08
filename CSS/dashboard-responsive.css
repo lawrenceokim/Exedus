@@ -362,7 +362,7 @@
     flex-direction: column-reverse;
   }
   .movements-container {
-    height: 40rem;
+    height: 48rem;
     margin-top: 1rem;
     border-radius: 1rem;
   }
@@ -371,7 +371,7 @@
     height: 100%;
   }
   .movements {
-    height: 33rem;
+    height: 40rem;
   }
   .movements-reference-value {
     font-size: 1.2rem;

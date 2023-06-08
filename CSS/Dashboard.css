@@ -254,6 +254,8 @@ body .overlay {
   border: 0.2rem solid #666;
   margin-left: 0.5rem;
   cursor: pointer;
+  position: relative;
+  z-index: 3;
 }
 .currentuser-dropdown {
   margin-left: 0.3rem;
@@ -261,6 +263,40 @@ body .overlay {
 }
 .currentuser-dropdown.active {
   transform: rotate(-180deg);
+}
+.currentuser-drop-details {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  top: 108%;
+  width: 120%;
+  height: 0rem;
+  padding: 0.5rem;
+  background: #ffffff;
+  box-shadow: 0 0 0.6rem #0003;
+  opacity: 0;
+  border-radius: var(--cardborderradius);
+  z-index: 0;
+  transition: all 0.5s ease-in-out;
+}
+.currentuser-drop-details.active {
+  height: 10rem;
+  opacity: 1;
+}
+.div-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.div-container:last-child() {
+  margin-bottom: unset;
+}
+.div-top {
+  font-size: 1.2rem;
+  font-weight: 400;
 }
 .top-section .template-description {
   font-size: 1.6rem;
