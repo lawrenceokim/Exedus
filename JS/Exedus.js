@@ -779,6 +779,20 @@ const hideLoading = function () {
   spinnerOverlay.classList.add("disabled");
 };
 
+const accountFlag = function () {
+  currentUserFlag.innerHTML = "";
+  const flag =
+    currentAccount.accountType === "Dollar Account"
+      ? '"/images/Property 1=usa-flag-2496027.png"'
+      : '"/images/Property 1=nigeria-flag-2495945.png"';
+
+  const flagAlt =
+    currentAccount.accountType === "Dollar Account" ? "usa" : "nigeria";
+
+  html = `<img src=${flag} style="margin-left:3px; margin-right: 3px;" alt="${flagAlt} flag">`;
+  currentUserFlag.insertAdjacentHTML("afterbegin", html);
+};
+
 //************************************************************************************/
 //************************************************************************************* */
 //*********************************EVENT LISTENERS ***********************************/
@@ -935,6 +949,7 @@ signUpBtn.addEventListener("click", function (e) {
         )}`),
         (accountEmail.textContent = userEmail.value),
         dashboardPage.classList.remove("disabled"),
+        accountFlag(),
         hideMobileNav(),
         showSuccessPopup(),
         displaySuccessfulSwitch(),
@@ -953,8 +968,15 @@ signUpBtn.addEventListener("click", function (e) {
       2000
     );
   } else {
-    showInvalidMessagePopup();
-    displayInvalidMessage("Account User");
+    showLoading();
+    setTimeout(
+      () => (
+        hideLoading(),
+        showInvalidMessagePopup(),
+        displayInvalidMessage("Account User")
+      ),
+      1000
+    );
   }
 });
 /////////////////////////////// switching account //////////////////////////////////////////////
@@ -974,6 +996,7 @@ signUpBtn2.addEventListener("click", function (e) {
         (accountEmail.textContent = userEmail2.value),
         homePage.classList.add("disabled"),
         dashboardPage.classList.remove("disabled"),
+        accountFlag(),
         showSuccessPopup(),
         displaySuccessfulSwitch(),
         removeActiveNavExcept(homeBtn),
@@ -1275,7 +1298,7 @@ btnSort.addEventListener("click", function (e) {
 3. set delay timmer when user request loan. ✅
 4. make timmer's milliseconds a random figure from a certain range.
 5. set loading animation when user request's a loan also.✅
-6. display the logout timer when user clicks on the username displayed at the top.
+6. display the logout timer when user clicks on the username displayed at the top.✅
 7. set timmer to hide successful login message popup even if user doesn't close it.✅
 8. set the current year in the copyright div.✅
 */
