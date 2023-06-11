@@ -63,6 +63,13 @@
 button:focus {
   outline: none;
 }
+button {
+  color: inherit;
+  background: inherit;
+  border: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
 
 img {
   transition: filter 0.5s;
