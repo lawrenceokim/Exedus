@@ -984,7 +984,6 @@ signUpBtn2.addEventListener("click", function (e) {
   e.preventDefault();
   // currentAccount = accounts.find((acc) => acc.username === userName.value);to login with username.
   currentAccount = accounts.find((acc) => acc.pin === +inputLoginPin2.value);
-  console.log(currentAccount);
   if (currentAccount?.pin === +inputLoginPin2.value) {
     showLoading();
     setTimeout(
@@ -1140,7 +1139,7 @@ btnCloseAccountSubmit.addEventListener("click", function (e) {
         (index = accounts.findIndex(
           (acc) => acc.username === currentAccount.username
         )),
-        console.log(index),
+        // console.log(index),
         // .indexOf(23)
 
         // Delete account
@@ -1166,7 +1165,7 @@ btnCloseAccountSubmit.addEventListener("click", function (e) {
 navLinks.addEventListener("click", function (e) {
   e.preventDefault();
   const id = e.target.getAttribute("href");
-  console.log(id);
+  // console.log(id);
 
   document.querySelector(id).scrollIntoView({
     behavior: "smooth",
